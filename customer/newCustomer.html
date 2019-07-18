@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>远大住工-新建客户档案</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 cdn源 
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
+
+
+  <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+
+
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  -->
+
+    <!-- Bootstrap -->
+    <link href="/crm/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/crm/css/global.css" rel="stylesheet">
+    <link href="/crm/css/project/addProject.css" rel="stylesheet">
+    <link href="/crm/css/visit/newVisit.css" rel="stylesheet">
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="backgroud container-fluid">
+        <div id="header" class="row">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 title">
+                <a class="back show" href="javascript:void(0)"></a>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 title title_center">新建客户档案</div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 title_btn dropdown">
+                <a class="right_menu" href="#" data-toggle="dropdown"></a>
+
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <li>
+                        <a href="/crm/index_new.html">
+                            <span class="index img-span active"></span>
+                            <div>首页</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/crm/project/project.html">
+                            <span class="project img-span active"></span>
+                            <div>项目</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/crm/data/dataBoard_new.html">
+                            <span class="data img-span active"></span>
+                            <div>看板</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/crm/visit/visit.html#/date">
+                            <span class="plan img-span active"></span>
+                            <div>日常</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/crm/my/my.html">
+                            <span class="my img-span active"></span>
+                            <div>我的</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--遮罩层-->
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 masked"></div>
+        <div id="body" class="row">
+            <div class="creatMessage-step">
+                <a href="javascript:void(0)" class="current a_step1">
+                    <span class="step1"></span> 项目小组
+                </a>
+                <div class="message-step_arrow arrow1"></div>
+                <a href="javascript:void(0)" class="a_step2">
+                    <span class="step2 iosClick"></span> 基本信息
+                </a>
+                <div class="message-step_arrow arrow2"></div>
+                <a href="javascript:void(0)" class="a_step3">
+                    <span class="step3 iosClick"></span> 合作历史
+                </a>
+                <div class="message-step_arrow arrow3"></div>
+                <a href="javascript:void(0)" class="a_step4">
+                    <span class="step4 iosClick"></span> 关联信息
+                </a>
+            </div>
+            <form id="newProject">
+                <div id="step1" class="add_step1 step current">
+                    <div class="new_edit">
+                        <ul>
+                            <li>
+                                <em>&nbsp;</em>
+                                <b>组长 : </b>
+                                <div class="hySelectbox">
+                                    <input type="text" placeholder="请输入" id="groupLeader" class="customer_name">
+                                </div>
+                            </li>
+                            <li>
+                                <em>&nbsp;</em>
+                                <b>商务 : </b>
+                                <div class="hySelectbox">
+                                    <input type="text" placeholder="请输入" id="business" class="customer_name">
+                                </div>
+                                <!-- <div class="addCustomerBtn"></div> -->
+                            </li>
+                            <li>
+                                <em>&nbsp;</em>
+                                <b>设计 : </b>
+                                <div class="hySelectbox">
+                                    <input type="text" placeholder="请输入" class="owned_name" id="design">
+                                </div>
+                            </li>
+                            <li>
+                                <em>&nbsp;</em>
+                                <b>客服 : </b>
+                                <div class="hySelectbox">
+                                    <input type="text" placeholder="请输入" class="owned_name" id="customerService">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#/step2" class="next_step" data-step="1" style="cursor: pointer;display: block;text-align: center">下一步</a>                    
+                </div>
+                <div id="step2" class="add_step2 step">
+                    <div class="new_edit">
+                        <ul>
+                            <li>
+                                <em>*</em>
+                                <b> 单位名称 : </b>
+                                <input type="text" data-id="customerName" name="customerName" id="customerName" placeholder="请输入">
+                            </li>
+                            <li>
+                                <em>&nbsp;</em>
+                                <b>所属集团 : </b>
+                                <select name="membershipGroup" id="membershipGroup">
+                                    <option value="">--无--</option>
+                                    <option index="0" value="金辉">金辉</option>
+                                    <option index="1" value="旭辉">旭辉</option>
+                                    <option index="2" value="通用">通用</option>
+                                    <option index="3" value="融信">融信</option>
+                                    <option index="4" value="卓越">卓越</option>
+                                    <option index="5" value="北大资源">北大资源</option>
+                                    <option index="6" value="保利">保利</option>
+                                    <option index="7" value="中铁置业">中铁置业</option>
+                                    <option index="8" value="中粮">中粮</option>
+                                    <option index="9" value="中梁">中梁</option>
+                                    <option index="10" value="碧桂园">碧桂园</option>
+                                    <option index="11" value="富力地产">富力地产</option>
+                                    <option index="12" value="恒大">恒大</option>
+                                    <option index="13" value="华润置地">华润置地</option>
+                                    <option index="14" value="华夏幸福">华夏幸福</option>
+                                    <option index="15" value="佳兆业">佳兆业</option>
+                                    <option index="16" value="金地">金地</option>
+                                    <option index="17" value="金茂">金茂</option>
+                                    <option index="18" value="金科">金科</option>
+                                    <option index="19" value="龙湖">龙湖</option>
+                                    <option index="20" value="绿城中国">绿城中国</option>
+                                    <option index="21" value="绿地">绿地</option>
+                                    <option index="22" value="美的地产">美的地产</option>
+                                    <option index="23" value="融创">融创</option>
+                                    <option index="24" value="荣盛">荣盛</option>
+                                    <option index="25" value="时代地产">时代地产</option>
+                                    <option index="26" value="世茂">世茂</option>
+                                    <option index="27" value="泰禾">泰禾</option>
+                                    <option index="28" value="万科">万科</option>
+                                    <option index="29" value="越秀地产">越秀地产</option>
+                                    <option index="30" value="中海">中海</option>
+                                    <option index="31" value="招商地产">招商地产</option>
+                                </select>
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b> 客户类型 : </b>
+                                <select name="customerType" id="customerType">
+                                    <option value="">--无--</option>
+                                    <option index="1" value="建筑商">建筑商</option>
+                                    <option index="2" value="政府">政府</option>
+                                    <option index="4" value="开发商">开发商</option>
+                                    <option index="5" value="设计院">设计院</option>
+                                    <option index="6" value="其他">其他</option>
+                                </select>
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b>客户地点 : </b>
+                                <input type="text" data-id="customerLocation" name="customerLocation" id="customerLocation" placeholder="请输入">
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b>记录类型 : </b>
+                                <select type="text" data-id="recordType" name="recordType" id="recordType" placeholder="请选择">
+                                    <option value="2018DAC38ED8228JIoaE">普通客户</option>
+                                    <option value="2018DC93F85F79DibdML">重点客户</option>
+                                    <option value="20185C6759C8A039WerZ">战略客户</option>                                    
+                                </select>
+                            </li>
+                            <li>
+                                <em>&nbsp;</em>
+                                <b>母公司 : </b>
+                                <div class="hySelectbox selectCustomer" data-id="parentCompany">
+                                    <input type="text" name="parentCompany" value="" id="parentCompany" placeholder="请选择" class="entry_name">
+                                    <input type="hidden" value="" id="parentCompanyId" name="parentCompanyId">
+                                    <div class="new_arrow"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#/step3" data-step="2" class="next_step" style="cursor: pointer;display: block;text-align: center">下一步</a>
+                    <!--选择客户弹窗-->
+                    <div id="selectCustomerDialogs" class="selectCustomerDialogs none">
+                        <!-- <div id="newCustomer" class="newCustomer">
+                            <input type="text" class="addNewCustomer-input" placeholder="请输入客户名称">
+                            <div>搜索</div>
+                        </div> -->
+                        <div id="searchCustomer" class="flexLayout searchCustomer">
+                            <input type="text" id="keyWord" class="addNewCustomer-input flexItem" placeholder="请输入客户名称">
+                            <a class="btn_search">搜索</a>
+                        </div>
+                        <div class="CustomerList close-with-masklayer col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <ul id="customers">
+
+                            </ul>
+                        </div>
+                        <div class="bottom_CustomerList">
+                            <a id="goToTop" onclick="AddProject.prototype.ScrollToTop('CustomerList')">回到顶部</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="step3" class="add_step3 step">
+                    <div class="new_edit">
+                        <ul>
+                            <li>
+                                <em>&nbsp;</em>
+                                <b> 首次合作日期 : </b>
+                                <input type="date" name="fistCollaborateTime" id="fistCollaborateTime">
+                            </li>
+                            <li>
+                                <em>&nbsp;</em>
+                                <b>最近购买日期 : </b>
+                                <input type="date" name="latestBuyTime" id="latestBuyTime">
+                            </li>
+                            <li>
+                                <em>&nbsp;</em>
+                                <b>最近联系 : </b>
+                                <input type="date" name="latestContact" id="latestContact">
+                            </li>
+                            <li>
+                                <em>&nbsp;</em>
+                                <b>提醒次数 : </b>
+                                <input type="number" name="remindTimes" id="remindTimes">
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#/step4" data-step="3" class="next_step" style="cursor: pointer;display: block;text-align: center">下一步</a>
+                </div>
+                <div id="step4" class="add_step4 step">
+                    <div class="new_edit">
+                        <ul>
+                            <li>
+                                <em>&nbsp;</em>
+                                <b>客户地址 : </b>
+                                <input type="text" name="customerAddress" id="customerAddress">
+                            </li>
+                            <li>
+                                <em>&nbsp;</em>
+                                <b> 公司固话 : </b>
+                                <input type="text" name="companyLandline" id="companyLandline">
+                            </li>
+                            <li>
+                                <em>&nbsp;</em>
+                                <b> 法人 : </b>
+                                <input type="text" name="legalPerson" id="legalPerson">
+                            </li>
+                            <li>
+                                <em>&nbsp;</em>
+                                <b> 网址 : </b>
+                                <input type="text" name="siteURL" id="siteURL">
+                            </li>
+                            <li>
+                                <em>&nbsp;</em>
+                                <b> 公司类型 : </b>
+                                <input type="text" name="companyType" id="companyType">
+                            </li>
+                            <li>
+                                <em>&nbsp;</em>
+                                <b> 注册资本 : </b>
+                                <input type="text" name="registeredCapital" id="registeredCapital">
+                            </li>
+                            <li>
+                                <em>&nbsp;</em>
+                                <b> 行业 : </b>
+                                <input type="text" name="trade" id="trade">
+                            </li>
+                            <li>
+                                <em>&nbsp;</em>
+                                <b> 经营状态 : </b>
+                                <input type="text" name="managementForms" id="managementForms">
+                            </li>
+                        </ul>
+                    </div>
+                    <a data-step="4" class="next_step" style="cursor: pointer;display: block;text-align: center">保存</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        if (typeof $ === 'undefined' || !typeof jQuery === 'undefined') {
+            var srcipt = document.createElement('script');
+            srcipt.type = 'text/javascript';
+            srcipt.src = '/jquery-3.3.1/jquery-3.3.1.min.js';
+            var head = document.head || document.getElementsByTagName('head')[0];
+            head.appendChild(srcipt);
+        }
+    </script>
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="/crm/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="/crm/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/crm/js/global.js"></script>
+    <script src="/crm/js/router.js"></script>
+    <script src="/crm/js/customer/newCustomer.js"></script>
+
+    <script src="/crm/layer-v3.1.1/layer/layer.js"></script>
+</body>
+
+</html>

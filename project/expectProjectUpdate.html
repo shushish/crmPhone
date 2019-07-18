@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="main">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>远大住工-预计更改</title>
+
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+		<!-- 引入YDUI样式 -->
+		<link rel="stylesheet" href="../css/ydui.css" />
+		<link rel="stylesheet" href="../css/global.css" />
+		<!-- 引入YDUI自适应解决方案类库 -->
+		<script src="../js/ydui.flexible.js"></script>
+	</head>
+
+	<body>
+		<header class="header">
+			<a href="javascript:void(0)" class="navbar-item" id="back-btn"><i class="back-ico"></i></a>
+			<div class="navbar-center">
+				<span class="navbar-title" style="color: white;">预计更改</span>
+			</div>
+		</header>
+
+		<div class="mainer">
+			<div class="wrap">
+				<div class="index_nav">
+					<div class="box" style="text-align: center;padding-top: 0.2rem;">
+						<div class="m-cell">
+							<div class="cell-item">
+								<div class="cell-left">项目名称</div>
+								<div class="cell-right" id="projectName"></div>
+							</div>
+							<div class="cell-item">
+								<div class="cell-left">项目编号</div>
+								<div class="cell-right" id="number"></div>
+							</div>
+							<div class="cell-item">
+								<div class="cell-left">预计原因</div>
+								<div class="cell-right">
+									<select name="expectReason" id="expectReason">
+										<option value="已中标,暂未下发通知书">已中标,暂未下发通知书</option>
+										<option value="甲方在走签约流程">甲方在走签约流程</option>
+										<option value="进入招投标">进入招投标</option>
+										<option value="二次合作或多次合作项目">二次合作或多次合作项目</option>
+										<option value="甲方合作意愿明朗、指定">甲方合作意愿明朗、指定</option>
+										<option value="项目推进时间节点、落地时间明朗">项目推进时间节点、落地时间明朗</option>
+										<option value="重点跟进项目，团队拿下项目意识强烈">重点跟进项目，团队拿下项目意识强烈</option>
+										<option value="其他"></option>
+									</select>
+								</div>
+							</div>
+							<div class="cell-item">
+								<div class="cell-left">左边内容一</div>
+								<div class="cell-right">右边内容一</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="index_box">
+				</div>
+			</div>
+		</div>
+
+		<script src="../js/footer_md.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../jquery-3.3.1/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/ydui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../echart/axios.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/template-native.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function () {
+				$("#back-btn").on("click", Common.prototype.Back);
+				let id = Common.prototype.GetQueryString("id");
+				axios.post("/api/projectExpected/getOne", "id="+id).then(res => {
+					let data = res.data;
+					console.log(data);
+					$("#projectName").html(data.projectName);
+					$("#number").html(data.number);
+					
+				});
+				axios.post("/api/dictionary/findDictionaryByDictValue","dictValue=expectReason").then(res => {
+					let datas = res.data;
+					for(let i=0;i<datas.length;i++){
+					    let name = datas[i].dataName;
+					    let option = '<option value="' + name +'">' + name+'</option>'
+					    $("#expectReason").append(option);
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>远大住工-日志</title>
+
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="../css/ydui.css" />
+		<link rel="stylesheet" href="../css/global.css" />
+		<!-- 引入YDUI自适应解决方案类库 -->
+		<script src="../js/ydui.flexible.js"></script>
+
+	</head>
+	<body>
+		<section class="g-flexview">
+			<header class="m-navbar" style="background: #433C4E;">
+				<a href="javascript:void(0)" class="navbar-item" id="back-btn"><i class="back-ico"></i></a>
+				<div class="navbar-center">
+					<span class="navbar-title" style="color: white;">详情页</span>
+				</div>
+			</header>
+			<div class="g-scrollview">
+				<div class="m-cell">
+					<div class="cell-item">
+						<div class="cell-left">客户名称：</div>
+						<div class="cell-right">
+							<span id="name"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">客户类型：</div>
+						<div class="cell-right">
+							<span id="type"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">客户地点：</div>
+						<div class="cell-right"><span id="address"></span></div>
+					</div>
+
+					<div class="cell-item">
+						<div class="cell-left">工商注册号：</div>
+						<div class="cell-right">
+							<span id="regNumber"></span>
+						</div>
+					</div>
+
+
+					<div class="cell-item">
+						<div class="cell-left">组织机构代码：</div>
+						<div class="cell-right">
+							<span id="orgNumber"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">法人姓名：</div>
+						<div class="cell-right">
+							<span id="legalPersonName"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">电话号码：</div>
+						<div class="cell-right">
+							<span id="phone"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">登记机关：</div>
+						<div class="cell-right">
+							<span id="regInstitute"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">注册地址：</div>
+						<div class="cell-right">
+							<span id="regLocation"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">注册资本：</div>
+						<div class="cell-right">
+							<span id="regCapital"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">行业：</div>
+						<div class="cell-right">
+							<span id="industry"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">统一社会信用代码：</div>
+						<div class="cell-right">
+							<span id="creditCode"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">公司类型：</div>
+						<div class="cell-right">
+							<span id="companyOrgType"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">核准时间：</div>
+						<div class="cell-right">
+							<span id="approvedTime"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">成立时间：</div>
+						<div class="cell-right">
+							<span id="fromTime"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">特征标签：</div>
+						<div class="cell-right">
+							<span id="feature"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">是否分级：</div>
+						<div class="cell-right">
+							<span id="gradeFlag"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">客户等级：</div>
+						<div class="cell-right">
+							<span id="grade"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">分享客户：</div>
+						<div class="cell-right">
+							<span id="peoples"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">所属集团：</div>
+						<div class="cell-right">
+							<span id="clique"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">母公司：</div>
+						<div class="cell-right">
+							<span id="parent"></span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+		<script src="../jquery-3.3.1/jquery-3.3.1.min.js"></script>
+		<script src="../js/ydui.js"></script>
+		<script src="../echart/axios.min.js"></script>
+		<script src="../js/global.js"></script>
+		<script>
+			$(function() {
+				$("#back-btn").on("click", Common.prototype.Back);
+				initDictionary();
+			});
+
+			function initDictionary() {
+				let id = Common.prototype.GetQueryString("id");
+				axios.post("/api/account/getAccountById", "id=" + id)
+					.then(res => {
+						let content = res.data;
+						console.log(content);
+
+						let name = content.name; //客户名称
+						let type = content.type; //客户类型
+						let address = content.address; //客户地点
+						let regNumber = content.regNumber; //工商注册号
+						
+						let orgNumber = content.orgNumber; //组织机构代码
+						let legalPersonName = content.legalPersonName; //法人姓名
+						let phone = content.phone; //电话号码
+						let regInstitute = content.regInstitute; //登记机关
+						let regLocation = content.regLocation; //注册地址
+						let regCapital = content.regCapital; //注册资本
+						let industry = content.industry; //行业
+						let creditCode = content.creditCode; //统一社会信用代码
+						let companyOrgType = content.companyOrgType; //公司类型
+						let approvedTime = content.approvedTime; //核准时间
+						let fromTime = content.fromTime; //成立时间
+						let feature = content.feature; //特征标签
+						let gradeFlag = content.gradeFlag; //是否分级
+						if(gradeFlag == 0){
+							gradeFlag = '是'
+						}else{
+							gradeFlag = '否'
+						}
+						let grade = content.grade; //客户等级
+
+						let peoples = content.peoples; //分享客户
+
+						let clique = content.clique; //所属集团
+						let parent = content.parent; //母公司
+
+						document.getElementById("name").innerHTML = name;
+						document.getElementById("type").innerHTML = type;
+						document.getElementById("address").innerHTML = address;
+						document.getElementById("regNumber").innerHTML = regNumber;
+						document.getElementById("orgNumber").innerHTML = orgNumber;
+						document.getElementById("legalPersonName").innerHTML = legalPersonName;
+						document.getElementById("phone").innerHTML = phone;
+						document.getElementById("regInstitute").innerHTML = regInstitute;
+						document.getElementById("regLocation").innerHTML = regLocation;
+						document.getElementById("regCapital").innerHTML = regCapital;
+						document.getElementById("industry").innerHTML = industry;
+						document.getElementById("creditCode").innerHTML = creditCode;
+						document.getElementById("companyOrgType").innerHTML = companyOrgType;
+						document.getElementById("approvedTime").innerHTML = common.dateFtt("yyyy-MM-dd", new Date(approvedTime));
+						document.getElementById("fromTime").innerHTML = common.dateFtt("yyyy-MM-dd", new Date(fromTime));
+						document.getElementById("feature").innerHTML = feature;
+						document.getElementById("gradeFlag").innerHTML = gradeFlag;
+						document.getElementById("grade").innerHTML = grade;
+						document.getElementById("peoples").innerHTML = peoples;
+						document.getElementById("clique").innerHTML = clique;
+						document.getElementById("parent").innerHTML = parent;
+					});
+			}
+		</script>
+	</body>
+
+</html>

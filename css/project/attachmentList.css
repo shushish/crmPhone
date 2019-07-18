@@ -1,0 +1,51 @@
+.pro {
+    height: 6rem;
+    border-bottom: 1px solid #ddd;
+    background: #F0F0F0;
+}
+
+.projectSurvey-edit, .projectSurvey-add {
+    display: inline-block;
+    width: 1.4rem;
+    height: 2.1rem;
+    background: url(/crm/image/icon/addmanufacure_btn.png) no-repeat left center;
+    background-size: contain;
+    margin-right: 1rem;
+}
+
+.slid_up {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1rem;
+    background: url(/crm/image/icon/slid_up.png) no-repeat center center;
+    background-size: 90%;
+    cursor: pointer;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.masked{
+    /* display: block; */
+    top: 0;
+    padding: 0rem;
+}
+
+.maskContent{
+    margin-top: 0rem;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: white;
+}
+
+.jiantou{
+    background: url(/crm/image/icon/jt.png) no-repeat center center;
+    background-size: 100%;
+    background-position-y: -6rem;
+    width: 16rem;
+    height: 11rem;
+    margin-right: 2rem;
+    float: right;
+}

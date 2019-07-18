@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>远大住工-看板</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 cdn源 
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
+
+
+  <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+
+
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  -->
+
+    <!-- Bootstrap -->
+    <link href="/crm/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/crm/css/global.css" rel="stylesheet">
+    <link href="/crm/css/data/dataBoard.css" rel="stylesheet">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="backgroud container-fluid">
+        <div id="header" class="row">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 title">
+                <a class="back" href="javascript:void(0)"></a>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 title">看板</div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 title"></div>
+        </div>
+        <!--遮罩层-->
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 masked"></div>
+        <!--搜索弹框-->
+        <div class="search_content close-with-masklayer row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="search_edit">
+                <ul>
+                    <li class="editRow">
+                        <b>开始时间：</b>
+                        <input type="date" class="beginTime" name="beginTime" value="" placeholder="请输入" class="">
+                    </li>
+                    <li class="editRow">
+                        <b>结束时间：</b>
+                        <input type="date" class="endTime" name="endTime" value="" placeholder="请输入" class="">
+                    </li>
+                    <!-- <li class="editRow">
+                        <b>行业：</b>
+                        <input type="text" name="" placeholder="请输入" class="industry_input">
+                    </li>
+                    <li class="editRow">
+                        <span>状态：</span>
+                        <input type="text" name="" placeholder="请输入" class="">
+                    </li> -->
+                </ul>
+            </div>
+            <div class="buttonRow">
+                <a class="btnCancel" id="btn_reset">重置</a>
+                <a class="btnSure" id="btn_search">查询</a>
+            </div>
+        </div>
+        <div id="body" class="row">
+            <div class="fixed-layer">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 btn_top btn_time">时间</div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 btn_top dropdown">
+                    <a class="order-menu2" data-toggle="dropdown" href="#"><span class="company_l">公司:全部</span>
+                        <span class="slid_up"></span>
+                    </a>
+                    <ul class="dropdown-menu companies" role="menu" aria-labelledby="dLabel">
+                        <li class="company">全部</li>
+                        <li class="company">杭州公司</li>
+                        <li class="company">广州公司</li>
+                        <li class="company">深圳公司</li>
+                        <li class="company">南京公司</li>
+                        <li class="company">长沙公司</li>
+                        <li class="company">阜阳公司</li>
+                        <li class="company">天津公司</li>
+                        <li class="company">郴州公司</li>
+                        <li class="company">合肥公司</li>
+                        <li class="company">上海公司</li>
+                        <li class="company">岳阳公司</li>
+                        <li class="company">六安公司</li>
+                        <li class="company">安徽公司</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content">
+                <div class="list-top">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h2 class="filterName" id="target_label">目标达成</h2>
+                    </div>
+                </div>
+                <div class="flexLayout legend">
+                    <div class="legend_complete"></div>
+                    <div class="flexItem" id="performance">业绩达成30%</div>
+                    <div class="legend_uncomplete"></div>
+                    <div class="flexItem" id="gap">差距6800万</div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"
+                        style="width: 0%;">
+                    </div>
+                </div>
+                <div class="list-top">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h2 class="filterName">项目指标</h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <table class="table_target">
+                        <tr>
+                            <th class="th_gray">合同额</th>
+                            <th class="th_gray">PC量</th>
+                            <th class="th_gray">项目规模</th>
+                            <th class="th_gray">PC均价</th>
+                            <th class="th_gray">满意度</th>
+                            <th class="th_gray">开发商</th>
+                        </tr>
+                        <tbody>
+                            <tr>
+                                <td id="hte"></td>
+                                <td id="pcl"></td>
+                                <td id="xmgm"></td>
+                                <td id="pcjj"></td>
+                                <td id="myd"></td>
+                                <td id="kfs"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h2 class="filterName">项目阶段</h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <table class="table_jd">
+                        <tr>
+                            <th class="th_gray">线索</th>
+                            <th class="th_gray">立项</th>
+                            <th class="th_gray">推进</th>
+                            <th class="th_gray">预计</th>
+                            <th class="th_gray">即签</th>
+                            <th class="th_blue">中标</th>
+                            <th class="th_blue">签约</th>
+                        </tr>
+                        <tbody>
+                            <tr>
+                                <td id="xs"></td>
+                                <td id="lx"></td>
+                                <td id="tj"></td>
+                                <td id="yj"></td>
+                                <td id="jq"></td>
+                                <td id="zb"></td>
+                                <td id="qy"></td>
+                            </tr>
+                            <tr>
+                                <td id="xs_pce"></td>
+                                <td id="lx_pce"></td>
+                                <td id="tj_pce"></td>
+                                <td id="yj_pce"></td>
+                                <td id="jq_pce"></td>
+                                <td id="zb_pce"></td>
+                                <td id="qy_pce"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h2 class="filterName">项目组进度</h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <table class="table_scorll role_zj">
+                        <thead>
+                            <th class="th_gray">Sales</th>
+                            <th class="th_gray">拜访</th>
+                            <th class="th_gray">立项</th>
+                            <th class="th_gray">成交</th>
+                            <th class="th_blue">Service</th>
+                            <th class="th_blue">项目</th>
+                            <th class="th_blue">交付</th>
+                            <th class="th_blue">异常解决</th>
+                        </thead>
+                        <tbody class="role_zj_content">
+                            
+                        </tbody>
+                    </table>
+                    <table class="table_jdu role_fz">
+                        <thead>
+                            <th class="th_gray">总监</th>
+                            <th class="th_gray">目标</th>
+                            <th class="th_gray orderbyxse">销售额<span class="order"></span></th>
+                            <th class="th_blue">客户经理</th>
+                            <th class="th_blue">入职月份</th>
+                            <th class="th_blue">销售额</th>
+                        </thead>
+                        <tbody class="role_fz_content">                            
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h2 class="filterName">项目质量</h2>
+                    </div>
+                </div>
+                <div class="item flexLayout">
+                    <table class="table_zl fixedColumn flexItem">
+                        <thead>
+                            <th class="th_gray">项目组</th>
+                        </thead>
+                        <tbody class="table_xmz_content">                            
+                        </tbody>
+                    </table>
+                    <div style="overflow: auto;" class="div_table_scorll">
+                        <table class="table_zl table_scorll">
+                            <thead>
+                                <th class="th_gray">开发商</th>
+                                <th class="th_gray">非标件</th>
+                                <th class="th_gray">利润</th>
+                                <th class="th_gray">首付</th>
+                                <th class="th_gray">进度</th>
+                                <th class="th_gray">封顶</th>
+                                <th class="th_blue">结算</th>
+                                <th class="th_blue">工地库</th>
+                                <th class="th_blue">标准项目</th>
+                            </thead>
+                            <tbody class="table_zl_content">                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer" class="row">
+            <div class="col5-xs-1 col5-sm-1 col5-md-1 col5-lg-1">
+                <a href="/crm/index_new.html">
+                    <span class="index img-span"></span>
+                    <div class="lable_footer">首页</div>
+                </a>
+            </div>
+            <div class="col5-xs-1 col5-sm-1 col5-md-1 col5-lg-1">
+                <a href="/crm/project/project.html">
+                    <span class="project img-span"></span>
+                    <div class="lable_footer">项目</div>
+                </a>
+            </div>
+            <div class="col5-xs-1 col5-sm-1 col5-md-1 col5-lg-1">
+                <a href="/crm/data/dataBoard_new.html">
+                    <span class="data img-span active"></span>
+                    <div class="lable_footer">看板</div>
+                </a>
+            </div>
+            <div class="col5-xs-1 col5-sm-1 col5-md-1 col5-lg-1">
+                <a href="/crm/visit/visit.html#/date">
+                    <span class="plan img-span"></span>
+                    <div class="lable_footer">日常</div>
+                </a>
+            </div>
+            <div class="col5-xs-1 col5-sm-1 col5-md-1 col5-lg-1">
+                <a href="/crm/my/my.html">
+                    <span class="my img-span"></span>
+                    <div class="lable_footer">我的</div>
+                </a>
+            </div>
+            <!--按钮数量不定时可考虑以下ul式-->
+            <!-- <ul>
+                <li>
+                    <a>
+                        <span class="index img-span active"></span>
+                        <div>首页</div>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span class="project img-span"></span>
+                        <div>项目</div>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span class="data img-span"></span>
+                        <div>看板</div>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span class="plan img-span"></span>
+                        <div>日常</div>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span class="my img-span"></span>
+                        <div>我的</div>
+                    </a>
+                </li>
+            </ul> -->
+        </div>
+    </div>
+    <script>
+        if (typeof $ === 'undefined' || !typeof jQuery === 'undefined') {
+            var srcipt = document.createElement('script');
+            srcipt.type = 'text/javascript';
+            srcipt.src = '/jquery-3.3.1/jquery-3.3.1.min.js';
+            var head = document.head || document.getElementsByTagName('head')[0];
+            head.appendChild(srcipt);
+        }
+    </script>
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="/crm/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="/crm/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/crm/js/global.js"></script>
+    <script src="/crm/js/data/dataBoard.js"></script>
+    <script src="/crm/layer-v3.1.1/layer/layer.js"></script>
+    <script src="/crm/laydate/laydate.js"></script>
+</body>
+
+</html>

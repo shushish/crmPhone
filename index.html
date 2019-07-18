@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--[if lt IE 9]>
+		<script type="text/javascript" src="js/html5.js"></script>
+		<![endif]-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title></title>
+
+	<link rel="stylesheet" href="./css/ydui.css" />
+    <script type="text/javascript" src="jquery-3.3.1/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/global_modao.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/main.js"></script>
+	<style>
+		*, :after, :before {
+			box-sizing: content-box;
+			outline: 0;
+		}
+		img{
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+    <div class="header">
+        <div class="wrap">
+            <div class="logo">
+                <a href="#"><img src="img/logo.png" /></a>
+            </div>
+        </div>
+    </div>
+    <div class="mainer">
+        <div class="wrap">
+            <div class="index_nav">
+                <div class="box">
+                    <ul id="menus">
+                        <li><a href="#"><span class="span1"></span><p>客户管理</p></a></li>
+                        <li><a href="#"><span class="span2"></span><p>联系人</p></a></li>
+                        <li><a href="#"><span class="span3"></span><p>客户拜访</p></a></li>
+                        <li><a href="#"><span class="span4"></span><p>项目管理</p></a></li>
+                        <li><a href="#"><span class="span5"></span><p>预成交管理</p></a></li>
+                        <li><a href="#"><span class="span6"></span><p>工作日志</p></a></li>
+                        <li><a href="#"><span class="span7"></span><p>异常反馈</p></a></li>
+                        <li><a href="#"><span class="span8"></span><p>项目销项</p></a></li>
+                        <li><a href="#"><span class="span9"></span><p>设计合同</p></a></li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="index_box">
+                <div class="index_tit">
+                    <h3><span>市场指标</span></h3>
+                </div>
+                <div class="index_sczb">
+                    <ul>
+                        <li>
+                            <div class="li_box">
+                                <p>签约金额(万)<span class="span1"></span></p>
+                                <font id="amount">0</font>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="li_box">
+                                <p>中标金额(万)<span class="span2"></span></p>
+                                <font id="biddingAmount">0</font>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="li_box">
+                                <p><img src="img/icon20.png" />目标(万)<span class="span3"></span></p>
+                                <font id="target">0</font>
+                                <div class="wcl">
+                                    <p class="flt">完成率</p>
+                                    <p class="frt">75%</p>
+                                    <div class="wcl_bg"><label></label></div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="li_box">
+                                <p>项目质量(分)<span class="span4"></span></p>
+                                <font id="quality">0</font>
+                            </div>
+                        </li>
+<!--                        <li>
+                            <div class="li_box">
+                                <p>团队能力<span class="span5"></span></p>
+                                <font>30974.32</font>
+                            </div>
+                        </li> -->
+<!--                        <li>
+                            <div class="li_box">
+                                <p>交付项目(个)<span class="span6"></span></p>
+                                <font>30974.32</font>
+                            </div>
+                        </li>-->
+                        <li>
+                            <div class="li_box">
+                                <p>异常反馈(个)<span class="span7"></span></p>
+                                <a href="my/abnormity.html"><font id="abnormity">0</font></a>
+                            </div>
+                        </li>
+<!--                        <li>
+                            <div class="li_box">
+                                <p>异形占比(%)<span class="span8"></span></p>
+                                <font>30974.32</font>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="li_box">
+                                <p>原材料(%)<span class="span9"></span></p>
+                                <font>30974.32</font>
+                            </div>
+                        </li> -->
+                        <li>
+                            <div class="li_box">
+                                <p>合规点检(条)<span class="span10"></span></p>
+                                <font id="check">0</font>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+            </div>
+			<div class="m-grids-2">
+				<a href="my/approval.html" class="grids-item approval-tips">
+					<div class="index_tit sli_tit">
+					    <h3><span>待办流程</span><span class="badge badge-danger" id="approvalCount" style="border-left:none;"></span></h3>
+					</div>
+				</a>
+				<a href="my/mission.html" class="grids-item approval-tips">
+					<div class="index_tit sli_tit">
+					    <h3><span>我的任务</span><span class="badge badge-danger" id="missionCount" style="border-left:none;"></span></h3>
+					</div>
+				</a>
+			</div>
+            <!-- <div class="index_box">
+                <div class="index_tit sli_tit">
+                    <h3><span>待办流程</span></h3>
+                </div>
+                <div class="index_list">
+                    <ul>
+                        <li>
+                            <h3><a href="#">是分散</a><span>项目</span></h3>
+                            <h4>2019-05-20 11:38:34</h4>
+                            <div class="text">
+                                <p>提交人：李诚信<span>审批说明：设计审批申明</span></p>
+                            </div>
+                            <div class="btn">
+                                <a href="#">审判</a><a class="a1" href="#">拒绝</a>
+                            </div>
+                        </li>
+                        <li>
+                            <h3><a href="#">是分散</a><span>项目</span></h3>
+                            <h4>2019-05-20 11:38:34</h4>
+                            <div class="text">
+                                <p>提交人：李诚信<span>审批说明：设计审批申明</span></p>
+                            </div>
+                            <div class="btn">
+                                <a href="#">审判</a><a class="a1" href="#">拒绝</a>
+                            </div>
+                        </li>
+                        <li>
+                            <h3><a href="#">是分散</a><span>项目</span></h3>
+                            <h4>2019-05-20 11:38:34</h4>
+                            <div class="text">
+                                <p>提交人：李诚信<span>审批说明：设计审批申明</span></p>
+                            </div>
+                            <div class="btn">
+                                <a href="#">审判</a><a class="a1" href="#">拒绝</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="btn_more">
+                        <a href="#">查看更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="index_box">
+                <div class="index_tit sli_tit">
+                    <h3><span>我的提醒</span><font>20</font></h3>
+                </div>
+                <div class="index_list">
+                    <ul>
+                        <li>
+                            <h3><a href="#">项目名称示例</a></h3>
+                            <h4>2019-05-20 11:38:34</h4>
+                            <div class="text">
+                                <p>任务内容：是的发生都发的大师傅的徒弟的师傅都来吧！</p>
+                            </div>
+                            <div class="btn">
+                                <p>被委派人:项前</p>
+                            </div>
+                        </li>
+                        <li>
+                            <h3><a href="#">项目名称示例</a></h3>
+                            <h4>2019-05-20 11:38:34</h4>
+                            <div class="text">
+                                <p>任务内容：是的发生都发的大师傅的徒弟的师傅都来吧！</p>
+                            </div>
+                            <div class="btn">
+                                <p>被委派人:项前</p>
+                            </div>
+                        </li>
+                        <li>
+                            <h3><a href="#">项目名称示例</a></h3>
+                            <h4>2019-05-20 11:38:34</h4>
+                            <div class="text">
+                                <p>任务内容：是的发生都发的大师傅的徒弟的师傅都来吧！</p>
+                            </div>
+                            <div class="btn">
+                                <p>被委派人:项前</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="btn_more">
+                        <a href="#">查看更多</a>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <div class="ft_zw"></div>
+    <div class="footer">
+        <div class="wrap">
+            <ul>
+                <li id="footer_header" class="on"><a href="#"><span class="span1"></span><p>首页</p></a></li>
+                <li id="footer_data"><a href="#"><span class="span2"></span><p>看板</p></a></li>
+                <li id="footer_share"><a href="#"><span class="span3"></span><p>共享</p></a></li>
+                <li id="footer_my"><a href="#"><span class="span4"></span><p>我的</p></a></li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </div>
+</body>
+<script src="./js/ydui.js" type="text/javascript" charset="utf-8"></script>
+<script src="./echart/axios.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="./js/global.js" type="text/javascript" charset="utf-8"></script>
+<script>
+	$(function () {
+		Common.prototype.checkLoginStatu();
+        getGroupInfo('','','','');
+		getApprovalCount();
+		getMissionCount();
+		loadByTitle();
+	});
+
+	function getGroupInfo(startTime,endTime,companyId,type) {
+		axios.post("/api/statistics/getGroupInfoByUserId", "startTime="+startTime+"&endTime="+endTime+"&companyId="+companyId+"&type="+type).then(res => {
+			let content = res.data;
+			let targetAmount = content.targetAmount;
+			$("#target").html(targetAmount)
+			let quality = content.projectQuality;
+			if(quality.indexOf('分')>0){
+				quality = quality.substr(0,quality.length-1)
+			}
+
+			$("#quality").html(quality);
+			let amount = content.amount;
+			$("#amount").html(amount);
+			let abnormalCount = content.abnormalCount;
+			$("#abnormity").html(abnormalCount);
+			let biddingAmount = content.biddingAmount;
+			$("#biddingAmount").html(biddingAmount);
+			let checkCount = content.checkCount;
+            $("#check").html(checkCount);
+			//let avgPcPrice = content.avgPcPrice;
+			//$("#pcAvg").html(avgPcPrice);
+
+		});
+	}
+
+	function getApprovalCount() {
+		axios.post("/api/approval/queryPage", "pageNum=1&pageSize=1").then(res => {
+			let count = res.total;
+			$("#approvalCount").html(count)
+			if(0 == count){
+				$("#approvalCount").css("display","none");
+			}
+		});
+	};
+	function getMissionCount() {
+		axios.post("/api/statistics/getMissionInfo", "pageNum=1&pageSize=1").then(res => {
+			let count = res.data.total;
+			$("#missionCount").html(count);
+			if(0 == count){
+                $("#missionCount").css("display","none");
+            }
+		});
+	}
+	//根据职位加载菜单
+	function loadByTitle() {
+		return new Promise(function(resolve,reject){
+			let tile = YDUI.util.localStorage.get('title');
+			let html = '';
+			if(true){
+				html+='<li><a href="customer/customerList.html"><span class="span1"></span><p>客户管理</p></a></li>';
+				html+='<li><a href="customer/Contacts.html"><span class="span2"></span><p>联系人</p></a></li>';
+				html+='<li><a href="visit/visit.html"><span class="span3"></span><p>客户拜访</p></a></li>';
+				html+='<li><a href="project/project.html"><span class="span4"></span><p>项目管理</p></a></li>';
+				html+='<li><a href="project/expectProject.html"><span class="span5"></span><p>预计项目</p></a></li>';
+				html+='<li><a href="customer/Journal.html"><span class="span6"></span><p>工作日志</p></a></li>';
+				html+='<li><a href="my/abnormity.html"><span class="span7"></span><p>异常信息</p></a></li>';
+				// html+='<li><a href="#"><span class="span8"></span><p>项目销项</p></a></li>';
+				html+='<li><a href="https://m.fang.com/tudi/zpg/"><span class="span9"></span><p>土地信息</p></a></li>';
+			}
+	        $("#menus").html(html);
+			resolve();
+		})
+	}
+
+</script>
+</html>

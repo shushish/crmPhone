@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>远大住工-客户</title>
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="../css/ydui.css" />
+		<link rel="stylesheet" href="../css/global.css" />
+		<!-- 引入YDUI自适应解决方案类库 -->
+		<script src="../js/ydui.flexible.js"></script>
+		<link rel="stylesheet" href="../css/journal/switch.css">
+		<link rel="stylesheet" href="../css/docs/main.css" />
+
+
+	</head>
+	<body>
+		<section class="g-flexview">
+			<header class="m-navbar" style="background: #433C4E;">
+				<a href="javascript:void(0)" class="navbar-item" id="back-btn"><i class="back-ico"></i></a>
+				<div class="navbar-center">
+					<span class="navbar-title" style="color: white;">新增客户</span>
+				</div>
+			</header>
+
+			<form about="" method="post" id="tableForm">
+
+				<div class="g-scrollview">
+					<div class="m-cell">
+						<div class="cell-item" style="overflow: inherit;">
+							<div class="cell-left"><em>*</em>客户名称：</div>
+							<div class="cell-right" style="position: relative;">
+								<input type="text" id="nameList" name="nameList" value="" class="cell-input" placeholder="请输入客户名称" onchange="queryAccountSelectListByEyes()"  />
+							</div>
+							<div  id="selectAccountList" style="position: absolute;top: 100%;opacity: 100;border: 1px solid #ddd;
+							background: #fff;z-index: 1000;font-size: 10px;width: 95%;font-size: 200%"   ></div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left"><em>*</em>客户类型：</div>
+							<div class="cell-right">
+								<select name="typeList" id="typeList" onchange="findFeatureList()" style="width: 90%;height:0.5rem;">
+								</select>
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left"><em>*</em>客户地点：</div>
+							<div class="cell-right">
+								<div data-toggle="distpicker" id="docs">
+									<select id="province" style="width: 32%;"></select>
+									<select id="city" style="width: 32%;"></select>
+								</div>
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left"></div>
+							<div class="cell-right">
+								<input type="text" id="address" name="record" value="" class="cell-input" placeholder="请输入客户详细地点" autocomplete="off" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left">工商注册号：</div>
+							<div class="cell-right">
+								<input type="text" id="regNumber" name="record" value="" class="cell-input" placeholder="请输入工商注册号" autocomplete="off" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left">组织机构代码：</div>
+							<div class="cell-right">
+								<input type="text" id="orgNumber" name="record" value="" class="cell-input" placeholder="请输入组织机构代码"
+								 autocomplete="off" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left">法人姓名：</div>
+							<div class="cell-right">
+								<input type="text" id="legalPersonName" name="record" value="" class="cell-input" placeholder="请输入法人姓名"
+								 autocomplete="off" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left">电话号码：</div>
+							<div class="cell-right">
+								<input type="text" id="phone" name="record" value="" class="cell-input" placeholder="请输入电话号码" autocomplete="off" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left">登记机关：</div>
+							<div class="cell-right">
+								<input type="text" id="regInstitute" name="record" value="" class="cell-input" placeholder="请输入登记机关"
+								 autocomplete="off" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left">注册地址：</div>
+							<div class="cell-right">
+								<input type="text" id="regLocation" name="record" value="" class="cell-input" placeholder="请输入注册地址"
+								 autocomplete="off" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left">注册资本：</div>
+							<div class="cell-right">
+								<input type="text" id="regCapital" name="record" value="" class="cell-input" placeholder="请输入注册资本" autocomplete="off" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left">行业：</div>
+							<div class="cell-right">
+								<input type="text" id="industry" name="record" value="" class="cell-input" placeholder="请输入行业" autocomplete="off" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left">统一社会信用代码：</div>
+							<div class="cell-right">
+								<input type="text" id="creditCode" name="record" value="" class="cell-input" placeholder="请输入统一社会信用代码"
+								 autocomplete="off" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left">公司类型：</div>
+							<div class="cell-right">
+								<input type="text" id="companyOrgType" name="record" value="" class="cell-input" placeholder="请输入公司类型"
+								 autocomplete="off" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left">核准时间：</div>
+							<div class="cell-right">
+								<input type="date" id="approvedTime" value="" class="cell-input" placeholder="请输入核准时间" autocomplete="off" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left">成立时间：</div>
+							<div class="cell-right">
+								<input type="date" id="fromTime" value="" class="cell-input" placeholder="请输入成立时间" autocomplete="off" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left"><em>*</em>特征标签：</div>
+							<div class="cell-right">
+								<select name="featureList" id="featureList" style="width: 90%;height:0.5rem;">
+								</select>
+							</div>
+						</div>
+						<!--<div class="cell-item">-->
+							<!--<div class="cell-left">是否分级：</div>-->
+							<!--<div class="cell-right">-->
+								<!--<select name="contactIds" id="gradeFlag" style="width: 90%;height:0.5rem;">-->
+									<!--<option value="">请选择</option>-->
+									<!--<option value="0">是</option>-->
+									<!--<option value="1">否</option>-->
+								<!--</select>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="cell-item">-->
+							<!--<div class="cell-left">客户等级：</div>-->
+							<!--<div class="cell-right">-->
+								<!--<select name="contactIds" id="gradeList" style="width: 90%;height:0.5rem;">-->
+									<!--<option value="">请选择</option>-->
+									<!--<option value="战略">战略</option>-->
+									<!--<option value="重点">重点</option>-->
+									<!--<option value="普通">普通</option>-->
+								<!--</select>-->
+							<!--</div>-->
+						<!--</div>-->
+						<div class="cell-item">
+							<div class="cell-left">分享客户：</div>
+							<div class="cell-right">
+								<select name="userList" id="userList" style="width: 90%;height:0.5rem;">
+
+								</select>
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left"><em>*</em>所属集团：</div>
+							<div class="cell-right">
+								<select name="clique" id="clique" style="width: 90%;height:0.5rem;">
+									<option value="">请选择</option>
+									<option value="碧桂园集团">碧桂园集团</option>
+									<option value="万科集团">万科集团</option>
+									<option value="润和集团">润和集团</option>
+									<option value="万达集团">万达集团</option>
+									<option value="其他">其他</option>
+								</select>
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left">母公司：</div>
+							<div class="cell-right">
+								<select name="contactIds" id="parent" style="width: 86%;height:0.5rem;">
+								</select>
+							</div>
+						</div>
+						<button type="button" class="btn-block btn-primary" id="savebf">保存</button>
+					</div>
+				</div>
+			</form>
+		</section>
+		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+		<script src="../jquery-3.3.1/jquery-3.3.1.min.js"></script>
+		<script src="../js/ydui.js"></script>
+		<script src="../echart/axios.min.js"></script>
+		<script src="../js/global.js"></script>
+		<script type="text/javascript">
+			$("#back-btn").on("click", Common.prototype.Back);
+		</script>
+		<script src="../js/customer/addCustomer.js"></script>
+		<script src="../js/docs/distpicker.js"></script>
+		<script src="../js/template-native.js" type="text/javascript" charset="utf-8"></script>
+
+		//下拉选装载模板
+		<script type="text/html" id="accountList">
+			<ul class="list-group">
+			<% for(var i = 0; i < list.length; i++){ %>
+				<li class="list-group-item" ><%= list[i]%></li>
+			<% } %>
+			</ul>
+		</script>
+
+		<script type="text/javascript">
+			$("#savebf").click(function() {
+				var province = $('#province').val();
+				var city = $('#city').val();
+				//var district = $('#edistrictName').val();
+				var address = province + city + $('#address').val();
+				var accountName = $("#nameList").val();
+				var shareUserId = $("#userList").val();
+				let account = {
+                    'name': $("#nameList").val(), //客户名称
+                    'type': $("#typeList option:selected").val(), //客户类型
+                    'address': address, //客户地点
+                    'province': province, //省
+                    'city': city, //城市
+                    'regNumber': $("#regNumber").val(), //工商注册号
+                    'orgNumber': $('#orgNumber').val(), //组织机构代码
+                    'legalPersonName': $("#legalPersonName").val(), //法人姓名
+                    'phone': $("#phone").val(), //电话号码
+                    'regInstitute': $("#regInstitute").val(), //登记机关
+                    'regLocation': $("#regLocation").val(), //注册地址
+                    'regCapital': $("#regCapital").val(),//注册资本
+                    'industry': $("#industry").val(),//行业
+                    'creditCode': $("#creditCode").val(),//统一社会信用代码
+                    'companyOrgType': $("#companyOrgType").val(),//公司类型
+                    'approvedTime': $("#approvedTime").val(),//核准时间
+                    'fromTime': $("#fromTime").val(),//成立时间
+                    'feature': $("#featureList option:selected").val(),//特征标签
+                    // 'gradeFlag': $("#gradeFlag option:selected").val(),//是否分级
+                    // 'grade': $("#gradeList option:selected").val(),//客户等级
+                    'peoples': $("#userList option:selected").val(),//分享客户
+                    'clique': $("#clique option:selected").val(),//所属集团
+                    'parent': $("#parent option:selected").val(),//母公司
+                };
+				//表单验证
+                if("" == account.name || null == account.name){
+                    YDUI.dialog.notify('请填写客户名称', 1000);
+                    return;
+                }
+                if("" == account.type || null == account.type){
+                    YDUI.dialog.notify('请选择客户类型', 1000);
+                    return;
+                }
+                if("" == account.address || null == account.address){
+                    YDUI.dialog.notify('请填写地址', 1000);
+                    return;
+                }
+                if("" == account.feature || null == account.feature){
+                    YDUI.dialog.notify('请选择特征标签', 1000);
+                    return;
+                }
+                if("" == account.clique || null == account.clique){
+                    YDUI.dialog.notify('请选择所属集团', 1000);
+                    return;
+                }
+				let form = new FormData();
+				for (var item in account) {
+					form.append(item, account[item] || "");
+				}
+				form.append("accountName",accountName);
+				form.append("shareUserId",shareUserId);
+				return axios({
+					url: '/api/account/save',
+					method: 'post',
+					data: form
+				}).then(res => {
+				    if(res.data == "该用户已存在这个客户"){
+                        YDUI.dialog.toast(res.data, "error", 3000);
+                        setTimeout(function(){location.href='addCustomer.html'},1000);
+                    }else if (res.data == "操作成功") {
+                        YDUI.dialog.toast(res.data, "success", 1000);
+                        setTimeout(function(){location.href='customerList.html'},300);
+					}else{
+                        YDUI.dialog.toast(res.data, "error", 1000);
+                        setTimeout(function(){location.href='addCustomer.html'},300);
+					}
+
+                })
+			});
+		</script>
+
+	</body>
+
+</html>

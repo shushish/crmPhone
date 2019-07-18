@@ -1,0 +1,212 @@
+.backgroud{
+    background-image: url(../image/bg.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+}
+
+.logo {
+    width: 6em;
+    height: 2em;
+    background: url(../image/getApplogo.png) no-repeat center;
+    background-size: contain;
+    /* padding-top: 2em; */
+    /* margin: 0 auto; */
+    /* margin-top: 10rem; */
+}
+
+.logo_{
+	width: 13em;
+	height: 5em;
+	background: url(../image/yuanda_title.png) no-repeat center;
+	background-size: contain;
+	margin: 0 auto;
+	margin-top: 7rem;
+}
+
+.login_user {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 2em;
+}
+
+.tabCon.show, .tabCon2.show {
+    display: block;
+}
+
+.tip_hide {
+    margin-bottom: 1em;
+}
+
+.user_input {
+    height: 3em;
+    border-radius: 0.5em;
+    background-color: #fff;
+    margin-bottom: 2.8em;
+    -moz-box-shadow: 1px 1px 1px #adbcd0;
+    -webkit-box-shadow: 1px 1px 1px #adbcd0;
+    box-shadow: 1px 1px 1px #adbcd0;
+}
+
+.ub {
+    display: -webkit-box !important;
+    display: box !important;
+    position: relative;
+}
+
+.password_input.tip_hide {
+    margin-bottom: 1.5em;
+}
+
+.tip_hide {
+    margin-bottom: 1em;
+}
+
+.password_input {
+    height: 3em;
+    border-radius: 0.5em;
+    background-color: #fff;
+    margin-bottom: 2.8em;
+    -moz-box-shadow: 1px 1px 1px #adbcd0;
+    -webkit-box-shadow: 1px 1px 1px #adbcd0;
+    box-shadow: 1px 1px 1px #adbcd0;
+}
+
+.login_dl {
+    width: 100%;
+    margin-top: 1.7em;
+    text-align: right;
+    overflow: hidden;
+    margin-bottom: 1em;
+}
+
+.login_dl a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 0.9em;
+}
+
+.login_btn {
+    width: 100%;
+    margin: 1.5em 0;
+    margin-bottom: 3em;
+}
+
+.login_btn a#login, #forget {
+    background: #006af2;
+    border-radius: 0.5em;
+    margin-bottom: 1.0em;
+}
+
+.login_btn a {
+    width: 100%;
+    height: 2.5em;
+    line-height: 2.5em;
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    background-color: #0091b5;
+    font-family: "微软雅黑";
+    font-size: 1.2em;
+    text-align: center;
+    -moz-box-shadow: 1px 1px 1px #617e8f;
+    -webkit-box-shadow: 1px 1px 1px #617e8f;
+    box-shadow: 1px 1px 1px #617e8f;
+}
+
+.name, .phonenumber {
+    width: 1.5em;
+    height: 1.5em;
+    background-image: url(../image/icon/uNameicon.png);
+    position: absolute;
+    top: 0.88em;
+    left: 0.8em;
+}
+
+.ub-img {
+    -webkit-background-size: contain;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.input-line {
+    position: absolute;
+    left: 2.8em;
+    border-right: 1px solid #cccccc;
+    height: 2.0em;
+    top: 0.6em;
+}
+
+.user_input input, .password_input input {
+    width: 100%;
+    height: 100%;
+    padding-left: 3.4em;
+    border: none;
+    -webkit-box-flex: 1;
+    display: block;
+    border-radius: 0.5em;
+    font-size: 1em;
+    color: #888888;
+}
+
+.user_input .tip, .password_input .tip {
+    color: #ff3838;
+    width: 100%;
+    font-size: 0.9em;
+    position: absolute;
+    top: 3.65em;
+    left: 0em;
+}
+
+.tip_hide .tip {
+    display: none;
+}
+
+.password_input.tip_hide {
+    margin-bottom: 1.5em;
+}
+.tip_hide {
+    margin-bottom: 1em;
+}
+
+.password_input {
+    height: 3em;
+    border-radius: 0.5em;
+    background-color: #fff;
+    margin-bottom: 2.8em;
+    -moz-box-shadow: 1px 1px 1px #adbcd0;
+    -webkit-box-shadow: 1px 1px 1px #adbcd0;
+    box-shadow: 1px 1px 1px #adbcd0;
+}
+
+.password {
+    width: 1.5em;
+    height: 1.5em;
+    background-image: url(../image/icon/uPassicon.png);
+    position: absolute;
+    top: 0.88em;
+    left: 0.8em;
+}
+
+.user_input input, .password_input input {
+    width: 100%;
+    height: 100%;
+    padding-left: 3.4em;
+    border: none;
+    -webkit-box-flex: 1;
+    display: block;
+    border-radius: 0.5em;
+    font-size: 1em;
+    color: #888888;
+}
+
+.user_input .tip, .password_input .tip {
+    color: #ff3838;
+    width: 100%;
+    font-size: 0.9em;
+    position: absolute;
+    top: 3.65em;
+    left: 0em;
+}

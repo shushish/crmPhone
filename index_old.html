@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>远大住工-主页</title>
+
+		<!-- 引入YDUI样式 -->
+		<link rel="stylesheet" href="./css/ydui.css" />
+		<link rel="stylesheet" href="./css/global.css" />
+		<!-- 引入YDUI自适应解决方案类库 -->
+		<script src="./js/ydui.flexible.js"></script>
+		<style type="text/css">
+			.approval-tips .badge{
+				position: absolute;
+				top: 25%;
+				left: 67%;
+				z-index: 999;
+				margin-left: -0.15rem;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<section class="g-flexview">
+			<header class="m-navbar" style="background: #433C4E;">
+				
+<!-- 				<a class="navbar-item" href="javascript:void(0)" style="display: block;">
+					<i class="back-ico"></i>
+				</a> -->
+				<a href="javascript:void(0)" class="navbar-item" id="back-btn" style="display: none;"><i class="back-ico"></i></a>
+				<div class="navbar-center">
+					<span class="navbar-title" style="color: white;">首页</span>
+				</div>
+			</header>
+			<div class="m-grids-1 close-with-masklayer search_content">
+				<div class="search_edit">
+					<ul>
+						<li class="editRow">
+							<b>开始时间：</b>
+							<input type="date" class="beginTime" name="beginTime" value="" placeholder="请输入" class="">
+						</li>
+						<li class="editRow">
+							<b>结束时间：</b>
+							<input type="date" class="endTime" name="endTime" value="" placeholder="请输入" class="">
+						</li>
+					</ul>
+				</div>
+				<div class="buttonRow">
+					<a class="btnCancel" id="btn_reset">重置</a>
+					<a class="btnSure" id="btn_search">查询</a>
+				</div>
+			</div>
+			<div class="g-scrollview">
+				<!-- <div class="cityselect-title">关键指标</div> -->
+				<div class="m-grids-3">
+					<a href="#" class="grids-item" style="padding:0.12rem 0;">
+						<div class="grids-txt btn_time"><span>时间</span></div>
+					</a>
+					<a class="grids-item" style="padding:0.12rem 0;" id="com_actionSheet">
+						<div class="grids-txt"><span id="company">公司</span></div>
+					</a>
+					<div class="m-actionsheet" id="companyList">
+
+					</div>
+					<a class="grids-item" style="padding:0.12rem 0;" id="pro_actionSheet">
+						<div class="grids-txt"><span id="proType">项目类型</span></div>
+					</a>
+					<div class="m-actionsheet" id="projectType">
+					</div>
+				</div>
+
+				<div class="m-grids-3">
+					<a href="#"  class="grids-item">
+						<h3>目标</h3>
+						<div class="grids-txt"><span class="" id="task">0</span></div>
+					</a>
+					<a href="#" class="grids-item">
+						<h3>项目质量</h3>
+						<div class="grids-txt"><span class="" id="quality">0</span></div>
+					</a>
+					<a href="#" class="grids-item">
+						<h3>PC均价</h3>
+						<div class="grids-txt"><span class="" id="pcAvg">0</span></div>
+					</a>
+					<a href="#" class="grids-item">
+						<h3>已中标</h3>
+						<div class="grids-txt"><span class="txt_lj" id="forecast">0</span></div>
+					</a>
+					<a href="#" class="grids-item">
+						<h3>已成交</h3>
+						<div class="grids-txt"><span class="txt_lj" id="finish">0</span></div>
+					</a>
+					<a href="#" class="grids-item">
+						<h3>异常反馈</h3>
+						<div class="grids-txt"><span class="txt_lj" id="abnormal">0</span></div>
+					</a>
+				</div>
+					
+				<div class="m-grids-2">
+					<a href="my/approval.html" class="grids-item approval-tips">
+						<div class="grids-txt"><span>待审流程</span><span class="badge badge-danger" id="approvalCount"></span></div>
+					</a>
+					<a href="my/mission.html" class="grids-item approval-tips">
+						<div class="grids-txt"><span>我的任务</span><span class="badge badge-danger" id="missionCount"></span></div>
+					</a>
+				</div>
+				
+				<!-- <div class="cityselect-title">操作菜单</div> -->
+				<div class="m-grids-3" id="menus">
+
+					<!-- 					<a href="#" class="grids-item">
+						<div class="grids-icon"><i class="icon-home"></i></div>
+						<div class="grids-txt"><span>新建日志</span></div>
+					</a>
+					<a href="#" class="grids-item">
+						<div class="grids-icon"><i class="icon-home"></i></div>
+						<div class="grids-txt"><span>新建日志</span></div>
+					</a> -->
+
+				</div>
+			</div>
+
+			<footer class="m-tabbar">
+				<a id="footer_header" href="#" class="tabbar-item tabbar-active">
+					<span class="tabbar-icon">
+						<i class="icon-home-outline"></i>
+					</span>
+					<span class="tabbar-txt">首页</span>
+				</a>
+				<a id="footer_data" href="#" class="tabbar-item">
+					<span class="tabbar-icon">
+						<i class="icon-feedback"></i>
+					</span>
+					<span class="tabbar-txt">看板</span>
+				</a>
+				<a id="footer_share" href="#" class="tabbar-item ">
+					<span class="tabbar-icon">
+						<i class="icon-footmark"></i>
+					</span>
+					<span class="tabbar-txt">共享</span>
+				</a>
+				<a id="footer_my" href="#" class="tabbar-item">
+					<span class="tabbar-icon">
+						<i class="icon-ucenter-outline"></i>
+					</span>
+					<span class="tabbar-txt">我的</span>
+				</a>
+			</footer>
+		</section>
+		<script src="./jquery-3.3.1/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/ydui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./echart/axios.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/index.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+            window.onload = function () {
+                //getGroupInfo('','','','');
+                getApprovalCount();
+                getMissionCount();
+            };
+
+            function getGroupInfo(startTime,endTime,companyId,type) {
+                axios.post("/api/statistics/getGroupInfoByUserId", "startTime="+startTime+"&endTime="+endTime+"&companyId="+companyId+"&type="+type).then(res => {
+                    let content = res.data;
+                    let targetAmount = content.targetAmount;
+                    $("#task").html(targetAmount)
+                    let quality = content.projectQuality;
+                    if(quality.indexOf('分')>0){
+                        quality = quality.substr(0,quality.length-1)
+                    }
+                    $("#quality").html(quality);
+                    let amount = content.amount;
+                    $("#finish").html(amount);
+                    let abnormalCount = content.abnormalCount;
+                    $("#abnormal").html(abnormalCount);
+                    let biddingAmount = content.biddingAmount;
+                    $("#forecast").html(biddingAmount);
+                    let avgPcPrice = content.avgPcPrice;
+                    $("#pcAvg").html(avgPcPrice);
+
+                });
+            }
+
+            function getApprovalCount() {
+                axios.post("/api/approval/queryPage", "pageNum=1&pageSize=1").then(res => {
+                    let count = res.total;
+                    $("#approvalCount").html(count)
+                    if(0 == count){
+                        $("#approvalCount").css("display","none");
+                    }
+                });
+            };
+            function getMissionCount() {
+                axios.post("/api/statistics/getMissionInfo", "pageNum=1&pageSize=1").then(res => {
+                    let count = res.data.total;
+                    $("#missionCount").html(count);
+                });
+            }
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>远大住工-登录</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../css/ydui.css"/>
+    <link rel="stylesheet" href="../css/global.css"/>
+    <!-- 引入YDUI自适应解决方案类库 -->
+    <script src="../js/ydui.flexible.js"></script>
+</head>
+<body>
+<section class="g-flexview">
+    <header class="m-navbar" style="background: #433C4E;">
+        <a href="javascript:void(0)" class="navbar-item" id="back-btn"><i class="back-ico"></i></a>
+        <div class="navbar-center">
+            <span class="navbar-title" style="color: white;">详情页</span>
+        </div>
+    </header>
+    <div class="g-scrollview">
+        <div class="m-cell">
+            <div class="cell-item">
+                <div class="cell-left">客户名称：</div>
+                <div class="cell-right">
+                    <h1><span id="clientName">无数据</span></h1>
+                </div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left">联 系人：</div>
+                <div class="cell-right">
+                    <h1><span id="contacts">无数据</span></h1>
+                </div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left">对应项目：</div>
+                <div class="cell-right">
+                    <h1><span id="project">无数据</span></h1>
+                </div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left">拜访日期：</div>
+                <div class="cell-right">
+                    <h1><span id="date">无数据</span></h1>
+                </div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left">拜访地址：</div>
+                <div class="cell-right">
+                    <h1><span id="site">无数据</span></h1>
+                </div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left">内容</div>
+                <div class="cell-right">
+                    <h1><span id="remind">无数据</span></h1>
+                </div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left">拜访目的：</div>
+                <div class="cell-right">
+                    <h1><span id="purpose">无数据</span></h1>
+                </div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left">拜访方式：</div>
+                <div class="cell-right">
+                    <h1><span id="method">无数据</span></h1>
+                </div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left">拜访纪要：</div>
+                <div class="cell-right">
+                    <h1><span id="record">无数据</span></h1>
+                </div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left">下一步计划：</div>
+                <div class="cell-right">
+                    <h1><span id="plan">无数据</span></h1>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer class="m-tabbar">
+        <a href="/mobile/index_new.html" class="tabbar-item tabbar-active">
+					<span class="tabbar-icon">
+						<i class="icon-home-outline"></i>
+					</span>
+            <span class="tabbar-txt">客户拜访</span>
+        </a>
+        <a href="/mobile/data/dataBoard_new.html" class="tabbar-item">
+					<span class="tabbar-icon">
+						<i class="icon-feedback"></i>
+					</span>
+            <span class="tabbar-txt">看板</span>
+        </a>
+        <a href="/mobile/visit/visit.html#/date" class="tabbar-item ">
+					<span class="tabbar-icon">
+						<i class="icon-footmark"></i>
+					</span>
+            <span class="tabbar-txt">共享</span>
+        </a>
+        <a href="/mobile/my/my.html" class="tabbar-item">
+					<span class="tabbar-icon">
+						<i class="icon-ucenter-outline"></i>
+					</span>
+            <span class="tabbar-txt">我的</span>
+        </a>
+    </footer>
+</section>
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="../jquery-3.3.1/jquery-3.3.1.min.js"></script>
+<script src="../js/ydui.js"></script>
+<script src="../echart/axios.min.js"></script>
+<script src="../js/global.js"></script>
+<script src="../js/my/addvisit.js"></script>
+
+
+<script>
+    function initDictionary() {
+        var url = window.location.href;
+        var index = url.lastIndexOf("?");
+        url = url.substring(index + 1, url.length);
+        axios.post("/api/visit/getVisitDetailById", url)
+            .then(res => {
+                let content = res.data;
+                let contactName = content.contactNames;
+                debugger
+                let projectname = content.projectName;
+                if(projectname ==null ){
+                    projectname = "";
+                }
+                let visitDate = content.visitDate;
+                let address = content.address;
+                let contentName = content.content;
+                let visitGoal = content.visitGoal;
+                let visitWay = content.visitWay;
+                document.getElementById("clientName").innerHTML = content.accountName;//客户名
+                document.getElementById("contacts").innerHTML = contactName;//联系人
+                document.getElementById("project").innerHTML = projectname;//对应项目
+                document.getElementById("date").innerHTML = visitDate;//拜访时间
+                document.getElementById("site").innerHTML = address;//拜访地址
+                document.getElementById("remind").innerHTML = contentName;//内容
+                document.getElementById("purpose").innerHTML = visitGoal;//拜访目的
+                document.getElementById("method").innerHTML = visitWay;//拜访方式
+
+            });
+    }
+</script>
+
+<script type="text/javascript">
+    window.onload = function () {
+        var getUrlObject = function () {
+            function GetQueryString(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);//search,查询？后面的参数，并匹配正则
+                console.log(r);
+                if (r != null) return unescape(r[2]);
+                return null;
+
+            }
+        }
+        //alert(GetQueryString("visitId"));
+        $("#back-btn").on("click", Common.prototype.Back);
+        $("#addVisit").on("click", function () {
+            window.location.href = 'addvisit.html';
+        })
+    }
+</script>
+
+
+<section id="J_List">
+    <div id="J_ListContent"></div>
+</section>
+</body>
+
+</html>

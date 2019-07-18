@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="main">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>远大住工-项目</title>
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+		<!-- 引入YDUI样式 -->
+		<link rel="stylesheet" href="../css/ydui.css" />
+		<link rel="stylesheet" href="../css/global.css" />
+		<!-- 引入YDUI自适应解决方案类库 -->
+		<script src="../js/ydui.flexible.js"></script>
+
+		<style>
+ 			.grids-icon img{height: auto!important;}
+				.projectName{white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+				.g-scrollview:after{height: auto;}
+				.m-tabbar{position: fixed;bottom: 0; left: 0;}
+				.home-flex{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:100%;height:1rem;
+			}
+			.home-flex-main{-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;width:100%;overflow:hidden;overflow-y: auto;-webkit-overflow-scrolling: touch;
+			}
+			.content-bottom{margin-bottom: 1.2rem;} 
+		</style>
+	</head>
+
+	<body>
+		<section class="g-flexview">
+			<header class="m-navbar" style="background: #00437c;">
+				<a href="javascript:void(0)" class="navbar-item" id="back-btn"><i class="back-ico"></i></a>
+
+				<div class="navbar-center">
+					<span class="navbar-title" style="color: white;">项目</span>
+				</div>
+<!-- 				<a href="#" class="navbar-item" id="addVisit">
+					<i>
+						<img src="../image/icon/addproject.png" style="width: 0.3rem;height: 0.3rem;">
+					</i>
+				</a> -->
+			</header>
+			<div class="m-grids-1 close-with-masklayer search_content">
+				<div class="search_edit">
+					<ul>
+						<li class="editRow">
+							<b>项目名称/客户名称：</b>
+							<input type="text" class="proname" id="customerName" name="" placeholder="请输入" class="">
+						</li>
+						<li class="editRow">
+							<b>所有人：</b>
+							<input type="text" class="creator" name="creator" placeholder="请输入" class="">
+						</li>
+					</ul>
+				</div>
+				<div class="buttonRow">
+					<a class="btnCancel" id="btn_reset">重置</a>
+					<a href="javascript:;" class="btnSure" id="btn_search" onclick="searchs()">搜索</a>
+				</div>
+			</div>
+			<div class="m-grids-3" style="background-color: #EDEDF3;">
+				<a href="#" class="grids-item" style="padding:0.12rem 0;" id="searchBtn">
+					<div class="grids-txt"><span>搜索</span></div>
+				</a>
+				<a class="grids-item" style="padding:0.12rem 0;" id="com_actionSheet">
+					<div class="grids-txt" data-ydui-actionsheet="{target:'#Stage',closeElement:'#cancel'}"><span>阶段</span></div>
+				</a>
+				<a class="grids-item" style="padding:0.12rem 0;" id="com_actionSheet">
+					<div class="grids-txt" data-ydui-actionsheet="{target:'#actionSheet',closeElement:'#cancel'}"><span>公司</span></div>
+				</a>
+				<div class="m-actionsheet" id="actionSheet">
+					<div id="companyList"></div>
+					<a href="javascript:;" class="actionsheet-action" id="cancel">取消</a>
+				</div>
+				<div class="m-actionsheet" id="Stage">
+					<a href="#" class="actionsheet-item" onclick="CustomerLevel('项目线索')">全部</a>
+					<a href="#" class="actionsheet-item" onclick="CustomerLevel('项目线索')">项目线索</a>
+					<a href="#" class="actionsheet-item" onclick="CustomerLevel('项目立项')">项目立项</a>
+					<a href="#" class="actionsheet-item" onclick="CustomerLevel('项目推进')">项目推进</a>
+					<a href="#" class="actionsheet-item" onclick="CustomerLevel('项目签约')">项目签约</a>
+					<a href="#" class="actionsheet-item" onclick="CustomerLevel('项目交付')">项目交付</a>
+					<a href="javascript:;" class="actionsheet-action" id="cancel">取消</a>
+				</div>
+			</div>
+			<div class="m-grids-2" style="height:0.6rem;">
+				<div class="grids-txt" style="float: left;">&nbsp;&nbsp;<span id="titles">全部</span></div>
+				<div class="grids-txt" style="float: right;"><span style="color: #00A9E1;">数量：</span><span id="num" style="color: #00A9E1;">7766</span>
+				</div>
+			</div>
+			<section class="g-scrollview" id="J_List">
+				<div class="m-list list-theme4" id="approvalingList">
+				
+				</div>
+			</section>
+			<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+		</section>
+		<script src="../jquery-3.3.1/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/ydui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../echart/axios.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/template-native.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 定义模板，用来生产html -->
+		<script type="text/html" id="projectListTem">
+			<% for(var i = 0; i < list.length; i++){ %>
+				<a href="#" class="list-item">
+					<div class="list-img"><img src="../image/icon/listNum-1.png"></div>
+					<div class="list-mes">
+						<h3 class="list-title"><%= list[i].name %></h3>
+						<div class="list-mes-item">
+							<div><%= list[i].type %></div>
+							<div>2019-05-09 13:43:43</div>
+						</div>
+					</div>
+				</a>
+			 <% } %>
+		</script>
+		<script>
+            $(function () {
+                $("#back-btn").on("click", Common.prototype.Back);
+            });
+
+			window.onload = function() {
+				//绑定搜索条件选择
+				$("#searchBtn").on("click", () => {
+					//添加取消按钮
+					$("#back-btn").show();
+					$(".search_content").show();
+					$("#back-btn").on("click", () => {
+						$(".search_content").hide();
+						$("#back-btn").hide();
+					});
+				});
+				company();
+			}
+			var page = 1,pageSize = 10;
+			
+			$('#J_List').infiniteScroll({
+				binder: '#J_List',
+				pageSize: pageSize,
+				initLoad: true,
+				loadingHtml: '<strong>加载中...</strong>',
+				/* 当然也可以<img src="../img/loading.gif" /> */
+				loadListFn: function() {
+					var def = $.Deferred();
+					/* 通过自定义的方法获取数据 */
+					axios({
+							url: "/api/project/listPage",
+							method: "post",
+							data: "pageNum="+page+"&pageSize="+pageSize,
+						})
+						.then(res => {
+							let data = res.records;
+							if (data && data.length > 0) {
+								let html = '';
+								//模板装载html
+								html = template('projectListTem', {list:data});
+								$("#approvalingList").append(html);
+								def.resolve(html);
+                                ++page;
+								YDUI.dialog.loading.close();
+							} 
+						})
+					return def.promise();
+				}
+			});
+
+			function CustomerLevel(data) {
+				if (data == '全部') {
+					getData('pageNum=1&pageSize=10');
+				}
+				var $as = $('#Stage');
+				var date = 'pageNum=1&pageSize=10&projectStage=' + data;
+				getData(date);
+				$('#titles').text(data);
+				$as.actionSheet('close');
+			}
+
+			function changeCompany(data) {
+				if (data == '全部') {
+					getData('pageNum=1&pageSize=10');
+				}
+				var $as = $('#actionSheet');
+				var date = 'pageNum=1&pageSize=10&selectCompany=' + data;
+				getData(date);
+				$('#titles').text(data);
+				$as.actionSheet('close');
+			}
+			function closeSearch(){
+				$(".search_content").hide();
+				$("#back-btn").hide();
+			}
+
+			function company() {
+				axios({
+						url: '/api/company/queryCompanyByUserId',
+						method: 'post'
+					})
+					.then(res => {
+						let companyArr = res.data;
+						if (companyArr.length > 1) {
+							let html = '';
+							companyArr.forEach((value, index) => {
+								html += '<a class="actionsheet-item" onclick="changeCompany(\'' + value.name + '\')">' + value.name + '</a>';
+							});
+							html += '<a class="actionsheet-item" onclick="changeCompany(\'全部\')">全部</a>';
+							$("#companyList").html(html);
+						} else if (companyArr.length > 0) {
+							$("#companyList").html('<a class="actionsheet-item" onclick="changeCompany(\'' + companyArr[0].name + '\')">' +
+								companyArr[0].name + '</a>');
+						}
+
+					})
+			}
+
+			function searchs() {
+				var customerName = $("#customerName").val();
+				if (typeof(customerName) != 'undefined' && customerName != 0) {
+					var date = 'pageNum=1&pageSize=10&searchValue=' + customerName;
+					$('#titles').text(customerName);
+					getData(date);
+				} else {
+					getData('pageNum=1&pageSize=10');
+				}
+				closeSearch()
+			}
+
+			function getData(data) {
+				if (typeof(data) == 'undefined' && data == 0 || data == null) {
+					data = 'pageNum=1&pageSize=10'
+				}
+				axios({
+						url: "/api/project/listPage",
+						method: "post",
+						data: data,
+					})
+					.then(res => {
+
+						//设置总数
+						$('#num').text(res.total)
+						//处理列表
+						let data = res.records;
+
+						if (data && data.length > 0) {
+							let html = '';
+							//模板装载html
+							html = template('projectListTem', {list:data});
+							// data.forEach((value, index) => {
+							// 	html += '<div style="margin-top: 0.3rem;">';
+							// 	html += '<article class="m-list list-theme4">';
+							// 	html += '<div class="list-mes">';
+							// 	html += '<div class="grids-icon col-lg-3 col-md-3 col-sm-3 col-xs-3" style="height: auto;">';
+							// 	html += '<img src="../image/icon/common.png" style="width: 100%; height: 100%;" />';
+							// 	html += '</div>';
+							// 	html += '<div class="project_info col-lg-8 col-md-8 col-sm-8 col-xs-8">'
+							// 	html += '<div class="projectName"><a href="/crm/customer/customerrecord.html?id=0012019CA62FF91MYsda">' +
+							// 		value.name + '</a></div>';
+							// 	html += '<div class="industry">' + value.type + '</div>';
+							// 	html += '<div class="industry">' + value.statisticsDate + '</div>';
+							// 	html += '</div>';
+							// 	html +=
+							// 		'<div class="cell-right cell-arrow col-lg-1 col-md-1 col-sm-1 col-xs-1" style="line-height: 1.2rem ;"></div>';
+							// 	html += '</div>';
+							// 	html += '</article>';
+							// 	html += '</div>';
+							// });
+							$("#approvalingList").html(html);
+							YDUI.dialog.loading.close();
+						} else {
+							$("#approvalingList").html('暂无项目。');
+						}
+					})
+			}
+		</script>
+	</body>
+</html>

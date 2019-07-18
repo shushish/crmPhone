@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>远大住工-登录</title>
+
+    <!-- Bootstrap -->
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/global.css" rel="stylesheet">
+    <link href="./css/login.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="backgroud container-fluid">
+        <!--遮罩层-->
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 masked"></div>
+        <div class="logo ub-img"></div>
+		<div class="logo_"></div>
+        <form id="tableForm">
+            <div class="login_user">
+                <div class="logintoggle">
+                    <div class="tabCon show">
+                        <div class="user_input ub tip_hide">
+                            <div class="name ub-img"></div>
+                            <div class="input-line"></div>
+                            <input type="text" id="userCode" name="userCode" placeholder="用户名" id="username">
+                            <!-- <div class="tip" id="tip_username">用户名必须是邮箱形式！</div> -->
+                        </div>
+                        <div class="password_input ub tip_hide">
+                            <div class="password ub-img"></div>
+                            <div class="input-line"></div>
+                            <input type="password" name="password" placeholder="密码" id="password">
+                            <!-- <div class="tip" id="tip_pdw">密码错误</div> -->
+                        </div>
+                        <div class="login_dl">
+                            <!-- <span class="loginbox">
+                            <label class="rem_username" for="remember_username">
+                                <input checked="checked" id="remember_username" class="checkbox1" tabindex="4" onclick="remember()" type="checkbox"> &nbsp;
+                                <span>记住用户名</span>
+                            </label>
+                        </span> -->
+                            <!-- <a href="/crm/index.php?s=/user/user/forget" id="forgetpassword">忘记密码？</a> -->
+                        </div>
+
+                        <div class="login_btn">
+                            <a href="javascript:0;" id="login" class="btn_login">登 录</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="./jquery-3.3.1/jquery-3.3.1.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+	<script src="./echart/axios.min.js"></script>
+    <script src="./js/global.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./layer-v3.1.1/layer/layer.js"></script>
+</body>
+
+</html>

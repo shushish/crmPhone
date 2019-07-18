@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>远大住工-日志</title>
+
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="../css/ydui.css" />
+		<link rel="stylesheet" href="../css/global.css" />
+		<!-- 引入YDUI自适应解决方案类库 -->
+		<script src="../js/ydui.flexible.js"></script>
+
+	</head>
+	<body>
+		<section class="g-flexview">
+			<header class="m-navbar" style="background: #00437c;">
+				<a href="javascript:void(0)" class="navbar-item" id="back-btn"><i class="back-ico"></i></a>
+				<div class="navbar-center">
+					<span class="navbar-title" style="color: white;">详情页</span>
+				</div>
+			</header>
+			<div class="g-scrollview">
+				<div class="m-cell">
+					<div class="cell-item">
+						<div class="cell-left">姓名：</div>
+						<div class="cell-right">
+							<span id="name"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">出生日期：</div>
+						<div class="cell-right">
+							<span id="birthDate"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">籍贯：</div>
+						<div class="cell-right"><span id="nativePlace"></span></div>
+					</div>
+
+					<div class="cell-item">
+						<div class="cell-left">职位：</div>
+						<div class="cell-right">
+							<span id="title"></span>
+						</div>
+					</div>
+
+
+					<div class="cell-item">
+						<div class="cell-left">电话号码：</div>
+						<div class="cell-right">
+							<span id="phone"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">部门：</div>
+						<div class="cell-right">
+							<span id="department"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">角色：</div>
+						<div class="cell-right">
+							<span id="role"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">等级：</div>
+						<div class="cell-right">
+							<span id="level"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">是否来我司参观：</div>
+						<div class="cell-right">
+							<span id="visitFlag"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">性别：</div>
+						<div class="cell-right">
+							<span id="sex"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">客户名称：</div>
+						<div class="cell-right">
+							<span id="accountName"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">对我司态度：</div>
+						<div class="cell-right">
+							<span id="attitudeUs"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">影响力：</div>
+						<div class="cell-right">
+							<span id="influence"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">成熟度：</div>
+						<div class="cell-right">
+							<span id="relationship"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">喜好及忌讳：</div>
+						<div class="cell-right">
+							<span id="likeOrTaboo"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">评价：</div>
+						<div class="cell-right">
+							<span id="estimation"></span>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">特征标签：</div>
+						<div class="cell-right">
+							<span id="feature"></span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+		<script src="../jquery-3.3.1/jquery-3.3.1.min.js"></script>
+		<script src="../js/ydui.js"></script>
+		<script src="../echart/axios.min.js"></script>
+		<script src="../js/global.js"></script>
+		<script>
+			$(function() {
+				$("#back-btn").on("click", Common.prototype.Back);
+				initDictionary();
+			});
+
+			function initDictionary() {
+				let id = Common.prototype.GetQueryString("id");
+				axios.post("/api/contact/getContactDetailById", "id=" + id)
+					.then(res => {
+						let content = res.data;
+						console.log(content);
+
+						let name = content.name; //客户名称
+						let birthDate = content.birthDate; //出生日期
+						let nativePlace = content.nativePlace; //籍贯
+						let title = content.title; //职位
+						
+						let phone = content.phone; //电话号码
+						let department = content.department; //部门
+						let role = content.role; //角色
+						let level = content.level; //等级
+						let visitFlag = content.visitFlag; //是否来我司参观
+						if(visitFlag == 0){
+							visitFlag = '是'
+						}else{
+							visitFlag = '否'
+						}
+						let sex = content.sex; //性别
+						let accountName = content.accountName; //客户名称
+						let attitudeUs = content.attitudeUs; //对我司态度
+						let influence = content.influence; //影响力
+						let relationship = content.relationship; //成熟度
+						let likeOrTaboo = content.likeOrTaboo; //喜好及忌讳
+						let estimation = content.estimation; //评价
+						let feature = content.feature; //特征标签
+						
+
+						document.getElementById("name").innerHTML = name;
+						document.getElementById("birthDate").innerHTML = common.dateFtt("yyyy-MM-dd", new Date(birthDate));;
+						document.getElementById("nativePlace").innerHTML = nativePlace;
+						document.getElementById("title").innerHTML = title;
+						document.getElementById("phone").innerHTML = phone;
+						document.getElementById("department").innerHTML = department;
+						document.getElementById("role").innerHTML = role;
+						document.getElementById("level").innerHTML = level;
+						document.getElementById("visitFlag").innerHTML = visitFlag;
+						document.getElementById("sex").innerHTML = sex;
+						document.getElementById("accountName").innerHTML = accountName;
+						document.getElementById("attitudeUs").innerHTML = attitudeUs;
+						document.getElementById("influence").innerHTML = influence;
+						document.getElementById("relationship").innerHTML =  relationship;
+						document.getElementById("likeOrTaboo").innerHTML = likeOrTaboo;
+						document.getElementById("estimation").innerHTML = estimation;
+						document.getElementById("feature").innerHTML = feature;
+					});
+			}
+		</script>
+	</body>
+
+</html>

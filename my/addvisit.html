@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>远大住工-登录</title>
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="../css/ydui.css" />
+		<link rel="stylesheet" href="../css/global.css" />
+		<!-- 引入YDUI自适应解决方案类库 -->
+		<script src="../js/ydui.flexible.js"></script>
+	</head>
+	<body>
+		<section class="g-flexview">
+			<header class="m-navbar" style="background: #433C4E;">
+				<a href="javascript:void(0)" class="navbar-item" id="back-btn"><i class="back-ico"></i></a>
+				<div class="navbar-center">
+					<span class="navbar-title" style="color: white;">客户拜访</span>
+				</div>
+			</header>
+
+			<form about="" method="post" id="tableForm">
+			<div class="g-scrollview">
+				 <div class="m-cell">
+					<div class="cell-item">
+						<div class="cell-left">客户名称：</div>
+						<div class="cell-right">
+						<select name="accountId" id="accountList"  style="width: 100%;height:0.5rem;" onchange="initContact()">
+						</select>
+						</div>
+					</div>
+
+					<div class="cell-item">
+						<div class="cell-left">联 系人：</div>
+						<div class="cell-right">
+							<select name="contactIds" id="ContactList"  style="width: 98%;height:0.5rem;">
+							</select>
+						</div>
+					</div>
+
+
+					 <div class="cell-item">
+						 <div class="cell-left">对应项目：</div>
+						 <div class="cell-right">
+							 <select name="projectId" id="ProjectList"  style="width: 100%;height:0.5rem;">
+
+							 </select>
+						 </div>
+					 </div>
+					<div class="cell-item">
+						<div class="cell-left">拜访日期：</div>
+						<div class="cell-right"><input type="date" id="bfDate"  value="" class="cell-input" placeholder="请输入拜访日期" autocomplete="off" /></div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">拜访地址：</div>
+						<div class="cell-right"><input type="text" id="site"  value="" class="cell-input" placeholder="请输入拜访地址" autocomplete="off" /></div>
+					</div>
+					 <div class="cell-item">
+						 <div class="cell-left">微信提醒对象：</div>
+						 <div class="cell-right">
+							 <select name="WXuserIds" id="UserListDropdown"  style="width: 100%;height:0.5rem;">
+
+							 </select>
+						 </div>
+					 </div>
+					 <div class="cell-item">
+						 <div class="cell-left">拜访目的：</div>
+						 <div class="cell-right">
+							 <select name="visitGoal" id="DictionaryByDictValue"  style="width: 98%;height:0.5rem;">
+
+							 </select>
+						 </div>
+					 </div>
+					 <div class="cell-item">
+						 <div class="cell-left">拜访方式：</div>
+						 <div class="cell-right">
+							 <select name="visitWay" id="visitWayList" autocomplete="off" style="width: 98%;height:0.5rem;">
+
+						 	</select>
+						 </div>
+					 </div>
+					 <div class="cell-item">
+						 <div class="cell-left">拜访纪要：</div>
+						 <div class="cell-right"><input type="text" name="record"  value="" class="cell-input" placeholder="请输入拜访纪要" autocomplete="off" /></div>
+					 </div>
+					 <div class="cell-item">
+						 <div class="cell-left">下一步计划：</div>
+						 <div class="cell-right"><input type="text" name="plan" value=""  class="cell-input" placeholder="请输入下一步计划" autocomplete="off" /></div>
+					 </div>
+					 <button type="button" class="btn-block btn-primary"  id="savebf">保存</button>
+				</div>
+			</div>
+			</form>
+		</section>
+		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+		<script src="../jquery-3.3.1/jquery-3.3.1.min.js"></script>
+		<script src="../js/ydui.js"></script>
+		<script src="../echart/axios.min.js"></script>
+		<script src="../js/global.js"></script>
+		<script src="../js/my/addvisit.js"></script>
+		<script type="text/javascript">
+			$("#back-btn").on("click", Common.prototype.Back);
+		</script>
+
+	    <script type="text/javascript" >
+            $("#savebf").click(function () {
+                let visit = {
+                    'accountId': $("#accountList option:selected").val(),//客户名字id
+                    'contactIds': $("#ContactList option:selected").val(),//联系人多个
+                    'projectId': $("#ProjectList option:selected").val(),//项目id
+                    'bfDate': $('input[name="bfDate"]').val(),//拜访时间
+                    'address': $('input[name="site"]').val(),//拜访地址
+                    'WXuserIds': $("#UserListDropdown option:selected").val(),//微信提醒人
+                    'visitGoal': $("#DictionaryByDictValue").val(),//拜访目的
+                    'visitWay': $("#visitWayList option:selected").val(),//拜访方式
+                    'content': $('input[name="record"]').val(),//拜访纪要
+                    'nextPlan': $('input[name="plan"]').val(),//下一步计划
+                };
+                let form = new FormData();
+                for (var item in visit) {
+                    console.log(item);
+                    console.log(visit[item]);
+                    form.append(item, visit[item] || "");
+                }
+                return axios({
+                    url: '/api/visit/save',
+                    method: 'post',
+                    data:form
+                })
+            });
+		</script>
+
+	</body>
+
+</html>

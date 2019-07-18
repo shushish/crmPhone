@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>远大住工-报表</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 cdn源 
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
+
+
+  <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+
+
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  -->
+
+    <!-- Bootstrap -->
+    <link href="/crm/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/crm/css/global.css" rel="stylesheet">
+    <link href="/crm/css/data/report.css" rel="stylesheet">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="backgroud container-fluid">
+        <div id="header" class="row">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 title">
+                <a class="back show" href="javascript:void(0)"></a>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 title">报表</div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 title"></div>
+        </div>
+        <!--遮罩层-->
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 masked"></div>
+        <div id="body" class="row">
+            <div class="content">
+                <div class="list-top">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h2 class="filterName"></h2>
+                    </div>
+                </div>
+                <div class="item flexLayout type_1 none">
+                    <table class="table_yeji fixedColumn flexItem">
+                        <thead>
+                            <th class="th_gray">所属公司</th>
+                            <th class="th_gray">客户部</th>
+                            <th class="th_gray">总监</th>
+                        </thead>
+                        <tbody class="table_khb_content">
+                        </tbody>
+                    </table>
+                    <div style="overflow: auto;" class="div_table_scorll">
+                        <table class="table_yeji table_scorll">
+                            <thead>
+                                <th class="th_blue">目标</th>
+                                <th class="th_blue">本年成交金额</th>
+                                <th class="th_blue">本年成交个数</th>
+                                <th class="th_blue">差距</th>
+                                <th class="th_blue">项目储备</th>
+                                <th class="th_blue">预计成交</th>
+                                <th class="th_blue">Q1成交</th>
+                                <th class="th_blue">Q2成交</th>
+                                <th class="th_blue">Q3成交</th>
+                                <th class="th_blue">Q4成交</th>
+                            </thead>
+                            <tbody class="table_yeji_content">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="item type_2 none">
+                    <span class="">公司:</span>
+                    <select class="company">
+                        <option>杭州公司</option>
+                        <option>广州公司</option>
+                        <option>深圳公司</option>
+                        <option>南京公司</option>
+                        <option selected="selected">长沙公司</option>
+                        <option>阜阳公司</option>
+                        <option>天津公司</option>
+                        <option>郴州公司</option>
+                        <option>合肥公司</option>
+                        <option>上海公司</option>
+                        <option>岳阳公司</option>
+                        <option>六安公司</option>
+                    </select>
+                </div>
+                <div class="item flexLayout type_2 none">
+                    <table class="table_yeji fixedColumn_jd">
+                        <thead>
+                            <tr>
+                                <th class="th_gray" rowspan="2" style="width: 6rem;">项目阶段</th>
+                                <th class="th_gray" rowspan="2">标准动作</th>
+                            </tr>
+                            <tr>
+
+                            </tr>
+                        </thead>
+                        <tbody class="table_khb_content">
+                            <tr>
+                                <td rowspan="2">项目导入</td>
+                                <td>1.客户关系介入（Coach）</td>
+                            </tr>
+                            <tr>
+                                <td>2.甲方内部情况摸查、陌拜</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="5">项目立项</td>
+                                <td>3.甲方设计主管（TB）首拜</td>
+                            </tr>
+                            <tr>
+                                <td>4.甲方决策人（EB）首拜</td>
+                            </tr>
+                            <tr>
+                                <td>5.邀请甲方考察：考察项目、考察工厂</td>
+                            </tr>
+                            <tr>
+                                <td>6.技术交流会</td>
+                            </tr>
+                            <tr>
+                                <td>7.跟进地块，落实项目基本信息/图纸</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="6">项目推进</td>
+                                <td>8.项目技术交流会</td>
+                            </tr>
+                            <tr>
+                                <td>9.装配式整体解决方案专属建议书&合作模式</td>
+                            </tr>
+                            <tr>
+                                <td>10.设计咨询合同签订</td>
+                            </tr>
+                            <tr>
+                                <td>11.PC深化设计合同签订</td>
+                            </tr>
+                            <tr>
+                                <td>12.报价/项目招投标</td>
+                            </tr>
+                            <tr>
+                                <td>13.PC采购合同商务洽谈</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="1">项目签约</td>
+                                <td>14.PC采购合同签订成交</td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2">Total</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="3">项目交付</td>
+                                <td>15.交付前：开工令、工地库、收验扫码人确认</td>
+                            </tr>
+                            <tr>
+                                <td>16.交付中：现场协调、异常反馈、客户例会</td>
+                            </tr>
+                            <tr>
+                                <td>17.交付后：物料回收、关系维护、完工报告</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Total</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="overflow: auto;" class="div_table_scorll">
+                        <table class="table_yeji table_scorll" id="type2Data">
+                            
+                        </table>
+                    </div>
+                </div>
+                <div class="item flexLayout type_3 none">
+                    <table class="table_yeji">
+                        <thead>
+                            <tr>
+                                <th class="th_gray" rowspan="2">所属公司</th>
+                                <th class="th_gray" rowspan="2">客户部</th>
+                                <th class="th_gray" rowspan="2">总监</th>
+                            </tr>
+                            <tr></tr>
+                        </thead>
+                        <tbody class="table_khb_content weeksHead">
+                        </tbody>
+                    </table>
+                    <div style="overflow: auto;" class="div_table_scorll">
+                        <table class="table_yeji table_scorll">
+                            <thead class="months">
+                                <tr>
+                                    <th class="th_blue">Aug</th>
+                                    <th class="th_blue">Sep</th>
+                                    <th class="th_blue">Oct</th>
+                                    <th class="th_blue">Nov</th>
+                                    <th class="th_blue">Dec</th>
+                                    <th class="th_blue">SUM</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table_yeji_content weeksData">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer" class="row">
+            <div class="col5-xs-1 col5-sm-1 col5-md-1 col5-lg-1">
+                <a href="/crm/index_new.html">
+                    <span class="index img-span active"></span>
+                    <div class="lable_footer">首页</div>
+                </a>
+            </div>
+            <div class="col5-xs-1 col5-sm-1 col5-md-1 col5-lg-1">
+                <a href="/crm/project/project.html">
+                    <span class="project img-span"></span>
+                    <div class="lable_footer">项目</div>
+                </a>
+            </div>
+            <div class="col5-xs-1 col5-sm-1 col5-md-1 col5-lg-1">
+                <a href="/crm/data/dataBoard_new.html">
+                    <span class="data img-span"></span>
+                    <div class="lable_footer">看板</div>
+                </a>
+            </div>
+            <div class="col5-xs-1 col5-sm-1 col5-md-1 col5-lg-1">
+                <a href="/crm/visit/visit.html#/date">
+                    <span class="plan img-span"></span>
+                    <div class="lable_footer">日常</div>
+                </a>
+            </div>
+            <div class="col5-xs-1 col5-sm-1 col5-md-1 col5-lg-1">
+                <a href="/crm/my/my.html">
+                    <span class="my img-span"></span>
+                    <div class="lable_footer">我的</div>
+                </a>
+            </div>
+            <!--按钮数量不定时可考虑以下ul式-->
+            <!-- <ul>
+                <li>
+                    <a>
+                        <span class="index img-span active"></span>
+                        <div>首页</div>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span class="project img-span"></span>
+                        <div>项目</div>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span class="data img-span"></span>
+                        <div>看板</div>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span class="plan img-span"></span>
+                        <div>日常</div>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span class="my img-span"></span>
+                        <div>我的</div>
+                    </a>
+                </li>
+            </ul> -->
+        </div>
+    </div>
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="/crm/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="/crm/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/crm/js/global.js"></script>
+    <script src="/crm/js/data/report.js"></script>
+    <script src="/crm/layer-v3.1.1/layer/layer.js"></script>
+</body>
+
+</html>

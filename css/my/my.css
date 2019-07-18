@@ -1,0 +1,198 @@
+.pro {
+    height: 6rem;
+    border-bottom: 1px solid #ddd;
+    background: white;
+    padding: 0px 1rem;
+    /* margin-top:1rem;
+    margin-bottom:1rem; */
+}
+
+.icon_p {
+    height: 100%;
+    padding: 0rem;
+}
+
+.icon_project {
+    display: inline-block;
+    width: 5rem;
+    height: 6rem;
+    background: url(/crm/image/icon/unrecorded.png) no-repeat center center;
+    background-size: 80%;
+    cursor: pointer;
+    display: block;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.visit {
+    background: url(/crm/image/icon/nophoto.gif) no-repeat center center;
+    background-size: 80%;
+}
+
+.project_info {
+    height: 100%;
+    padding: 0rem 0rem 0rem 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 6rem;
+}
+
+.icon_slid {
+    padding: 0rem;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 100%;
+    line-height: 6rem;
+    text-align: right;
+}
+
+.industry {
+    padding: 0rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 2rem;
+    font-size: 1.5rem;
+    overflow: hidden;
+    color: #989393;
+}
+
+.projectName {
+    padding: 0rem;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 2rem;
+    font-size: 2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: black;
+    margin-top:1rem;
+}
+
+.slid_up {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1rem;
+    background: url(/crm/image/icon/slid_up.png) no-repeat center center;
+    background-size: 90%;
+    cursor: pointer;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.item {
+    height: 4rem;
+    border-bottom: 1px solid #ddd;
+    background: white;
+    padding: 0px 1rem;
+    /* margin-top:1rem; */
+}
+
+.item_lable{
+    padding: 0rem;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 2rem;
+    font-size: 1.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: black;
+    margin-top:1rem;
+}
+
+.my_customer{
+    background: url(/crm/image/icon/customers.svg) no-repeat center center;
+    background-size: 80%;
+}
+
+.my_marketingtool{
+    background: url(/crm/image/icon/img1.png) no-repeat center center;
+    background-size: 40%;
+}
+
+.my_notice{
+    background: url(/crm/image/icon/img2.png) no-repeat center center;
+    background-size: 45%;
+}
+
+.my_manual{
+    background: url(/crm/image/icon/manual.png) no-repeat center center;
+    background-size: 50%;
+}
+
+.my_course{
+    background: url(/crm/image/icon/course.png) no-repeat center center;
+    background-size: 50%;
+}
+
+.my_rank{
+    background: url(/crm/image/icon/paihangbang.png) no-repeat center center;
+    background-size: 50%;
+}
+
+.my_publicity{
+    background: url(/img/publicity.png) no-repeat center center;
+    background-size: 60%;
+}
+
+.icon_item{
+    display: inline-block;
+    width: 5rem;
+    height: 4rem;
+    /* background-size: 80%; */
+    cursor: pointer;
+    display: block;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.icon_slid_item{
+    padding: 0rem;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 100%;
+    line-height: 4rem;
+    text-align: right; 
+}
+
+.portrayal {
+    margin-top: 1rem;
+    height: 20rem;
+    margin-bottom: 4.5rem;
+}
+
+.project_portrayal{
+    width: 1.5rem;;
+    width: -moz-min-content;
+    width: -ms-min-content;
+    width: -webkit-min-content;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.my_approve{
+    background: url(/crm/image/icon/approve.png) no-repeat center center;
+    background-size: 50%;
+}
+
+.my_logout{
+    background: url(/crm/image/icon/logout.png) no-repeat center center;
+    background-size: 50%;
+}
+
+.my_accountSet{
+    background: url(/img/setting.png) no-repeat center center;
+    background-size: 50%;
+}
+
+#body{
+    background: white;
+}
+
+.split{
+    width: 100%;
+    height: 1.5rem;
+    background: #EDEDF3;
+}

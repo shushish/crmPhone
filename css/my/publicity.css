@@ -1,0 +1,80 @@
+#body {
+    background: white;
+}
+
+.title_gg {
+    text-align: center;
+    margin: 1rem 1rem 0rem 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.type_gg {
+    margin: 1rem 1rem 0rem 1rem;
+    font-size: 1.5rem;
+}
+
+.content_gg {
+    margin: 1rem 0rem 1rem 1rem;
+    font-size: 1.5rem;
+    overflow: scroll;
+}
+
+.title_message {
+    margin: 1rem 1rem 0rem 1rem;
+    font-size: 1.5rem;
+}
+
+img {
+    max-width: none;
+}
+
+.message {
+    margin: 1rem 1rem 0rem 1rem;
+}
+
+.info {
+    width: 4rem;
+}
+
+.photo {
+    width: 4rem;
+    height: 4rem;
+}
+
+.name {
+    text-align: center;
+}
+
+.content_all {
+    padding: 0rem 0.5rem;
+}
+
+.content_message {}
+
+.time {
+    text-align: right;
+}
+
+.bottom {
+    margin-bottom: 7rem;
+}
+
+.inputMessage{
+    margin: 1rem 1rem 0rem 1rem;
+    text-align: right;
+}
+
+.inputMessage > textarea{
+    line-height: 2rem;
+    height: 6rem;
+    margin-top: 1rem;
+    width:100%;
+    border: solid 1px gray;
+}
+
+.inputMessage > input{
+    width: 4rem;
+    /* padding: 0.5rem; */
+    margin-right: 1rem;
+}

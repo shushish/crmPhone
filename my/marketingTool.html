@@ -1,0 +1,2127 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="main">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>远大住工-营销工具</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 cdn源 
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
+
+
+  <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+
+
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  -->
+
+    <!-- Bootstrap -->
+    <link href="/crm/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/crm/css/global.css" rel="stylesheet">
+    <link href="/crm/css/project/contactsRoleList.css" rel="stylesheet">
+    <link href="/crm/css/project/attachmentList.css" rel="stylesheet">
+    <link href="/crm/CSS/my/marketingTool.css" rel="stylesheet">
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="backgroud container-fluid">
+        <div id="header" class="row">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 title">
+                <a class="back show" href="javascript:void(0)"></a>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 title">营销工具</div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 title">
+                <!-- <a class="addproject" href="/crm/project/addContactsRole.html?proId="></a> -->
+            </div>
+        </div>
+        <!--遮罩层-->
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 masked">
+            <div class="jiantou"></div>
+            <div style="clear: both;"></div>
+            <div class="maskContent">点击右上角
+                <br>选择在浏览器中打开</div>
+        </div>
+        <div id="body" class="row">
+            <div class="fixed-layer">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 btn_top btn_search">搜索</div>
+                <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 btn_top dropdown">
+                            <a class="order-menu" data-toggle="dropdown" href="#">按更新时间
+                                <span class="slid_up"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                <li>按更新时间</li>
+                                <li>按创建时间</li>
+                                <li>按分析时间</li>
+                                <li>按完成时间</li>
+                                <li>按行业排序</li>
+                                <li>按名称排序</li>
+                                <li>按金额排序</li>
+                            </ul>
+                            <a id="arrows" class="arrows-down">
+                                <span class="reverse"></span>
+                            </a>
+                        </div> -->
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 btn_top dropdown">
+                    <a class="order-menu2" data-toggle="dropdown" href="#">分类
+                        <span class="slid_up"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                        <li class="stage" data-id="1">市场管理文件</li>
+                        <li class="stage" data-id="2">新手工具包</li>
+                        <li class="stage" data-id="3">报备阶段工具</li>
+                        <li class="stage" data-id="4">立项阶段工具</li>
+                        <li class="stage" data-id="5">方案阶段工具</li>
+
+                        <li class="stage" data-id="6">谈判阶段工具</li>
+                        <li class="stage" data-id="7">签约阶段工具</li>
+                        <li class="stage" data-id="8">CRM系统操作指引</li>
+                        <li class="stage" data-id="9">其他工具</li>
+
+                        <li class="stage" data-id="15">联合管理</li>
+                        
+                        <li class="stage" data-id="18">废弃文件</li>
+                        
+                        <li class="stage" data-id="23">联合合同管理</li>                                                
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="content" style="padding-top: 3rem;">
+                <div class="list-top" id="1">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">市场管理文件</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                            <span id="zlxyNum"></span>
+                        </strong>
+                        <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/bsFTmBDWJqTH3zT">项目信息管理办法（CRM2.0）</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">pdf </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/zxIBcqPJjjJUKS9">民乐项目确认函</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/iGu8CbkSSdi6I1Z">客户信息管理办法（CRM2.0）</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">pdf </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/PE92HEmfbQZJ9Dz">中标确认函</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top" id="2">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">新手工具包</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                <span id="zlxyNum"></span>
+                            </strong>
+                            <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/BOKKVyYmVtimcTN">项目操作流程</a>
+                                </td>
+                                <td class="dataCell" width="40%">流程指引 </td>
+                                <td class="dataCell" width="20%">pdf </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/rukqbCpwyPC5aIi">项目报价流程</a>
+                                </td>
+                                <td class="dataCell" width="40%">流程指引 </td>
+                                <td class="dataCell" width="20%">pdf </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/I6xF1KP6ymdYGEt">项目投标申请流程（CRM系统）</a>
+                                </td>
+                                <td class="dataCell" width="40%">审批流程 </td>
+                                <td class="dataCell" width="20%">pdf </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/Jgf0Go7ANdpaLAz">远大住工竞争优势简介（水印版）</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">pdf </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/zwdpF2JiXIiice3">设计对接流程（市场对接设计）</a>
+                                </td>
+                                <td class="dataCell" width="40%">流程指引 </td>
+                                <td class="dataCell" width="20%">pdf </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/C8azrCZF0QLSmvU">报价工作指引</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">pdf </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/F2gLMWBQpwTGuSu">投标工作指引</a>
+                                </td>
+                                <td class="dataCell" width="40%">工作指引 </td>
+                                <td class="dataCell" width="20%">pdf </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/2JDPM8Sf4PFVv4M">市场拓展手册（2017）</a>
+                                </td>
+                                <td class="dataCell" width="40%">PDF </td>
+                                <td class="dataCell" width="20%">pdf </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/NmZYDeXIug355q4">合同洽谈及签订工作指引</a>
+                                </td>
+                                <td class="dataCell" width="40%">工作指引 </td>
+                                <td class="dataCell" width="20%">pdf </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/eW1j8oNP1ZZ6Ekt">合同审批流程（OA平台）</a>
+                                </td>
+                                <td class="dataCell" width="40%">审批流程 </td>
+                                <td class="dataCell" width="20%">pdf </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/ru6OmdpE8v38I5u">PC销售报价审批流程（BIAS系统）</a>
+                                </td>
+                                <td class="dataCell" width="40%">审批流程 </td>
+                                <td class="dataCell" width="20%">pdf </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top" id="3">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">报备阶段工具</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                    <span id="zlxyNum"></span>
+                                </strong>
+                                <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/Nxbix3fH5Slm3Oz">远大管廊纪实片-压缩加水印版</a>
+                                </td>
+                                <td class="dataCell" width="40%">宣传视频 </td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/pIncshwLrL2ps1k">远大之路-水印版</a>
+                                </td>
+                                <td class="dataCell" width="40%">宣传视频 </td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/Sl6HTDP75m0nGSR">管廊施工动漫</a>
+                                </td>
+                                <td class="dataCell" width="40%">宣传视频 </td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/VfWQ0CwfssSerKP">推介PPT（初次拜访）</a>
+                                </td>
+                                <td class="dataCell" width="40%">PPT </td>
+                                <td class="dataCell" width="20%">ppt </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/TY3dRWncRKZsRno">巡礼片-水印-最新0815</a>
+                                </td>
+                                <td class="dataCell" width="40%">宣传视频 </td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/EGAq7WRr66imWhM">地下室施工动漫</a>
+                                </td>
+                                <td class="dataCell" width="40%">宣传视频 </td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/xcH5tjQst9tWMDZ">压缩加水印版-远大管廊专题片</a>
+                                </td>
+                                <td class="dataCell" width="40%">宣传视频 </td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/q1sPUqX9h4V5ZFk">2016宣传片</a>
+                                </td>
+                                <td class="dataCell" width="40%">宣传视频 </td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top" id="4">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">立项阶段工具</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                        <span id="zlxyNum"></span>
+                                    </strong>
+                                    <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/YwqpJdqT7E4unyU">环保效益计算模板</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">xls </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/kVk9eafoIVwOc4C">比价工具</a>
+                                </td>
+                                <td class="dataCell" width="40%">一星级比价工具 </td>
+                                <td class="dataCell" width="20%">xlsx </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/lpLfjXol1m6qOmL">30-50%装配式建筑造价对比</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">pdf </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top" id="5">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">方案阶段工具</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                            <span id="zlxyNum"></span>
+                                        </strong>
+                                        <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/HtKvouMRm4f0SKu">麓谷小镇1T6工业化设计方案（标准模板）</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">ppt </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/KlVY2KrA8f2XhMW">建筑一星构件安装工程吊装施工操作手册0825</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">pdf </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/UOfRlvx1xg8H3rW">吊装专项施工方案(范本）9.6</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">pdf </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top" id="6">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">谈判阶段工具</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                <span id="zlxyNum"></span>
+                                            </strong>
+                                            <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/35Gjxvte2q256xZ">战略合作框架协议</a>
+                                </td>
+                                <td class="dataCell" width="40%">合同模板 </td>
+                                <td class="dataCell" width="20%">doc </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top" id="7">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">签约阶段工具</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                    <span id="zlxyNum"></span>
+                                                </strong>
+                                                <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/eb5rEmuvwdBRGHc">PC构件采购合同（房建）</a>
+                                </td>
+                                <td class="dataCell" width="40%">合同模板 </td>
+                                <td class="dataCell" width="20%">docx </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top" id="8">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">CRM系统操作指引</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                        <span id="zlxyNum"></span>
+                                                    </strong>
+                                                    <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/Z0iSfqjECfy7PQs">6、客服系统PC与APP操作视频</a>
+                                </td>
+                                <td class="dataCell" width="40%">观看、下载视频，请点击“URl路径”。 </td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/zG1aa6OAjjFdkTY">5、CRM系统设置操作</a>
+                                </td>
+                                <td class="dataCell" width="40%">观看、下载视频，请点击“URl路径”。 </td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/brGj0gFJ4i52d0s">4、CRM系统市场支持版块</a>
+                                </td>
+                                <td class="dataCell" width="40%">观看、下载视频，请点击“URl路径”。 </td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/OhRbOl7KHxSgrH3">3、CRM系统 数据运营板块</a>
+                                </td>
+                                <td class="dataCell" width="40%">观看、下载视频，请点击“URl路径”。 </td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/KT5QuzPAvVNlKEr">2、CRM系统项目推进版块操作</a>
+                                </td>
+                                <td class="dataCell" width="40%">观看、下载视频，请点击“URl路径”。 </td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/QGXMfJVs4V3vNhv">1、CRM系统客户管理模块介绍与实操</a>
+                                </td>
+                                <td class="dataCell" width="40%">观看、下载视频，请点击“URl路径”。 </td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top" id="9">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">其他工具</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                            <span id="zlxyNum"></span>
+                                                        </strong>
+                                                        <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/7im26pjkncZcir0">项目案例展示</a>
+                                </td>
+                                <td class="dataCell" width="40%">项目案例展示 </td>
+                                <td class="dataCell" width="20%">pdf </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/e5kF1RuT2tOGHlm">远大住工综合管廊</a>
+                                </td>
+                                <td class="dataCell" width="40%">PPT </td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/FRvcLCcUU9i7v5T">远大住工综合介绍</a>
+                                </td>
+                                <td class="dataCell" width="40%">PDF </td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/aScBHyBadruORDm">远大住工第六代施工演示</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/NjiblkesqHAojdX">远大住工地下室</a>
+                                </td>
+                                <td class="dataCell" width="40%">PPT </td>
+                                <td class="dataCell" width="20%">pdf </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/SzX4IOiCy5DMlst">国家及地方产业化政策汇编</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">pdf </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top" id="10">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">商务管理</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                                <span id="zlxyNum"></span>
+                                                            </strong>
+                                                            <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top" id="11">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">财务管理</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                                    <span id="zlxyNum"></span>
+                                                                </strong>
+                                                                <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top" id="12">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">信息管理</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                                        <span id="zlxyNum"></span>
+                                                                    </strong>
+                                                                    <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top" id="13">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">人力考核</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                                            <span id="zlxyNum"></span>
+                                                                        </strong>
+                                                                        <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top" id="14">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">售中阶段：业务类工具（归档文件）</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                                                <span id="zlxyNum"></span>
+                                                                            </strong>
+                                                                            <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top" id="15">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">联合管理</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                                                    <span id="zlxyNum"></span>
+                                                                                </strong>
+                                                                                <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/NiJ272CNW6aM6TJ">青岛</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/FzRCnJjNy7caE1Q">陕西西安陕能营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/AvxlyN5L8upvuhU">陕西-韩城执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/AIRnLFFndfp4R8E">重庆渝隆远大营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/P6skPsc6Qd5t0A9">远大联合租赁工厂选址选厂要求2017.03.15</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">doc </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/u3lFsjcjsLi4bYo">远大联合租赁工厂勘测检查表2017.03.15</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">xls </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/mwkeuJ3xlBvGdgR">远大联合新建工厂勘测检查表2017.03.15</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">xls </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/jHR4YGAk6JdBQ6T">远大联合新工厂规划设计要求2017.03.15</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">doc </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/Bfm87dItvJkMNDH">贵州城投远大公司营业执照正本</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/BRHdsLRJwptg9Wr">襄阳宏泰远大营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/IBHCvRFlbTX9sMz">苏州毅远上海联合营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/sy2VSoRy0wFAm9w">苏州嘉盛营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/ipU4NyuuuNxLjpt">漯河远大天成营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/EDuv8n8uHG7APr2">湖南省益阳远大营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/K9sCje7ehAid1TR">湖南怀化嘉晟远大工商</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/3fUzp054qvtPNOE">湖南怀化嘉晟远大工商</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/2fJ7XZrfismqFLV">温州营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/vQEFdfqjZ1yeaL8">浙江绍兴远大勤业营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/EvNKs99W9iJUy6g">浙江宁波海达远大营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/w1rIdIeW0ydjQO4">浙江宁波海达远大营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/2hWPP1maVAM673S">泰安营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/ohlG8S63DY95hVL">江苏淮安凡之晟营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/Zyev1CPcdolksAE">江苏淮安凡之晟营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/2SHUN8Sbr2Gl0Go">江苏扬州金陵远大执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/v86ZFx6jcGZXqMY">永州远大营业执照副本</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/DrDu4AGfFb6G4v3">新蒲远大营业执照1</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/bbHbl2NWBQyNoRy">新疆远大华美营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/5iZditzJOwPupf0">新疆石河子天富远大营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/0ERnNXO0IbN0LO8">成都城投远大营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/FwD6AlRcGblNIOa">广州营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/UEDx9LyADzS2UiP">常德营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/JrFRyfbqDJ6SrFe">山西太原营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/9C9WPahQPWmY4R8">天津远大兴辰营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/rW04OzZfhy8EFry">南昌营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/U3r3wF4EU0TycCJ">南京执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/eATgZpqSKIx81ol">北京佳龙远大营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/5TsOxdiwGAOs3Rl">九江营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top" id="16">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">公司筹建</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                                                        <span id="zlxyNum"></span>
+                                                                                    </strong>
+                                                                                    <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top" id="17">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">工艺模型</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                                                            <span id="zlxyNum"></span>
+                                                                                        </strong>
+                                                                                        <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top" id="18">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">废弃文件</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                                                                <span id="zlxyNum"></span>
+                                                                                            </strong>
+                                                                                            <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/y3O0phzcADTv5Ca">顾村中标通知书</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/Xd5cS8A7Rac0ULi">韩建预制构件采购合同</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/sPkuNYTw3v4Jw08">隽峰预制PC构件招标 文件zb</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/dkP4Tn1MRbwjZqr">陕西管廊标准论证会</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/hZqflnN8NbmRsHX">镇江远洋香奈河畔三期（28-29#剪力墙）</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/50yrsUil6sml6Xs">镇江远洋香奈河畔三期（28#-29#）</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/G9wjmnDXm91v2U7">镇江远洋香奈河畔三期（26#结构说明）</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/Q9jFNYye4jEKWzH">镇江远洋香奈河畔三期（26#墙柱）</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/SOZNJVZ7y4n3JlY">销售PPT -V1 20170724</a>
+                                </td>
+                                <td class="dataCell" width="40%">PPT </td>
+                                <td class="dataCell" width="20%">ppt </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/HvtaTLckLFQllOE">金地顺义项目执行合同</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/uLv6bUczX46isPK">金地顺义项目执行合同</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/t1sE0DBSjat4P5W">金地顺义项目执行合同</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/Z9TmG0eFcAJ6dkM">金地顺义项目执行合同</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/UdRkvIWvNaFPjrc">金地三千府七期</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/7R9eogR4q9C1DPc">远大住工楼梯介绍</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/MomwaObdjsAnjEI">远大住工技术标—樊家村危改6号地项目PC构件加工、运输供货工程</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/sC8730aZQqbrnPJ">远大住工商务标-樊家村危改6号地项目PC构件加工、运输供货工程</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/pZGBJmBtwD95LSL">财院施工图（未外审）</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/6ugwOScO88ZpzlM">财院施工图（未外审）</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/5Huj4wGBrQPCHjT">营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/kNyhXuPOJQI7lJ1">结构</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/nLScGQxqbU6sBL9">紫宸澜山二期工业化设计方案</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/N0v48YjS9zPSrFM">祝桥合同P76-P112</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/h43SsWHPGWkdp4R">祝桥合同P76-P112</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/vgzRaO9QbUldczX">祝桥合同P38-P75</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/aoqF5d3RT8sJ5q3">祝桥合同P38-P75</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/Xn7tuZ7QOo2mAvd">温氏学院补充协议扫描版</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/dI96Uun5VmSE25e">温氏学院扩建工程PC构件采购合同-20170517扫描版</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/490V0I4bcKIkzzL">温氏养殖场装配式粪沟试验工程PC构件采购合同-南牧-盖章版-20170510(2)</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/inajhsJk1vL5o1V">清单估算报价及经济指标分析（格式）</a>
+                                </td>
+                                <td class="dataCell" width="40%">报价工具 </td>
+                                <td class="dataCell" width="20%">xlsx </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/wqewnNYcExOTqoB">新疆远大华美营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/aUVkq6mR2mnurLv">投标文件--荣盛</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/zrfDdspnYEMNWJG">技术标</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/7Z14ABzbZQUBIGO">执照复印件</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/02InZvjZMbWiKuT">微信图片_20171017094958</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/XM9KP1e7qPUlY8q">微信图片_20170702131740</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/vksubgZ9geB8CF8">微信图片_20170702131737</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/eQXomH0PmLNwvjn">微信图片_20170620115410</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/UBTw9kAOmmfHn5G">微信图片 2_20171017100931</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/Ex6LRqsDR9diXzS">彩虹湾四期PC构件合同</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/zYGaAVpRF33msb1">广西泰和远大展示合同</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/rWQPgkWuTN8XVqA">广西泰和远大展示合同</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/EVXLlilXaDKSTjd">工作联系单-装配式-2017-2-24</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/Eja9oA8XoP40zhO">宁夏银川市西夏区兴泾镇回乡风情特色小镇城镇化建设一期工程二标段</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/PPb108bKcqiGLw7">宁夏银川市西夏区兴泾镇回乡风情特色小镇城镇化建设一期工程一标段</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/1qXNQ5I7jQokf5J">合同附件（验收标准）</a>
+                                </td>
+                                <td class="dataCell" width="40%">合同附件 </td>
+                                <td class="dataCell" width="20%">docx </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/H98FlFZSfL4rk90">合同</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/02InZvjZMbWiKuT">合作协议</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/cT5Fa5Cjj80N2zq">双新小学</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/qJrcNcOFWHQRX0v">北京华润项目合同</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/9CloHcUb7PRsFyn">内蒙中朵营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/CyPK71nElgULxW2">兴泸远大营业执照</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/iHy6zMOoaFMVy5C">关于PC板发货事宜补充协议</a>
+                                </td>
+                                <td class="dataCell" width="40%">合同模板 </td>
+                                <td class="dataCell" width="20%">docx </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/1bd9AjhwIcOVENM">六局预制构件采购合同</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/BQq3pkQqmont62J">保利绿岛花园二期19栋结构施工图（含PC）</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/T9kqOdGlfyX9bn8">仕府公馆楼梯.pdf1</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/tHbO1znAvglTDCe">人才公寓合同</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/XDnoK1sbqMTrd4Z">中标通知书</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/Zx13AE5tr87fJNm">中标通知书</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/Fg90zp6VKdBvxUv">中建重固项目盖章存档合同</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/JxWA9aMfCzRc4fJ">中建重固项目PC综合单价报价表-最终版</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/7eqSImTcdWSShlx">中建虹口彩虹湾项目PC构件投标报价清单--2017调价</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/xuRhECXE2cZdrOB">中建民乐项目盖章版合同</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/o0XxfOee2ZhWeC9">万科星城华府项目合同扫描件</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/1WLHs2nGclKt883">万科星城华府项目合同扫描件</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/CsVhIDLd55wpNQX">PC构件采购合同（管廊）</a>
+                                </td>
+                                <td class="dataCell" width="40%">合同模板 </td>
+                                <td class="dataCell" width="20%">docx </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/6cCeh4nAvHdv1a8">PC构件招标文件</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/9q7nvFR5wjlhISm">846088598530508651</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/fChNKN7YoGWrdS5">7月20日 关于推进永州市住宅产业化的实施意见</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/fXsgUWcCDbCzafG">714112102877134796</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/GtH8xPTlDwpoVgQ">6</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/IPceYhMKMfFprIL">6</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/l3QXy6xNjNJg41m">560952972303945500</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/eqghAQGcVjOrlNx">5</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/ZHCg7rnUbXg5Cdl">5</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/puKS49Bat6Z9f3i">466833924698312657</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/OsPTaYb9fGqiqtl">4</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/Hh7cE0BAtyG4vRi">4</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/3nbyKZHdpXliCd7">4</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/gFJX3hWffo0ozZb">37735489400759999</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/1nOWT7A9SR1k2GJ">3</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/CZie0El5RLkvxhw">3</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/DWHF6nAIgTk7voV">2根据荣盛量报价</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/gJOk4hqaZx7FVnP">238022022117107162</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/p8bCayV83n8RSOn">20170926远大入园合同（定）</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/7m3cJ2EpSLKilPG">2</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/d4GfM4tu22RnCPg">2</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/xIbC5pllFH2qh8o">1、招标文件及授权委托书</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/iWyCBscqReiRf7M">1、招标文件</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/L4Fy279VriYK0to">111</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/HC9bD9ufH4EBzPT">1 招标文件-中建虹口项目预制构件采购</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/qqLydNtIgjFNvAx">1</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/VgNWjRfKd3OeqjO">1</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">URL </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/ogsyFwQnVBSjeuT"> 装配式项目报价估算表（格式</a>
+                                </td>
+                                <td class="dataCell" width="40%">报价工具 </td>
+                                <td class="dataCell" width="20%">xls </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top" id="19">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">品牌推广</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                                                                    <span id="zlxyNum"></span>
+                                                                                                </strong>
+                                                                                                <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top" id="20">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">生产模型</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                                                                        <span id="zlxyNum"></span>
+                                                                                                    </strong>
+                                                                                                    <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top" id="21">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">设计模型</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                                                                            <span id="zlxyNum"></span>
+                                                                                                        </strong>
+                                                                                                        <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top" id="22">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">质量模型</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                                                                                <span id="zlxyNum"></span>
+                                                                                                            </strong>
+                                                                                                            <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top" id="23">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">联合合同管理</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                                                                                    <span id="zlxyNum"></span>
+                                                                                                                </strong>
+                                                                                                                <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/gkQZJyUssFg4zBl">设备合同</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">docx </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/UtqxamHNetJIYsG">许可使用协议</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">docx </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/4N11WCLEirpCNw1">股权合作协议5+1</a>
+                                </td>
+                                <td class="dataCell" width="40%">&nbsp;</td>
+                                <td class="dataCell" width="20%">docx </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- <div class="list-top" id="24">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">报备阶段工具</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        
+                    </div>
+                </div> -->
+                <div class="fileList">
+
+                </div>
+                <div class="list-top" id="25">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">模板套红文件夹</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                                                                                            <span id="zlxyNum"></span>
+                                                                                                                        </strong>
+                                                                                                                        <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+
+                </div>
+                <div class="list-top" id="26">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">我的个人文件夹</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                                                                                                <span id="zlxyNum"></span>
+                                                                                                                            </strong>
+                                                                                                                            <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+
+                </div>
+                <div class="list-top" id="27">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">PC产品证明类材料</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                                                                                                    <span id="zlxyNum"></span>
+                                                                                                                                </strong>
+                                                                                                                                <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+
+                </div>
+                <div class="list-top" id="28">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">投标报价支持工具</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                                                                                                        <span id="zlxyNum"></span>
+                                                                                                                                    </strong>
+                                                                                                                                    <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+                    <table class="cloudtablestyle" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr class="tabtitle">
+                                <td class="tdTitle" width="40%">名称</td>
+                                <td class="tdTitle" width="40%">备注</td>
+                                <td class="tdTitle" width="20%">文档扩展名</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/FByx7waaxPIYPxz">报价工作指引</a>
+                                </td>
+                                <td class="dataCell" width="40%">报价工作指引 </td>
+                                <td class="dataCell" width="20%">pdf </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/0M0pwxEPYf9Dcgb">投标报价支持文件清单</a>
+                                </td>
+                                <td class="dataCell" width="40%">投标报价支持文件清单 </td>
+                                <td class="dataCell" width="20%">xls </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/QL4DURO928gslGi">投标工作指引</a>
+                                </td>
+                                <td class="dataCell" width="40%">投标工作指引 </td>
+                                <td class="dataCell" width="20%">pdf </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/FkUc2OisvIhD4Xv">吊装专项施工方案</a>
+                                </td>
+                                <td class="dataCell" width="40%">吊装专项施工方案 </td>
+                                <td class="dataCell" width="20%">pdf </td>
+                            </tr>
+                            <tr class="dataRow">
+                                <td class="dataCell" width="40%">
+                                    <a class="xxx" href="http://d.bhome.com.cn:8090/s/q0daX0yIKzwIIqK">叠合装配整体式综合管廊专项施工方案</a>
+                                </td>
+                                <td class="dataCell" width="40%">叠合装配整体式综合管廊专项施工方案 </td>
+                                <td class="dataCell" width="20%">pdf </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-top" id="29">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">投标文件支持</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                                                                                                            <span id="zlxyNum"></span>
+                                                                                                                                        </strong>
+                                                                                                                                        <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+
+                </div>
+                <div class="list-top" id="30">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">其他</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                                                                                                                <span id="zlxyNum"></span>
+                                                                                                                                            </strong>
+                                                                                                                                            <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+
+                </div>
+                <div class="list-top" id="31">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">企业资信类材料</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                                                                                                                    <span id="zlxyNum"></span>
+                                                                                                                                                </strong>
+                                                                                                                                                <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+
+                </div>
+                <div class="list-top" id="32">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <h2 class="filterName">投标文件支持报价支持</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 statistics">
+                        <!-- <strong>数量:
+                                                                                                                                                        <span id="zlxyNum"></span>
+                                                                                                                                   </strong>
+                                                                                                                                                    <a href="javascript:void(0);" class="projectSurvey-edit zlxy"></a> -->
+                    </div>
+                </div>
+                <div class="fileList">
+
+                </div>
+
+            </div>
+            <div id="GoToTop">
+                <a onclick="Common.prototype.ScrollToTop('main')">回到顶部</a>
+            </div>
+        </div>
+        <div id="footer" class="row">
+            <div class="col5-xs-1 col5-sm-1 col5-md-1 col5-lg-1">
+                <a href="/crm/index_new.html">
+                    <span class="index img-span"></span>
+                    <div class="lable_footer">首页</div>
+                </a>
+            </div>
+            <div class="col5-xs-1 col5-sm-1 col5-md-1 col5-lg-1">
+                <a href="/crm/project/project.html">
+                    <span class="project img-span active"></span>
+                    <div class="lable_footer">项目</div>
+                </a>
+            </div>
+            <div class="col5-xs-1 col5-sm-1 col5-md-1 col5-lg-1">
+                <a href="/crm/data/dataBoard_new.html">
+                    <span class="data img-span"></span>
+                    <div class="lable_footer">看板</div>
+                </a>
+            </div>
+            <div class="col5-xs-1 col5-sm-1 col5-md-1 col5-lg-1">
+                <a href="/crm/visit/visit.html#/date">
+                    <span class="plan img-span"></span>
+                    <div class="lable_footer">日常</div>
+                </a>
+            </div>
+            <div class="col5-xs-1 col5-sm-1 col5-md-1 col5-lg-1">
+                <a href="/crm/my/my.html">
+                    <span class="my img-span"></span>
+                    <div class="lable_footer">我的</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <form class="form-signin" id="myForm" action="http://kf.bhome.com.cn:8804/cloucc/Uploader" enctype="multipart/form-data"
+        method="post">
+        <!-- <h2 class="form-signin-heading">文件上传</h2> -->
+        <!--         <label for="inputEmail" class="sr-only" >上传人姓名</label>         <input id="uploader" name="video.uploader" type="text" id="inputEmail" class="form-control" placeholder="上传人姓名" required autofocus>         <label for="inputPassword" class="sr-only">视频关键字</label>         <input name="video.videoKey" type="text" id="inputPassword" class="form-control" placeholder="视频关键字" required>                  <label for="inputPassword" class="sr-only">视频描述</label>         <input name="video.description" type="text" id="inputPassword" class="form-control" placeholder="视频描述" required> -->
+        <input type="hidden" name="url" id="uploadUrl" />
+        <input type="hidden" name="rturl" id="rturl" />
+        <input type="file" name="file" id="fileUpload" value="选择文件" />
+        <!-- <button class="btn btn-lg btn-primary btn-block" onclick="checkFile()">点击上传</button> -->
+    </form>
+    <script>
+        if (typeof $ === 'undefined' || !typeof jQuery === 'undefined') {
+            var srcipt = document.createElement('script');
+            srcipt.type = 'text/javascript';
+            srcipt.src = '/jquery-3.3.1/jquery-3.3.1.min.js';
+            var head = document.head || document.getElementsByTagName('head')[0];
+            head.appendChild(srcipt);
+        }
+    </script>
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="/crm/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="/crm/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/crm/js/global.js"></script>
+    <script src="/crm/js/my/marketingTool.js"></script>
+    <script src="/crm/layer-v3.1.1/layer/layer.js"></script>
+</body>
+
+</html>

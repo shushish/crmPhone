@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>模板页</title>
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+		<!-- 引入YDUI样式 -->
+		<link rel="stylesheet" href="../css/ydui.css" />
+		<link rel="stylesheet" href="../css/global.css" />
+		<!-- 引入YDUI自适应解决方案类库 -->
+		<script src="../js/ydui.flexible.js"></script>
+	</head>
+
+	<body>
+
+		<header class="header">
+			<a href="javascript:void(0)" class="navbar-item" id="back-btn"><i class="back-ico"></i></a>
+			<div class="navbar-center">
+				<span class="navbar-title" style="color: white;">预计项目</span>
+			</div>
+		</header>
+		
+		<div class="mainer">
+			<div class="wrap">
+				<div class="index_nav">
+					<div class="box" style="text-align: center;padding-top: 0.2rem;">
+						<article class="m-list list-theme4" id="approvalingList">
+							
+						</article>
+					</div>
+				</div>
+				<div class="index_box">
+				</div>
+			</div>
+		</div>
+			
+		<script src="../js/footer_md.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../jquery-3.3.1/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/ydui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../echart/axios.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/template-native.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 定义模板，用来生产html -->
+		<script type="text/html" id="projectListTem">
+			<% for(var i = 0; i < list.length; i++){ %>
+				<a href="expectProjectUpdate.html?id=<%= list[i].id %>" class="list-item">
+					<div class="list-mes">
+						<h3 class="list-title"><%= list[i].projectName %></h3>
+						<div class="list-mes-item">
+							<div><%= list[i].expectReason %></div>
+							<div><%= list[i].expectMonth %></div>
+						</div>
+					</div>
+					<!-- <div class="list-img"><img src="../image/icon/listNum-1.png"></div> -->
+				</a>
+			 <% } %>
+		</script>
+		<script type="text/javascript">
+			$(function () {
+				$("#back-btn").on("click", Common.prototype.Back);
+				getExpectProject();
+			});
+			
+			function getExpectProject(){
+				let date = new Date();
+				var year = date.getFullYear();
+				var month = date.getMonth() + 1;
+				if (month >= 1 && month <= 9) {
+					month = "0" + month;
+				}
+				
+				axios.post("/api/projectExpected/getPage", "pageNum=1&pageSize=500&expectMonth="+year+"-"+month).then(res => {
+					let data = res.records;
+					data.forEach((value)=>{
+						value.expectMonth = common.dateFtt("yyyy年MM月",new Date(value.expectMonth));
+						// console.log(value);
+					});
+					let html = '';
+					//模板装载html
+					html = template('projectListTem', {list:data});
+					$("#approvalingList").html(html);
+				});
+			}
+			
+		</script>
+
+	</body>
+
+</html>

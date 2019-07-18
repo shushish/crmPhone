@@ -1,0 +1,510 @@
+.message-step_arrow {
+    width: 1.2rem;
+    height: 1.2rem;
+    background: url(/crm/image/icon/message-step_arrow.png) no-repeat center;
+    background-size: contain;
+    padding: 0 0.5rem;
+}
+
+.creatMessage-step {
+    background: #fff;
+    padding: 1rem;
+    font-size: 1.4rem;
+    display: -webkit-flex;
+    /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+    display: -moz-flex;
+    /* Firefox 18+ */
+    display: -ms-flexbox;
+    /* IE 10 */
+    display: flex;
+    /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    overflow: auto;
+}
+
+.creatMessage-step .step1,
+.creatMessage-step .step2,
+.creatMessage-step .step3,
+.creatMessage-step .step4 {
+    display: block;
+    width: 3.2rem;
+    height: 3rem;
+    background: url(/crm/image/icon/message-step1.png) no-repeat;
+    background-size: contain;
+    padding-bottom: 0.5rem;
+}
+
+.step1,
+.creatMessage-step a.current .step1 {
+    background: url(/crm/image/icon/message-step1Cur.png) no-repeat;
+    background-size: contain;
+}
+
+.creatMessage-step a.current .step2 {
+    background: url(/crm/image/icon/message-step2Cur.png) no-repeat;
+    background-size: contain;
+}
+
+.creatMessage-step a.current .step3 {
+    background: url(/crm/image/icon/message-step3Cur.png) no-repeat;
+    background-size: contain;
+}
+
+.creatMessage-step a.current .step4 {
+    background: url(/crm/image/icon/message-step4Cur.png) no-repeat;
+    background-size: contain;
+}
+
+.creatMessage-step .step2 {
+    background: url(/crm/image/icon/message-step2.png) no-repeat;
+    background-size: contain;
+}
+
+.creatMessage-step .step3 {
+    background: url(/crm/image/icon/message-step3.png) no-repeat;
+    background-size: contain;
+}
+
+.creatMessage-step .step4 {
+    background: url(/crm/image/icon/message-step4.png) no-repeat;
+    background-size: contain;
+}
+
+.creatMessage-step a.current {
+    color: #02aaff;
+}
+
+.creatMessage-step a {
+    width: 3rem;
+    text-align: center;
+    color: #555555;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flexbox: 1;
+    flex: 1;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.step {
+    display: none;
+}
+
+.currentStep {
+    display: block !important;
+}
+
+.next_step,
+.copyProject,.btn_save {
+    width: 50%;
+    height: 3rem;
+    line-height: 3rem;
+    background: #02aaff;
+    color: #fff;
+    margin: 0rem auto;
+    -moz-border-radius: 0.8rem;
+    -webkit-border-radius: 0.8rem;
+    border-radius: 0.8rem;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    display: -webkit-box;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.next_step:visited,
+.next_step:hover,
+.next_step:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn_save:visited,
+.btn_save:hover,
+.btn_save:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+.new_edit {
+    margin: 1rem auto;
+    background: #fff;
+    border-top: 1px solid #E4E4E4;
+}
+
+.new_edit ul {
+    display: block;
+}
+
+.new_edit ul li {
+    height: 4rem;
+    line-height: 4rem;
+    border-bottom: 1px solid #E4E4E4;
+    text-indent: 0.5rem;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+}
+
+.new_edit ul li em {
+    color: #ff0000;
+}
+
+.new_edit ul li b {
+    font-size: 1.4rem;
+    color: #555;
+    font-weight: normal;
+}
+
+.input_city {
+    flex: 2 !important;
+    -webkit-flex: 2 !important;
+    -moz-flex: 2 !important;
+    -ms-flex: 2 !important;
+}
+
+.new_edit ul li input {
+    flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+    border: none;
+    /* padding-right: 0.5rem; */
+    padding-left: 1rem;
+    outline: none;
+    line-height: 3.8rem;
+    background: transparent;
+    height: 3.8rem;
+    min-width: 0rem;
+    text-overflow: ellipsis;
+}
+
+.new_edit ul li select,textarea {
+    flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+    border: none;
+    /* padding-right: 0.5rem; */
+    padding-left: 1rem;
+    outline: none;
+    line-height: 3.8rem;
+    background: transparent;
+    height: 3.8rem;
+    min-width: 0rem;
+    text-overflow: ellipsis;
+}
+
+.new_edit ul li .new_arrow,
+.appointmentInfo .new_arrow,
+.inputSelectbox .new_arrow {
+    width: 3rem;
+    height: 3.5rem;
+    background: url(/crm/image/icon/tabslist_arrowRight.png) no-repeat center center;
+    background-size: 27%;
+    cursor: pointer;
+}
+
+.addCustomerBtn {
+    width: 2rem;
+    height: 100%;
+    background: url(/crm/image/icon/addCom.png) no-repeat left center;
+    background-size: contain;
+    /* margin-right: 0.9rem;
+    margin-top: -0.2rem; */
+    /* flex: none; */
+    min-width: 0rem;
+}
+
+.hySelectbox,
+.ztSelectbox {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+    flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    min-width: 0px;
+}
+
+.moxingline {
+    margin-left: 0.7rem;
+}
+
+.radioInputs,
+.moxingline {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+}
+
+.radioInputs {
+    /* height: 2rem;
+    line-height: 2rem; */
+    margin-left: 2rem;
+}
+
+.radioInputs .in_Choice {
+    height: 2rem;
+    margin-right: 0;
+}
+
+.in_left li .in_Choice.modelSelected,
+.in_right li .in_Choice.modelSelected,
+.radioInputs .in_Choice.modelSelected {
+    background: url(/crm/image/icon/choose.png) no-repeat center center;
+    background-size: 70%;
+}
+
+.in_left li .in_Choice,
+.radioInputs .in_Choice,
+.in_right li .in_Choice {
+    width: 3rem;
+    height: 4rem;
+    background: url(/crm/image/icon/comment_radio.png) no-repeat center center;
+    background-size: 60%;
+    margin-right: 1rem;
+}
+
+.in_Choice {
+    margin-right: 0rem !important;
+}
+
+.lab_selectModel {
+    width: 100%;
+    text-align: left;
+    height: 2.5rem;
+    line-height: 2.5rem;
+}
+
+.selectCustomerDialogs {
+    position: fixed;
+    top: 3.5rem;
+    left: 0rem;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: #EDEDF3;
+    flex-flow: column;
+}
+
+.new {
+    display: block;
+    width: 2.5rem;
+    /* height: 3.5rem; */
+    background: url(/crm/image/icon/addproject.png) no-repeat center center;
+    background-size: 50%;
+    cursor: pointer;
+    float: right;
+    margin-right: 1rem;
+    display: none;
+}
+
+#btn_new_sure,
+#btn_new_sure:visited,
+#btn_new_sure:hover {
+    color: white;
+    text-decoration: none;
+    display: none;
+}
+
+.addNewCustomer-input {
+    height: 2.5rem;
+    line-height: 2.5rem;
+    width: 95%;
+    /* -webkit-box-flex: 1; */
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    background: white;
+    outline: none;
+}
+
+.industry_content {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2001;
+    background: #EBEBEE;
+    display: none;
+    /* padding: 0rem; */
+    top: 3.5rem;
+}
+
+.industry_content ul {
+    display: block;
+}
+
+.industry_content li {
+    text-align: left;
+    padding: 0.5rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.industry_left {
+    height: 100%;
+    padding: 0rem;
+    overflow: scroll;
+    padding-bottom: 3.5rem;
+}
+
+.industry_right {
+    background: white;
+    height: 100%;
+    padding: 0rem;
+    overflow: scroll;
+}
+
+.selectLabel {
+    display: inline-block;
+    float: right;
+}
+
+.btn_search {
+    display: block;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    padding-left: 1rem;
+}
+
+.searchCustomer {
+    padding: 1rem;
+}
+
+.CustomerList {
+    width: 100%;
+    height: 100%;
+    /* z-index: 2001; */
+    background: white;
+    overflow: scroll;
+    flex: 8;
+    -webkit-flex: 8;
+    -moz-flex: 8;
+    -ms-flexbox: 8;
+}
+
+.CustomerList ul {
+    display: block;
+}
+
+.CustomerList li {
+    text-align: left;
+    padding: 0.5rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.bottom_CustomerList {
+    width: 100%;
+    flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flexbox: 1;
+    text-align: center;
+}
+
+#customers>li>div {
+    font-size: 1.2rem;
+    color: #918d8d;
+}
+
+#goToTop {
+    display: none;
+}
+
+.addressSelect {
+    background-color: #ff020257;
+}
+
+.addNewContacts-input {
+    height: 2.5rem;
+    line-height: 2.5rem;
+    width: 95%;
+    /* -webkit-box-flex: 1; */
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    background: white;
+    outline: none;
+}
+
+.ContactsList {
+    width: 100%;
+    height: 100%;
+    /* z-index: 2001; */
+    background: white;
+    overflow: scroll;
+    flex: 8;
+    -webkit-flex: 8;
+    -moz-flex: 8;
+    -ms-flexbox: 8;
+}
+
+.bottom_ContactsList {
+    width: 100%;
+    flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flexbox: 1;
+    text-align: center;
+}
+
+#ContactsGoToTop {
+    display: none;
+}
+
+.btn_search_contacts {
+    display: block;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    padding-left: 1rem;
+}
+
+.ContactsList ul {
+    display: block;
+}
+
+.ContactsList li {
+    text-align: left;
+    padding: 0.5rem;
+    border-bottom: 1px solid #ddd;
+}
+
+#contacts>li>div {
+    font-size: 1.2rem;
+    color: #918d8d;
+}
+
+.a_button{
+    color: #02aaff;
+    margin-right: 0.5rem;
+}
+
+.layui-layer-close2{
+    right: 0rem!important;
+    top: -0.7rem!important;
+}

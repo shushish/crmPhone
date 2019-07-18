@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="main">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>远大住工-客户档案</title>
+
+		<!-- 引入YDUI样式 -->
+		<link rel="stylesheet" href="../css/ydui.css" />
+		<link rel="stylesheet" href="../css/global.css" />
+		<!-- 引入YDUI自适应解决方案类库 -->
+		<script src="../js/ydui.flexible.js"></script>
+
+		<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<style>
+			.grids-icon img{height: auto!important;}
+			.projectName{white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+			.g-scrollview:after{height: auto;}
+			.m-tabbar{position: fixed;bottom: 0; left: 0;}
+			.home-flex{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:100%;height:100%;
+			}
+			.home-flex-main{-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;width:100%;overflow:hidden;overflow-y: auto;-webkit-overflow-scrolling: touch;
+			}
+		</style>
+	</head>
+
+	<body>
+		<section class="g-flexview">
+			<header class="m-navbar" style="background: #00437c;">
+				<a href="javascript:void(0)" class="navbar-item" id="back-btn"><i class="back-ico"></i></a>
+
+				<div class="navbar-center">
+					<span class="navbar-title" style="color: white;">客户档案</span>
+				</div>
+				<a href="addCustomer.html" class="navbar-item" id="addJournal">
+					<i>
+						<img src="../image/icon/addproject.png" style="width: 0.3rem;height: 0.3rem;">
+					</i>
+				</a>
+
+			</header>
+			<!-- 头部 -->
+
+			<!--搜索弹框-->
+
+			<div class="g-scrollview home-flex">
+				<div class="m-grids-1 close-with-masklayer search_content">
+					<div class="search_edit">
+						<ul>
+							<li class="editRow">
+								<b>客户名称：</b>
+								<input type="text" class="proname" id="customerName" name="" placeholder="请输入" class="">
+							</li>
+							<li class="editRow">
+								<b>创建者/所有人：</b>
+								<input type="text" class="creator" name="creator" placeholder="请输入" class="">
+							</li>
+						</ul>
+					</div>
+					<div class="buttonRow">
+						<a class="btnCancel" id="btn_reset">重置</a>
+						<a href="javascript:;" class="btnSure" id="btn_search" onclick="searchs()">搜索</a>
+					</div>
+				</div>
+				<div class="m-actionsheet" id="actionSheet">
+					<a href="#" class="actionsheet-item" onclick="CustomerLevel('全部')">全部</a>
+					<a href="#" class="actionsheet-item" onclick="CustomerLevel('战略')">战略客户</a>
+					<a href="#" class="actionsheet-item" onclick="CustomerLevel('重点')">重点客户</a>
+					<a href="#" class="actionsheet-item" onclick="CustomerLevel('普通')">普通客户</a>
+					<a href="javascript:;" class="actionsheet-action" id="cancel">取消</a>
+				</div>
+				<div class="m-grids-2">
+					<a href="#" class="grids-item" style="padding:0.12rem 0;" id="searchBtn">
+						<div class="grids-txt btn_time"><span>搜索</span></div>
+					</a>
+					<a class="grids-item" style="padding:0.12rem 0;" id="com_actionSheet">
+						<div class="grids-txt" data-ydui-actionsheet="{target:'#actionSheet',closeElement:'#cancel'}"><span>类型</span></div>
+					</a>
+					<div class="m-actionsheet" id="companyList">
+
+					</div>
+					<div class="m-actionsheet" id="projectType">
+					</div>
+				</div>
+				<!-- 头部结束 -->
+				<div class="home-flex-main">
+					<!-- 展示部开始 -->
+					<div class="home-flex" id="exhibition">
+						<div class="m-grids-2" style="width: 100%;">
+							<a href="#" class="grids-item">
+								<div class="grids-txt" style="float: left;">&nbsp;&nbsp;<span id="titles">全部</span></div>
+							</a>
+							<a href="#" class="grids-item">
+								<div class="grids-txt" style="float: right;"><span style="color: #00A9E1;">数量：</spanstyle="color: #00A9E1;"><span id="num">7766</span>&nbsp;&nbsp;</span></div>
+							</a>
+						</div>
+						<section class="g-scrollview" id="J_List">
+							<div class="m-list list-theme4" id="approvalingList">
+							</div>
+						</section>
+					</div>
+					<!-- 底部导航栏 -->
+				</div>
+			</div>
+			<div class="content-bottom"></div>
+			<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+		</section>
+		<script src="../jquery-3.3.1/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/ydui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../echart/axios.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/template-native.js" type="text/javascript" charset="utf-8"></script>
+		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+		<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+		<script type="text/html" id="projectListTem">
+			<% for(var i = 0; i < list.length; i++){ %>
+				<a href="#" class="list-item">
+					<div class="list-img"><img src="../image/icon/listNum-1.png"></div>
+					<div class="list-mes">
+						<h3 class="list-title" onclick=go('<%= list[i].id %>')><%= list[i].name %></h3>
+						<div class="list-mes-item">
+							<div>记录类型：<%= list[i].grade %>客户</div>
+							<div>所有人：<%= list[i].legalPersonName%></div>
+						</div>
+					</div>
+				</a>
+			 <% } %>
+		</script>
+
+		<script>
+            $(function () {
+                $("#back-btn").on("click", Common.prototype.Back);
+            });
+
+			window.onload = function(data) {
+				// getData('pageNum=1&pageSize=10');
+				$("#searchBtn").on("click", () => {
+					//添加取消按钮
+					$("#back-btn").show();
+					$(".search_content").show();
+					$("#back-btn").on("click", () => {
+						$(".search_content").hide();
+						$("#back-btn").hide();
+					});
+				});
+			}
+
+
+			function CustomerLevel(data) {
+				if (data == '全部') {
+					getData('pageNum=1&pageSize=10');
+				}
+				var $as = $('#actionSheet');
+				var date = 'pageNum=1&pageSize=10&grades=' + data;
+				getData(date);
+				$('#titles').text(data);
+				$as.actionSheet('close');
+			}
+
+
+
+
+			function addCustomer() {
+				window.location.replace("../customer/addCustomer.html");
+			}
+
+			function searchs() {
+
+				var customerName = $("#customerName").val();
+
+					var date = 'pageNum=1&pageSize=10&key=' + customerName;
+					getData(date);
+
+
+			}
+
+			// function getData(data) {
+			// 	if (typeof(data) == 'undefined' && data == 0) {
+			// 		data = 'pageNum=1&pageSize=10'
+			// 	}
+
+
+				var page = 1,
+					pageSize = 10;
+				$('#J_List').infiniteScroll({
+					binder: '#J_List',
+					pageSize: pageSize,
+					initLoad: true,
+					loadingHtml: '<strong>加载中...</strong>',
+					/* 当然也可以<img src="../img/loading.gif" /> */
+					loadListFn: function() {
+						var def = $.Deferred();
+						/* 通过自定义的方法获取数据 */
+						axios({
+								url: "/api/account/listPage",
+								method: "post",
+								data: "pageNum=" + page + "&pageSize=" + pageSize,
+							})
+							.then(res => {
+								let data = res.records;
+								//设置总数
+								$('#num').text(res.total);
+								if (data && data.length > 0) {
+									let html = '';
+									//模板装载html
+									html = template('projectListTem', {
+										list: data
+									});
+									$("#approvalingList").append(html);
+									def.resolve(html);
+									++page;
+									YDUI.dialog.loading.close();
+								}
+							})
+						return def.promise();
+					}
+				});
+
+				function getData(data) {
+					var def = $.Deferred();
+					/* 通过自定义的方法获取数据 */
+					axios({
+							url: "/api/account/listPage",
+							method: "post",
+							data: data,
+						})
+						.then(res => {
+							let data = res.records;
+							//设置总数
+							$('#num').text(res.total);
+							console.log(data);
+							if (data && data.length > 0) {
+
+								let html = '';
+								//模板装载html
+								html = template('projectListTem', {
+									list: data
+								});
+								$("#approvalingList").append(html);
+								def.resolve(html);
+								++page;
+								YDUI.dialog.loading.close();
+							} else {
+								$("#approvalingList").html('暂无项目。');
+							}
+							$(".search_content").hide();
+						})
+					return def.promise();
+				}
+
+					function go(id){
+					var twoUrl = encodeURI("Customer_details.html?id=" + id); //使用encodeURI编码
+					  location.href = twoUrl;
+				}
+		</script>
+
+
+	</body>
+
+</html>

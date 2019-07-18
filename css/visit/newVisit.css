@@ -1,0 +1,90 @@
+.addcontact {
+    width: 3rem;
+    height: 3.5rem;
+    background: url(/crm/image/icon/addmanufacure_btn.png) no-repeat center center;
+    background-size: 50%;
+    cursor: pointer;
+}
+
+.layui-layer-close2{
+    /* right: -10px!important;
+    top: -10px!important; */
+    width: 2.5rem!important;
+    height: 2.5rem!important;
+    /* background-position: -12.4rem -2.6rem!important; */
+}
+
+.addNewProject-input {
+    height: 2.5rem;
+    line-height: 2.5rem;
+    width: 95%;
+    /* -webkit-box-flex: 1; */
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    background: white;
+    outline: none;
+}
+.btn_search_project {
+    display: block;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    padding-left: 1rem;
+}
+
+.projectList {
+    width: 100%;
+    height: 100%;
+    /* z-index: 2001; */
+    background: white;
+    overflow: scroll;
+    flex: 8;
+    -webkit-flex: 8;
+    -moz-flex: 8;
+    -ms-flexbox: 8;
+}
+
+.bottom_projectList {
+    width: 100%;
+    flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flexbox: 1;
+    text-align: center;
+}
+
+.projectList ul {
+    display: block;
+}
+
+.projectList li {
+    text-align: left;
+    padding: 0.5rem;
+    border-bottom: 1px solid #ddd;
+}
+
+#projects>li>div {
+    font-size: 1.2rem;
+    color: #918d8d;
+}
+
+#ProjectGoToTop {
+    display: none;
+}
+
+.item_add {
+    display: block;
+    width: 2.4rem;
+    height: 1.4rem;
+    background: url(/img/addmanufacure_btn.png) no-repeat left center;
+    background-size: contain;
+    margin-left: 1.5rem;
+}
+
+.minus {
+    width: 3rem;
+    height: 3.5rem;
+    background: url(/img/minus.png) no-repeat center center;
+    background-size: 80%;
+    cursor: pointer;
+}

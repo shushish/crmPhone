@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>远大住工-主页</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 cdn源 
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
+
+
+  <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+
+
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  -->
+
+    <!-- Bootstrap -->
+    <link href="/crm/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/crm/css/global.css" rel="stylesheet">
+    <link href="/crm/css/project/projectDetail.css" rel="stylesheet">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="backgroud container-fluid">
+        <div id="header" class="row">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 title">
+                <a class="back show" href="javascript:void(0)"></a>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 title">项目概况</div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 title_btn dropdown">
+                <a class="right_menu" href="#" data-toggle="dropdown"></a>
+
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <li>
+                        <a href="/crm/index_new.html">
+                            <span class="index img-span active"></span>
+                            <div>首页</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/crm/project/project.html">
+                            <span class="project img-span active"></span>
+                            <div>项目</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/crm/data/dataBoard_new.html">
+                            <span class="data img-span active"></span>
+                            <div>看板</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/crm/visit/visit.html#/date">
+                            <span class="plan img-span active"></span>
+                            <div>日常</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/crm/my/my.html">
+                            <span class="my img-span active"></span>
+                            <div>我的</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--遮罩层-->
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 masked"></div>
+        <div id="body" class="row">
+            <div id="xmbb_show" class="none">
+                <div class="projectSurvey-mod col-lg-12 col-md-12 col-sm-12 col-xs-12 xmhx none">
+                    <div class="projectSurvey-tit flexLayout flexCenter">
+                        <span></span>
+                        <em class="flexItem">项目画像</em>
+                    </div>
+                    <ul class="projectSurvey-con">
+                        <li class="flexLayout">
+                            <em>客户 :</em>
+                            <span id="kh" class="flexItem"></span>
+                            <em>标准 :</em>
+                            <span class="flexItem">重点客户</span>
+                        </li>
+                        <li class="flexLayout">
+                            <em>金额 :</em>
+                            <span id="je" class="flexItem"></span>
+                            <em>标准 :</em>
+                            <span class="flexItem">1000</span>
+                        </li>
+                        <li class="flexLayout">
+                            <em>合作 :</em>
+                            <span id="hz" class="flexItem"></span>
+                            <em>标准 :</em>
+                            <span class="flexItem">首次</span>
+                        </li>
+                        <li class="flexLayout">
+                            <em>异形 :</em>
+                            <span id="yx" class="flexItem"></span>
+                            <em>标准 :</em>
+                            <span class="flexItem">≤10%</span>
+                        </li>
+                        <li class="flexLayout">
+                            <em>设计 :</em>
+                            <span id="sj" class="flexItem"></span>
+                            <em>标准 :</em>
+                            <span class="flexItem">参与设计</span>
+                        </li>
+                        <li>
+                            <em>地方设计意见:</em>
+                            <span id="dfsjyj"></span>
+                        </li>
+                        <li>
+                            <em>总部设计意见:</em>
+                            <span id="zbsjyj"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="projectSurvey-mod col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="projectSurvey-tit flexLayout flexCenter">
+                        <span></span>
+                        <em class="flexItem">客户信息</em>
+                        <a href="/crm/project/addProject.html?id=[id]#/step1" class="projectSurvey-edit"></a>
+                    </div>
+                    <ul class="projectSurvey-con">
+                        <li>
+                            <em>客户名称 :</em>
+                            <span id="khmc"></span>
+                        </li>
+                        <li>
+                            <em>开发方 :</em>
+                            <span id="kff"></span>
+                        </li>
+                        <li>
+                            <em>建筑商 :</em>
+                            <span id="jzs"></span>
+                        </li>
+                        <li>
+                            <em>设计院 :</em>
+                            <span id="sjy"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="projectSurvey-mod col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="projectSurvey-tit flexLayout flexCenter">
+                        <span></span>
+                        <em class="flexItem">基本信息</em>
+                        <a href="/crm/project/addProject.html?id=[id]#/step2" class="projectSurvey-edit"></a>
+                    </div>
+                    <ul class="projectSurvey-con">
+                        <li>
+                            <em>项目名称 :</em>
+                            <span id="xmmc"></span>
+                        </li>
+                        <li>
+                            <em>项目编号 :</em>
+                            <span id="xmbh"></span>
+                        </li>
+                        <li>
+                            <em>项目所在省 :</em>
+                            <span id="xmszs"></span>
+                        </li>
+                        <li>
+                            <em>项目所在市 :</em>
+                            <span id="xmszshi"></span>
+                        </li>
+                        <li>
+                            <em>项目地址 :</em>
+                            <span id="xmdz"></span>
+                        </li>
+                        <li>
+                            <em>项目类型 :</em>
+                            <span id="xmlx"></span>
+                        </li>
+                        <li>
+                            <em>项目归属 :</em>
+                            <span id="xmgs"></span>
+                        </li>
+                        <li>
+                            <em>省级公司 :</em>
+                            <span id="shengjgs"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="projectSurvey-mod col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="projectSurvey-tit flexLayout flexCenter">
+                        <span></span>
+                        <em class="flexItem">补充信息</em>
+                        <a href="/crm/project/addProject.html?id=[id]#/step3" class="projectSurvey-edit"></a>
+                    </div>
+                    <ul class="projectSurvey-con">
+                        <li>
+                            <em>运输距离(千米) :</em>
+                            <span id="ysjl"></span>
+                        </li>
+                        <li>
+                            <em>当前阶段 :</em>
+                            <span id="dqjd"></span>
+                        </li>
+                        <li>
+                            <em>项目成功率 :</em>
+                            <span id="xmcgl"></span>
+                        </li>
+                        <li>
+                            <em>设计归属 :</em>
+                            <span id="sjgs"></span>
+                        </li>
+                        <li>
+                            <em>土地拿地日期 :</em>
+                            <span id="tdndrq"></span>
+                        </li>
+                        <li>
+                            <em>异形件比例 :</em>
+                            <span id="yxjbl"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="projectSurvey-mod col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="projectSurvey-tit flexLayout flexCenter">
+                        <span></span>
+                        <em class="flexItem">甲方状态</em>
+                        <a href="/crm/project/addProject.html?id=[id]#/step4" class="projectSurvey-edit"></a>
+                    </div>
+                    <ul class="projectSurvey-con">
+                        <li>
+                            <em>预计开工时间 :</em>
+                            <span id="yjkgsj"></span>
+                        </li>
+                        <li>
+                            <em>预计签约月份 :</em>
+                            <span id="yjqyyf"></span>
+                        </li>
+                        <li>
+                            <em>采购类型 :</em>
+                            <span id="cglx"></span>
+                        </li>
+                        <li>
+                            <em>客户承包模式 :</em>
+                            <span id="khcbms"></span>
+                        </li>
+                        <li>
+                            <em>甲方进度 :</em>
+                            <span id="jfjd"></span>
+                        </li>
+                        <li>
+                            <em>业主简要情况说明 :</em>
+                            <span id="yzjyqksm"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="projectSurvey-mod col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="projectSurvey-tit flexLayout flexCenter">
+                        <span></span>
+                        <em class="flexItem">体量信息</em>
+                        <a href="/crm/project/addProject.html?id=[id]#/step5" class="projectSurvey-edit"></a>
+                    </div>
+                    <ul class="projectSurvey-con tlxx">
+                        <li class="cplx">
+                            <em>产品类型 :</em>
+                            <span id="cplx"></span>
+                        </li>
+                        <li class="zghjzmj">
+                            <em>总规划建筑面积(万㎡) :</em>
+                            <span id="zghjzmj"></span>
+                        </li>
+                        <li class="zpjzmj">
+                            <em>装配建筑面积(万㎡) :</em>
+                            <span id="zpjzmj"></span>
+                        </li>
+                        <li class="yjochte">
+                            <em>预计PC合同额(万元) :</em>
+                            <span id="yjpchte"></span>
+                        </li>
+                        <li class="pcl">
+                            <em>PC量(万m³) :</em>
+                            <span id="pcl"></span>
+                        </li>
+                        <li class="ds">
+                            <em>栋数 :</em>
+                            <span id="ds"></span>
+                        </li>
+                        <li class="cs">
+                            <em>层数 :</em>
+                            <span id="cs"></span>
+                        </li>
+                        <li class="cd">
+                            <em>长度 :</em>
+                            <span id="cd"></span>
+                        </li>
+                        <li class="cangs">
+                            <em>仓数 :</em>
+                            <span id="cangs"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="projectSurvey-mod col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="projectSurvey-tit flexLayout flexCenter">
+                        <span></span>
+                        <em class="flexItem">其他信息</em>
+                        <a href="/crm/project/addProject.html?id=[id]#/step6" class="projectSurvey-edit"></a>
+                    </div>
+                    <ul class="projectSurvey-con">
+                        <li>
+                            <em>备注 :</em>
+                            <span id="bz"></span>
+                        </li>
+                        <li>
+                            <em>提醒次数 :</em>
+                            <span id="txcs"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="xmfa_show" class="none">
+                <div class="projectSurvey-mod col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="projectSurvey-tit flexLayout flexCenter">
+                        <span></span>
+                        <em class="flexItem">客户信息</em>
+                        <a href="/crm/project/editXmfa.html?id=[xmbh]#/step1" class="projectSurvey-edit"></a>
+                    </div>
+                    <ul class="projectSurvey-con">
+                        <li>
+                            <em>客户名称 :</em>
+                            <span id="xmfa_khmc"></span>
+                        </li>
+                        <li>
+                            <em>开发方 :</em>
+                            <span id="xmfa_kff"></span>
+                        </li>
+                        <li>
+                            <em>建筑商 :</em>
+                            <span id="xmfa_jzs"></span>
+                        </li>
+                        <li>
+                            <em>设计院 :</em>
+                            <span id="xmfa_sjy"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="projectSurvey-mod col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="projectSurvey-tit flexLayout flexCenter">
+                        <span></span>
+                        <em class="flexItem">基本信息</em>
+                        <a href="/crm/project/editXmfa.html?id=[xmbh]#/step2" class="projectSurvey-edit"></a>
+                    </div>
+                    <ul class="projectSurvey-con">
+                        <li>
+                            <em>项目名称 :</em>
+                            <span id="xmfa_xmmc"></span>
+                        </li>
+                        <li>
+                            <em>项目编号 :</em>
+                            <span id="xmfa_xmbh"></span>
+                        </li>
+                        <!-- <li>
+                            <em>项目所在省 :</em>
+                            <span id="xmszs"></span>
+                        </li>
+                        <li>
+                            <em>项目所在市 :</em>
+                            <span id="xmszshi"></span>
+                        </li> -->
+                        <li>
+                            <em>项目地址 :</em>
+                            <span id="xmfa_xmdz"></span>
+                        </li>
+                        <li>
+                            <em>项目类型 :</em>
+                            <span id="xmfa_xmlx"></span>
+                        </li>
+                        <li>
+                            <em>运输距离(千米) :</em>
+                            <span id="xmfa_ysjl"></span>
+                        </li>
+                        <li>
+                            <em>预计签约月份 :</em>
+                            <span id="xmfa_yjqyyf"></span>
+                        </li>
+                        <li>
+                            <em>拓展方案 :</em>
+                            <span id="xmfa_tzfa"></span>
+                        </li>
+                        <li>
+                            <em>省级公司 :</em>
+                            <span id="xmfa_shengjgs"></span>
+                        </li>
+                        <li>
+                            <em>采购类型 :</em>
+                            <span id="xmfa_cglx"></span>
+                        </li>
+                        <li>
+                            <em>甲方进度 :</em>
+                            <span id="xmfa_jfjd"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="projectSurvey-mod col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="projectSurvey-tit flexLayout flexCenter">
+                        <span></span>
+                        <em class="flexItem">体量信息</em>
+                        <a href="/crm/project/editXmfa.html?id=[xmbh]#/step3" class="projectSurvey-edit"></a>
+                    </div>
+                    <ul class="projectSurvey-con tlxx">
+                        <li class="xmfa_cplx">
+                            <em>产品类型 :</em>
+                            <span id="xmfa_cplx"></span>
+                        </li>
+                        <li class="xmfa_mj">
+                            <em>面积(万㎡) :</em>
+                            <span id="xmfa_mj"></span>
+                        </li>
+                        <li class="xmfa_yjpchte">
+                            <em>预计PC合同额(万元) :</em>
+                            <span id="xmfa_yjpchte"></span>
+                        </li>
+                        <li class="xmfa_pcl">
+                            <em>PC量(万m³) :</em>
+                            <span id="xmfa_pcl"></span>
+                        </li>
+                        <li class="xmfa_ds">
+                            <em>栋数 :</em>
+                            <span id="xmfa_ds"></span>
+                        </li>
+                        <li class="xmfa_cs">
+                            <em>层数 :</em>
+                            <span id="xmfa_cs"></span>
+                        </li>
+                        <li class="xmfa_yjpcdj">
+                            <em>预计PC单价（元/m³) :</em>
+                            <span id="xmfa_yjpcdj"></span>
+                        </li>
+                        <li class="xmfa_cd">
+                            <em>长度 :</em>
+                            <span id="xmfa_cd"></span>
+                        </li>
+                        <li class="xmfa_cangs">
+                            <em>仓数 :</em>
+                            <span id="xmfa_cangs"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="projectSurvey-mod col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="projectSurvey-tit flexLayout flexCenter">
+                        <span></span>
+                        <em class="flexItem">其他信息</em>
+                        <a href="/crm/project/editXmfa.html?id=[xmbh]#/step4" class="projectSurvey-edit"></a>
+                    </div>
+                    <ul class="projectSurvey-con">
+                        <li>
+                            <em>所有人 :</em>
+                            <span id="xmfa_syr"></span>
+                        </li>
+                        <li>
+                            <em>最后修改人 :</em>
+                            <span id="xmfa_zhxgr"></span>
+                        </li>
+                        <li>
+                            <em>市场人员职位 :</em>
+                            <span id="xmfa_scryzw"></span>
+                        </li>
+                        <li>
+                            <em>备注 :</em>
+                            <span id="xmfa_bz"></span>
+                        </li>
+                        <li>
+                            <em>是否使用PKPM建模 :</em>
+                            <span id="xmfa_sfsypkpmjm"></span>
+                        </li>
+                        <li>
+                            <em>创建人 :</em>
+                            <span id="xmfa_cjr"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="contract_show" class="none">
+                <div class="projectSurvey-mod col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="projectSurvey-tit flexLayout flexCenter">
+                        <span></span>
+                        <em class="flexItem">合同画像</em>
+                        <!-- <a href="/crm/project/editContract.html?id=[xmbh]#/step0" class="projectSurvey-edit"></a> -->
+                    </div>
+                    <ul class="projectSurvey-con">
+                        <li class="flexLayout">
+                            <em>客户 :</em>
+                            <span id="contract_kh" class="flexItem"></span>
+                            <em>标准 :</em>
+                            <span class="flexItem">重点客户</span>
+                        </li>
+                        <li class="flexLayout">
+                            <em>金额 :</em>
+                            <span id="contract_je" class="flexItem"></span>
+                            <em>标准 :</em>
+                            <span class="flexItem">1000</span>
+                        </li>
+                        <li class="flexLayout">
+                            <em>合作 :</em>
+                            <span id="contract_hz" class="flexItem"></span>
+                            <em>标准 :</em>
+                            <span class="flexItem">首次</span>
+                        </li>
+                        <li class="flexLayout">
+                            <em>设计 :</em>
+                            <span id="contract_sj" class="flexItem"></span>
+                            <em>标准 :</em>
+                            <span class="flexItem">参与设计</span>
+                        </li>
+                        <li class="flexLayout">
+                            <em>异形 :</em>
+                            <span id="contract_yx" class="flexItem"></span>
+                            <em>标准 :</em>
+                            <span class="flexItem">≤10%</span>
+                        </li>
+                        <li class="flexLayout">
+                            <em>预计利润 :</em>
+                            <span id="contract_yjlr" class="flexItem">20%</span>
+                            <em>标准 :</em>
+                            <span class="flexItem">≥20%</span>
+                        </li>
+                        <li class="flexLayout">
+                            <em>首付 :</em>
+                            <span id="contract_sf" class="flexItem"></span>
+                            <em>标准 :</em>
+                            <span class="flexItem">≥20%</span>
+                        </li>
+                        <li class="flexLayout">
+                            <em>进度 :</em>
+                            <span id="contract_jd" class="flexItem"></span>
+                            <em>标准 :</em>
+                            <span class="flexItem">≥85%</span>
+                        </li>
+                        <li class="flexLayout">
+                            <em>封顶 :</em>
+                            <span id="contract_fd" class="flexItem"></span>
+                            <em>标准 :</em>
+                            <span class="flexItem">≥90%</span>
+                        </li>
+                        <li class="flexLayout">
+                            <em>结算 :</em>
+                            <span id="contract_js" class="flexItem"></span>
+                            <em>标准 :</em>
+                            <span class="flexItem">≥97%</span>
+                        </li>
+                        <li class="flexLayout">
+                            <em>工地库 :</em>
+                            <span id="contract_gdk" class="flexItem"></span>
+                            <em>标准 :</em>
+                            <span class="flexItem">具备</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="projectSurvey-mod col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="projectSurvey-tit flexLayout flexCenter">
+                        <span></span>
+                        <em class="flexItem">客户信息</em>
+                        <a href="/crm/project/editContract.html?id=[xmbh]#/step1" class="projectSurvey-edit"></a>
+                    </div>
+                    <ul class="projectSurvey-con">
+                        <li>
+                            <em>客户名称 :</em>
+                            <span id="contract_khmc"></span>
+                        </li>
+                        <li>
+                            <em>开发方 :</em>
+                            <span id="contract_kff"></span>
+                        </li>
+                        <li>
+                            <em>建筑商 :</em>
+                            <span id="contract_jzs"></span>
+                        </li>
+                        <li>
+                            <em>设计院 :</em>
+                            <span id="contract_sjy"></span>
+                        </li>
+                        <li>
+                            <em>竞争对手 :</em>
+                            <span id="contract_jzds"></span>
+                        </li>
+                        <li>
+                            <em>客户负责人姓名 :</em>
+                            <span id="contract_khfzrxm"></span>
+                        </li>
+                        <li>
+                            <em>客户负责人电话 :</em>
+                            <span id="contract_khfzrdh"></span>
+                        </li>
+                        <li>
+                            <em>授权扫码签收人 :</em>
+                            <span id="contract_sqsmqsr"></span>
+                        </li>
+                        <li>
+                            <em>签收人电话 :</em>
+                            <span id="contract_qsrdh"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="projectSurvey-mod col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="projectSurvey-tit flexLayout flexCenter">
+                        <span></span>
+                        <em class="flexItem">基本信息</em>
+                        <a href="/crm/project/editContract.html?id=[xmbh]#/step2" class="projectSurvey-edit"></a>
+                    </div>
+                    <ul class="projectSurvey-con">
+                        <li>
+                            <em>项目编号 :</em>
+                            <span id="contract_xmbh"></span>
+                        </li>
+                        <li>
+                            <em>生产工厂 :</em>
+                            <span id="contract_scgc"></span>
+                        </li>
+                        <li>
+                            <em>项目名称 :</em>
+                            <span id="contract_xmmc"></span>
+                        </li>
+                        <li>
+                            <em>运输距离(千米) :</em>
+                            <span id="contract_ysjl"></span>
+                        </li>
+                        <li>
+                            <em>项目类型 :</em>
+                            <span id="contract_xmlx"></span>
+                        </li>
+                        <li>
+                            <em>采购类型 :</em>
+                            <span id="contract_cglx"></span>
+                        </li>
+                        <li>
+                            <em>项目所在地 :</em>
+                            <span id="contract_xmszd"></span>
+                        </li>
+                        <li>
+                            <em>当前阶段 :</em>
+                            <span id="contract_dqjd"></span>
+                        </li>
+                        <li>
+                            <em>深化设计 :</em>
+                            <span id="contract_shsj"></span>
+                        </li>
+                        <li>
+                            <em>所属公司 :</em>
+                            <span id="contract_ssgs"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="projectSurvey-mod col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="projectSurvey-tit flexLayout flexCenter">
+                        <span></span>
+                        <em class="flexItem">合同信息</em>
+                        <a href="/crm/project/editContract.html?id=[xmbh]#/step3" class="projectSurvey-edit"></a>
+                    </div>
+                    <ul class="projectSurvey-con">
+                        <li>
+                            <em>是否签订合同 :</em>
+                            <span id="contract_sfqdht"></span>
+                        </li>
+                        <li>
+                            <em>签约日期 :</em>
+                            <span id="contract_qyrq"></span>
+                        </li>
+                        <li>
+                            <em>合同编号 :</em>
+                            <span id="contract_htbh"></span>
+                        </li>
+                        <li>
+                            <em>中标日期 :</em>
+                            <span id="contract_zbrq"></span>
+                        </li>
+                        <li>
+                            <em>合同类型 :</em>
+                            <span id="contract_htlx"></span>
+                        </li>
+                        <li>
+                            <em>合同状态 :</em>
+                            <span id="contract_htzt"></span>
+                        </li>
+                        <li>
+                            <em>合同是否含工地库 :</em>
+                            <span id="contract_htsfhgdk"></span>
+                        </li>
+                        <li>
+                            <em>合同是否含授权扫码人 :</em>
+                            <span id="contract_htsfhsqsmr"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="projectSurvey-mod col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="projectSurvey-tit flexLayout flexCenter">
+                        <span></span>
+                        <em class="flexItem">付款方式(根据合同约定的比例)</em>
+                        <a href="/crm/project/editContract.html?id=[xmbh]#/step4" class="projectSurvey-edit"></a>
+                    </div>
+                    <ul class="projectSurvey-con">
+                        <li>
+                            <em>预付款 :</em>
+                            <span id="contract_yfk"></span>
+                        </li>
+                        <li>
+                            <em>进度款 :</em>
+                            <span id="contract_jdk"></span>
+                        </li>
+                        <li>
+                            <em>验收付款 :</em>
+                            <span id="contract_ysfk"></span>
+                        </li>
+                        <li>
+                            <em>结算款 :</em>
+                            <span id="contract_jsk"></span>
+                        </li>
+                        <li>
+                            <em>质保金 :</em>
+                            <span id="contract_zbj"></span>
+                        </li>
+                        <li>
+                            <em>质保金回收年限 :</em>
+                            <span id="contract_zbjhsnx"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="projectSurvey-mod col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="projectSurvey-tit flexLayout flexCenter">
+                        <span></span>
+                        <em class="flexItem">供货相关</em>
+                        <a href="/crm/project/editContract.html?id=[xmbh]#/step5" class="projectSurvey-edit"></a>
+                    </div>
+                    <ul class="projectSurvey-con">
+                        <li>
+                            <em>预计开工时间 :</em>
+                            <span id="contract_yjkgsj"></span>
+                        </li>
+                        <li>
+                            <em>供货开始时间 :</em>
+                            <span id="contract_ghkssj"></span>
+                        </li>
+                        <li>
+                            <em>预计吊装时间 :</em>
+                            <span id="contract_yjdzsj"></span>
+                        </li>
+                        <li>
+                            <em>合同竣工时间 :</em>
+                            <span id="contract_htjgsj"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="projectSurvey-mod col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="projectSurvey-tit flexLayout flexCenter">
+                        <span></span>
+                        <em class="flexItem">体量信息</em>
+                        <a href="/crm/project/editContract.html?id=[xmbh]#/step6" class="projectSurvey-edit"></a>
+                    </div>
+                    <ul class="projectSurvey-con tlxx">
+                        <li class="contract_htje">
+                            <em>合同金额(万元) :</em>
+                            <span id="contract_htje"></span>
+                        </li>
+                        <li class="contract_pchte">
+                            <em>PC合同额(万元) :</em>
+                            <span id="contract_pchte"></span>
+                        </li>
+                        <li class="contract_cplx">
+                            <em>产品类型 :</em>
+                            <span id="contract_cplx"></span>
+                        </li>
+                        <li class="contract_jgsfbhysfy">
+                            <em>价格是否包含运输费用 :</em>
+                            <span id="contract_jgsfbhysfy"></span>
+                        </li>
+                        <li class="contract_htdj">
+                            <em>合同单价（元/m³） :</em>
+                            <span id="contract_htdj"></span>
+                        </li>
+                        <li class="contract_xxpcje">
+                            <em>详细PC金额(元) :</em>
+                            <span id="contract_xxpcje"></span>
+                        </li>
+                        <li class="contract_mj">
+                            <em>面积（万㎡） :</em>
+                            <span id="contract_mj"></span>
+                        </li>
+                        <li class="contract_pcl">
+                            <em>PC量(万立方) :</em>
+                            <span id="contract_pcl"></span>
+                        </li>
+                        <li class="contract_ds">
+                            <em>栋数 :</em>
+                            <span id="contract_ds"></span>
+                        </li>
+                        <li class="contract_cs">
+                            <em>层数 :</em>
+                            <span id="contract_cs"></span>
+                        </li>
+                        <li class="contract_cd">
+                            <em>长度(M) :</em>
+                            <span id="contract_cd"></span>
+                        </li>
+                        <li class="contract_cangs">
+                            <em>仓数 :</em>
+                            <span id="contract_cangs"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="projectSurvey-mod col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="projectSurvey-tit flexLayout flexCenter">
+                        <span></span>
+                        <em class="flexItem">其他信息</em>
+                        <a href="/crm/project/editContract.html?id=[xmbh]#/step7" class="projectSurvey-edit"></a>
+                    </div>
+                    <ul class="projectSurvey-con">
+                        <li>
+                            <em>备注 :</em>
+                            <span id="contract_bz"></span>
+                        </li>
+                        <li>
+                            <em>员工编号 :</em>
+                            <span id="contract_ygbh"></span>
+                        </li>
+                        <li>
+                            <em>合同所有人 :</em>
+                            <span id="contract_htsyr"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="footer" class="row transparency">
+            <a class="approval">提交待审批</a>
+        </div>
+    </div>
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="/crm/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="/crm/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/crm/js/global.js"></script>
+    <script src="/crm/js/iscroll.js"></script>
+    <script src="/crm/js/project/projectDetail.js"></script>
+    <script src="/crm/layer-v3.1.1/layer/layer.js"></script>
+</body>
+
+</html>

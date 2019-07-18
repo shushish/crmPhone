@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>远大住工-联系人</title>
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="../css/ydui.css" />
+		<link rel="stylesheet" href="../css/global.css" />
+		<!-- 引入YDUI自适应解决方案类库 -->
+		<script src="../js/ydui.flexible.js"></script>
+		<link rel="stylesheet" href="../css/journal/switch.css">
+		<link rel="stylesheet" href="../css/docs/main.css" />
+	</head>
+
+	<body>
+		<section class="g-flexview">
+			<header class="m-navbar" style="background: #00437c;">
+				<a href="javascript:void(0)" class="navbar-item" id="back-btn"><i class="back-ico"></i></a>
+				<div class="navbar-center">
+					<span class="navbar-title" style="color: white;">新增联系人</span>
+				</div>
+			</header>
+
+				<div class="g-scrollview">
+					<form about="" method="post" id="tableForm">
+					<div class="m-cell">
+
+						<div class="cell-item">
+							<div class="cell-left"><em>*</em>姓名：</div>
+							<div class="cell-right">
+								<input type="text" id="name" name="record" value="" class="cell-input" placeholder="请输入联系人名称" autocomplete="off" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left">出生日期：</div>
+							<div class="cell-right">
+								<input type="date" id="birthDate" value="" class="cell-input" placeholder="请输入联系人出生日期" autocomplete="off" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left">籍贯：</div>
+							<div class="cell-right">
+								<input type="text" id="nativePlace" name="record" value="" class="cell-input" placeholder="请输入联系人籍贯" autocomplete="off" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left"><em>*</em>职位:</div>
+							<div class="cell-right">
+								<input type="text" id="title" name="record" value="" class="cell-input" placeholder="请输入联系人职位" autocomplete="off" />
+							</div>
+						</div>
+
+						<div class="cell-item">
+							<div class="cell-left">电话号码：</div>
+							<div class="cell-right">
+								<input type="text" id="phone" name="record" value="" class="cell-input" placeholder="请输入电话号码" autocomplete="off" />
+							</div>
+						</div>
+						<div class="cell-item" style="overflow: inherit;">
+							<div class="cell-left"><em>*</em>客户名称：</div>
+							<div class="cell-right" style="position: relative;">
+								<input type="text" id="accountName" name="accountName" value="" class="cell-input" placeholder="请输入客户名称" onchange="queryAccountList()"  />
+							</div>
+							<div  id="selectAccountList" style="position: absolute;top: 100%;opacity: 100;border: 1px solid #ddd;
+							background: #fff;z-index: 1000;font-size: 10px;width: 95%;font-size: 200%"   ></div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left"><em>*</em>部门：</div>
+							<div class="cell-right">
+								<select name="department" id="department" style="width: 90%;height:0.5rem;">
+
+								</select>
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left"><em>*</em>角色：</div>
+							<div class="cell-right">
+								<select name="role" id="role" style="width: 90%;height:0.5rem;">
+
+								</select>
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left"><em>*</em>等级：</div>
+							<div class="cell-right">
+								<select name="level" id="level" style="width: 90%;height:0.5rem;">
+
+								</select>
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left"><em>*</em>是否来我司参观：</div>
+							<div class="cell-right">
+								<select name="visitFlag" id="visitFlag" style="width: 90%;height:0.5rem;">
+									<option value="">请选择</option>
+									<option value="1">是</option>
+									<option value="0">否</option>
+								</select>
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left"><em>*</em>性别：</div>
+							<div class="cell-right">
+								<select name="sex" id="sex" style="width: 90%;height:0.5rem;">
+									<option value="">请选择</option>
+									<option value="0">男</option>
+									<option value="1">女</option>
+								</select>
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left"><em>*</em>对我司态度：</div>
+							<div class="cell-right">
+								<select name="contactIds" id="attitudeUs" style="width: 90%;height:0.5rem;">
+
+								</select>
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left"><em>*</em>影响力：</div>
+							<div class="cell-right">
+								<select name="contactIds" id="influence" style="width: 90%;height:0.5rem;">
+
+								</select>
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left"><em>*</em>成熟度：</div>
+							<div class="cell-right">
+								<select name="contactIds" id="relationship" style="width: 90%;height:0.5rem;">
+
+								</select>
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left">喜好及忌讳：</div>
+							<div class="cell-right">
+								<input type="text" id="likeOrTaboo" name="record" value="" class="cell-input" placeholder="请输入喜好及忌讳"
+								 autocomplete="off" />
+							</div>
+						</div>
+
+						<div class="cell-item">
+							<div class="cell-left">评价：</div>
+							<div class="cell-right">
+								<input type="text" id="estimation" name="record" value="" class="cell-input" placeholder="请输入评价"
+								 autocomplete="off" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left"><em>*</em>特征标签：</div>
+							<div class="cell-right">
+								<select name="contactFeature" id="contactFeature" style="width: 90%;height:0.5rem;">
+
+								</select>
+							</div>
+						</div>
+						<button type="button" class="btn-block btn-primary" id="savebf">保存</button>
+					</div>
+					</form>
+				</div>
+
+		</section>
+		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+		<script src="../jquery-3.3.1/jquery-3.3.1.min.js"></script>
+		<script src="../js/ydui.js"></script>
+		<script src="../echart/axios.min.js"></script>
+		<script src="../js/global.js"></script>
+		<script type="text/javascript">
+			$("#back-btn").on("click", Common.prototype.Back);
+		</script>
+		<script src="../js/docs/distpicker.js"></script>
+		<script src="../js/template-native.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/html" id="accountList">
+			<ul class="list-group">
+				<% for(var i = 0; i < list.length; i++){ %>
+				<li value=<%= list[i].id%> class="list-group-item" ><%= list[i].name%></li>
+				<% } %>
+			</ul>
+		</script>
+
+		<script type="text/javascript">
+           //初始化方法
+            $(function(){
+                initByDictValue();
+            });
+
+            //保存联系人
+			$("#savebf").click(function() {
+				let contact = {
+					'name': $("#name").val(), //联系人名称
+					'birthDate': $("#birthDate").val(), //出生日期
+					'nativePlace': $("#nativePlace").val(), //籍贯
+					'title': $("#title").val(), //职位
+					'phone': $('#phone').val(), //电话号码
+					'department': $("#department option:selected").val(), //部门
+					'role': $("#role option:selected").val(), //角色
+					'level': $("#level option:selected").val(), //等级
+					'visitFlag': $("#visitFlag option:selected").val(), //是否来我司参观
+					'sex': $("#sex option:selected").val(),//性别
+					'accountId': $("#accountName").attr("name"),//客户名称
+					'attitudeUs': $("#attitudeUs option:selected").val(),//对我司态度
+					'influence': $("#influence option:selected").val(),//影响力
+					'relationship': $("#relationship option:selected").val(),//成熟度
+					'likeOrTaboo': $("#likeOrTaboo").val(),//喜好及忌讳
+					'estimation': $("#estimation").val(),//评价
+					'feature': $("#contactFeature option:selected").val(),//特征标签
+				};
+				//表单验证
+                if("" == contact.name || null == contact.name){
+                    YDUI.dialog.notify('请填写联系人名字', 1000);
+                    return;
+                }
+                if("" == contact.title || null == contact.title){
+                    YDUI.dialog.notify('请填写职位', 1000);
+                    return;
+                }
+                if("" == contact.department || null == contact.department){
+                    YDUI.dialog.notify('请选择部门', 1000);
+                    return;
+                }
+                if("" == contact.role || null == contact.role){
+                    YDUI.dialog.notify('请选择角色', 1000);
+                    return;
+                }
+                if("" == contact.level || null == contact.level){
+                    YDUI.dialog.notify('请选择等级', 1000);
+                    return;
+                }
+                if("" == contact.sex || null == contact.sex){
+                    YDUI.dialog.notify('请选择性别', 1000);
+                    return;
+                }
+                if("" == contact.accountId || null == contact.accountId){
+                    YDUI.dialog.notify('请选择客户', 1000);
+                    return;
+                }
+                if("" == contact.attitudeUs || null == contact.attitudeUs){
+                    YDUI.dialog.notify('请选择对我司态度', 1000);
+                    return;
+                }
+                if("" == contact.influence || null == contact.influence){
+                    YDUI.dialog.notify('请选择影响力', 1000);
+                    return;
+                }
+                if("" == contact.relationship || null == contact.relationship){
+                    YDUI.dialog.notify('请选择与我司关系', 1000);
+                    return;
+                }
+                if("" == contact.feature || null == contact.feature){
+                    YDUI.dialog.notify('请选择特征标签', 1000);
+                    return;
+                }
+
+				let form = new FormData();
+				for (var item in contact) {
+					form.append(item, contact[item] || "");
+				}
+				return axios({
+					url: '/api/contact/save',
+					method: 'post',
+					data: form
+				}).then(res => {
+                    if (res.data == "操作成功") {
+                        YDUI.dialog.toast(res.data, "success", 1000);
+                        setTimeout(function(){location.href='Contacts.html'},800);
+                    }else{
+                        YDUI.dialog.toast(res.data, "error", 1000);
+                        setTimeout(function(){location.href='addContacts.html'},800);
+                    }
+
+                })
+			});
+
+
+			//初始化数据字典下拉选
+            function initByDictValue(){
+               // 获取等级字典数据
+                $("#level").html(""); //绑定模号下拉菜单
+                $("#level").append($("<option value=\"\">－请选择－</option>"));
+                axios.post("/api/dictionary/findDictionaryByDictValue","dictValue=contactLevel")
+                    .then(res =>{
+                        for (var i = 0; i < res.data.length; i++) {
+                            $("#level").append($("<option value=\"" + res.data[i].dataName + "\">" + res.data[i].dataName + "</option>"));
+                        }
+                    })
+               // 获取与联系人关系
+                $("#relationship").html(""); //绑定模号下拉菜单
+                $("#relationship").append($("<option value=\"\">－请选择－</option>"));
+                axios.post("/api/dictionary/findDictionaryByDictValue","dictValue=relationship")
+                    .then(res =>{
+                        for (var i = 0; i < res.data.length; i++) {
+                            $("#relationship").append($("<option value=\"" + res.data[i].dataName + "\">" + res.data[i].dataName + "</option>"));
+                        }
+                    })
+            	//对我司态度
+                $("#attitudeUs").html(""); //绑定模号下拉菜单
+                $("#attitudeUs").append($("<option value=\"\">－请选择－</option>"));
+                axios.post("/api/dictionary/findDictionaryByDictValue","dictValue=contactAtti")
+                    .then(res =>{
+                        for (var i = 0; i < res.data.length; i++) {
+                            $("#attitudeUs").append($("<option value=\"" + res.data[i].dataName + "\">" + res.data[i].dataName + "</option>"));
+                        }
+                    })
+                //影响力
+                $("#influence").html(""); //绑定模号下拉菜单
+                $("#influence").append($("<option value=\"\">－请选择－</option>"));
+                axios.post("/api/dictionary/findDictionaryByDictValue","dictValue=influence")
+                    .then(res =>{
+                        for (var i = 0; i < res.data.length; i++) {
+                            $("#influence").append($("<option value=\"" + res.data[i].dataName + "\">" + res.data[i].dataName + "</option>"));
+                        }
+                    })
+                //角色
+                $("#role").html(""); //绑定模号下拉菜单
+                $("#role").append($("<option value=\"\">－请选择－</option>"));
+                axios.post("/api/dictionary/findDictionaryByDictValue","dictValue=contactRole")
+                    .then(res =>{
+                        for (var i = 0; i < res.data.length; i++) {
+                            $("#role").append($("<option value=\"" + res.data[i].dataName + "\">" + res.data[i].dataName + "</option>"));
+                        }
+                    })
+                //部门
+                $("#department").html(""); //绑定模号下拉菜单
+                $("#department").append($("<option value=\"\">－请选择－</option>"));
+                axios.post("/api/dictionary/findDictionaryByDictValue","dictValue=contactDep")
+                    .then(res =>{
+                        for (var i = 0; i < res.data.length; i++) {
+                            $("#department").append($("<option value=\"" + res.data[i].dataName + "\">" + res.data[i].dataName + "</option>"));
+                        }
+                    })
+                //特征标签
+                $("#contactFeature").html(""); //绑定模号下拉菜单
+                $("#contactFeature").append($("<option value=\"\">－请选择－</option>"));
+                axios.post("/api/dictionary/findDictionaryByDictValue","dictValue=contactFeature")
+                    .then(res =>{
+                        for (var i = 0; i < res.data.length; i++) {
+                            $("#contactFeature").append($("<option value=\"" + res.data[i].dataName + "\">" + res.data[i].dataName + "</option>"));
+                        }
+                    })
+            };
+
+            //获取客户下拉选列表
+		    function  queryAccountList(){
+                $("#selectAccountList").empty();
+               let query = $("#accountName").val();
+                $("#accountName").html("");
+                let params = {'key':query};
+               axios({
+                   url:"/api/account/queryAccountList1",
+                   method:"post",
+                   params
+               }).then(res=>{
+                   let accountList = [];
+                   if(res.data != null){
+                       accountList = res.data;
+                       let html = '';
+                       //模板装载html
+                       html = template('accountList',{
+                           list: accountList
+                       });
+                       $("#selectAccountList").append(html);
+                   }
+                   //点击选取
+                   $('.list-group-item').on('click', function(){
+                       $("#accountName").val($(this).html());
+                       $("#accountName").attr("name",$(this).attr("value"));
+                       $("#selectAccountList").empty();
+                   });
+			   })
+		   }
+
+
+		</script>
+
+	</body>
+
+</html>

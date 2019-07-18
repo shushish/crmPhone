@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>远大住工-新建项目</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 cdn源 
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
+
+
+  <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+
+
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  -->
+
+    <!-- Bootstrap -->
+    <link href="/crm/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/crm/css/global.css" rel="stylesheet">
+    <link href="/crm/css/project/addProject.css" rel="stylesheet">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="backgroud container-fluid">
+        <div id="header" class="row">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 title">
+                <a class="back show" href="javascript:void(0)"></a>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 title title_center">新建项目</div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 title_btn dropdown">
+                <a class="right_menu" href="#" data-toggle="dropdown"></a>
+
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <li>
+                        <a href="/crm/index_new.html">
+                            <span class="index img-span active"></span>
+                            <div>首页</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/crm/project/project.html">
+                            <span class="project img-span active"></span>
+                            <div>项目</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/crm/data/dataBoard_new.html">
+                            <span class="data img-span active"></span>
+                            <div>看板</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/crm/visit/visit.html#/date">
+                            <span class="plan img-span active"></span>
+                            <div>日常</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/crm/my/my.html">
+                            <span class="my img-span active"></span>
+                            <div>我的</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--遮罩层-->
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 masked"></div>
+        <div id="body" class="row">
+            <div class="creatMessage-step">
+                <a href="javascript:void(0)" class="current a_step1">
+                    <span class="step1"></span> 客户信息
+                </a>
+                <div class="message-step_arrow arrow1"></div>
+                <a href="javascript:void(0)" class="a_step2">
+                    <span class="step2 iosClick"></span> 基本信息
+                </a>
+                <div class="message-step_arrow arrow2"></div>
+                <a href="javascript:void(0)" class="a_step3">
+                    <span class="step3 iosClick"></span> 补充信息
+                </a>
+                <div class="message-step_arrow arrow3"></div>
+                <a href="javascript:void(0)" class="a_step4">
+                    <span class="step4 iosClick"></span> 甲方状态
+                </a>
+                <div class="message-step_arrow arrow4 none"></div>
+                <a href="javascript:void(0)" class="a_step5 none">
+                    <span class="step4 iosClick"></span> 体量信息
+                </a>
+                <div class="message-step_arrow arrow5 none"></div>
+                <a href="javascript:void(0)" class="a_step6 none">
+                    <span class="step4 iosClick"></span> 其他信息
+                </a>
+                <div class="message-step_arrow arrow6 none"></div>
+                <a href="javascript:void(0)" class="a_step7 none">
+                    <span class="step4 iosClick"></span> 联系人
+                </a>
+            </div>
+            <form id="newProject">
+                <div id="step1" class="add_step1 step current">
+                    <div class="new_edit">
+                        <ul>
+                            <li>
+                                <em>*</em>
+                                <b>客户名称 : </b>
+                                <div class="hySelectbox selectCustomer" data-id="khmc">
+                                    <input type="text" name="" value="" id="khmc" placeholder="请选择" class="entry_name">
+                                    <input type="hidden" value="" id="khmcId" name="khmcId">
+                                    <div class="new_arrow"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <em>&nbsp;&nbsp;&nbsp;&nbsp;</em>
+                                <b>开发方 : </b>
+                                <div class="hySelectbox selectCustomer" data-id="kff">
+                                    <input type="text" placeholder="请选择" id="kff" class="customer_name" readonly="true">
+                                    <input type="hidden" value="" name="kffId" id="kffId">
+                                    <div class="new_arrow"></div>
+                                </div>
+                                <!-- <div class="addCustomerBtn"></div> -->
+                            </li>
+                            <li>
+                                <em>&nbsp;&nbsp;&nbsp;&nbsp;</em>
+                                <b>建筑商 : </b>
+                                <div class="hySelectbox selectCustomer" data-id="jzs">
+                                    <input type="text" placeholder="请选择" class="owned_name" readonly="true" id="jzs">
+                                    <input type="hidden" value="" name="jzsId" id="jzsId">
+                                    <div class="new_arrow"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <em>&nbsp;&nbsp;&nbsp;&nbsp;</em>
+                                <b>设计院 : </b>
+                                <div class="hySelectbox selectCustomer" data-id="sheji">
+                                    <input type="text" placeholder="请选择" class="owned_name" readonly="true" id="sheji">
+                                    <input type="hidden" value="" name="shejiId" id="shejiId">
+                                    <div class="new_arrow"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#/step2" class="next_step" data-step="1" style="cursor: pointer;display: block;text-align: center">下一步</a>
+                    <!--选择客户弹窗-->
+                    <div id="selectCustomerDialogs" class="selectCustomerDialogs none">
+                        <!-- <div id="newCustomer" class="newCustomer">
+                            <input type="text" class="addNewCustomer-input" placeholder="请输入客户名称">
+                            <div>搜索</div>
+                        </div> -->
+                        <div id="searchCustomer" class="flexLayout searchCustomer">
+                            <input type="text" id="keyWord" class="addNewCustomer-input flexItem" placeholder="请输入客户名称">
+                            <a class="btn_search">搜索</a>
+                        </div>
+                        <div class="CustomerList close-with-masklayer col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <ul id="customers">
+
+                            </ul>
+                        </div>
+                        <div class="bottom_CustomerList">
+                            <a id="goToTop" onclick="AddProject.prototype.ScrollToTop('CustomerList')">回到顶部</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="step2" class="add_step2 step">
+                    <div class="new_edit">
+                        <ul>
+                            <li>
+                                <em>*</em>
+                                <b>项目名称 : </b>
+                                <input type="text" name="xmmc" id="xmmc" value="" placeholder="请输入" class="department">
+                            </li>
+                            <li id="address">
+                                <em>*</em>
+                                <b>项目所在省/市 : </b>
+                                <input type="text" readonly="readonly" name="province" id="province" value="" class="productInput" placeholder="请选择">
+                                <input type="text" readonly="readonly" name="city" id="city" value="" placeholder="" class="input_city">
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b>项目地址 : </b>
+                                <input type="text" name="xmdz" id="xmdz" value="" placeholder="请输入" class="">
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b>项目类型 : </b>
+                                <select name="" id="xmlx" name="xmlx">
+                                    <option value="">--无--</option>
+                                    <option index="1" value="开发商项目">开发商项目</option>
+                                    <option index="2" value="保障房/棚改">保障房/棚改</option>
+                                    <option index="3" value="公建">公建</option>
+                                    <option index="4" value="管廊">管廊</option>
+                                    <option index="5" value="其他">其他</option>
+                                </select>
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b>项目归属 : </b>
+                                <select id="xmgs" name="xmgs">
+                                    <option value="">--无--</option>
+                                    <option index="0" value="开发商项目">开发商项目</option>
+                                    <option index="1" value="政府项目">政府项目</option>
+                                    <option index="2" value="公建项目">公建项目</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--省市弹框-->
+                    <div class="industry_content close-with-masklayer">
+                        <div class="industry_left col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <ul>
+                                <li data-value="北京市">北京市</li>
+                                <li data-value="天津市">天津市</li>
+                                <li data-value="上海市">上海市</li>
+                                <li data-value="重庆市">重庆市</li>
+                                <li data-value="河北省">河北省</li>
+                                <li data-value="河南省">河南省</li>
+                                <li data-value="云南省">云南省</li>
+                                <li data-value="辽宁省">辽宁省</li>
+                                <li data-value="黑龙江省">黑龙江省</li>
+                                <li data-value="湖南省">湖南省</li>
+                                <li data-value="安徽省">安徽省</li>
+                                <li data-value="山东省">山东省</li>
+                                <li data-value="新疆维吾尔自治区">新疆维吾尔自治区</li>
+                                <li data-value="江苏省">江苏省</li>
+                                <li data-value="浙江省">浙江省</li>
+                                <li data-value="江西省">江西省</li>
+                                <li data-value="湖北省">湖北省</li>
+                                <li data-value="广西壮族">广西壮族</li>
+                                <li data-value="甘肃省">甘肃省</li>
+                                <li data-value="山西省">山西省</li>
+                                <li data-value="内蒙古自治区">内蒙古自治区</li>
+                                <li data-value="陕西省">陕西省</li>
+                                <li data-value="吉林省">吉林省</li>
+                                <li data-value="福建省">福建省</li>
+                                <li data-value="贵州省">贵州省</li>
+                                <li data-value="广东省">广东省</li>
+                                <li data-value="青海省">青海省</li>
+                                <li data-value="西藏">西藏</li>
+                                <li data-value="四川省">四川省</li>
+                                <li data-value="宁夏回族自治区">宁夏回族自治区</li>
+                                <li data-value="海南省">海南省</li>
+                                <li data-value="台湾省">台湾省</li>
+                                <li data-value="香港特别行政区">香港特别行政区</li>
+                                <li data-value="澳门特别行政区">澳门特别行政区</li>
+                            </ul>
+                        </div>
+                        <div class="industry_right col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <ul class="subIndustry"></ul>
+                        </div>
+                    </div>
+                    <a href="#/step3" data-step="2" class="next_step" style="cursor: pointer;display: block;text-align: center">下一步</a>
+                </div>
+                <div id="step3" class="add_step3 step">
+                    <div class="new_edit">
+                        <ul>
+                            <li>
+                                <em>*</em>
+                                <b> 运输距离
+                                    <span class="redMark">（千米）</span>: </b>
+                                <input type="text" name="ysjl" id="ysjl" value="" placeholder="请输入" class="department">
+                                <span class="a_button" id="getDistance">测距</span>
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b>项目成功率 : </b>
+                                <input type="text" name="xmcgl" id="xmcgl" value="" class="productInput" placeholder="请输入">
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b>设计归属 : </b>
+                                <select name="" id="sjgs" name="sjgs">
+                                    <option value="">--无--</option>
+                                    <option index="0" value="内部设计">内部设计</option>
+                                    <option index="1" value="参与设计">参与设计</option>
+                                    <option index="2" value="外部设计">外部设计</option>
+                                </select>
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b>土地拿地日期 : </b>
+                                <input type="date" name="tdndrq" id="tdndrq" placeholder="请选择">
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b>异形件比例 : </b>
+                                <input type="text" name="yxjbl" id="yxjbl">
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#/step4" data-step="3" class="next_step" style="cursor: pointer;display: block;text-align: center">下一步</a>
+                </div>
+                <div id="step4" class="add_step4 step">
+                    <div class="new_edit">
+                        <ul>
+                            <li>
+                                <em>*</em>
+                                <b>预计开工时间 : </b>
+                                <input type="date" name="yjkgsj" id="yjkgsj" placeholder="请选择">
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b> 预计签约月份 : </b>
+                                <input type="date" name="yjqyyf" id="yjqyyf" placeholder="请选择">
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b> 采购类型 : </b>
+                                <select id="cglx" name="cglx">
+                                    <option value="">--无--</option>
+                                    <option index="0" value="甲方自行采购">甲方自行采购</option>
+                                    <option index="1" value="乙方自行采购">乙方自行采购</option>
+                                    <option index="2" value="甲方指定，乙方采购">甲方指定，乙方采购</option>
+                                </select>
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b>客户承包模式 : </b>
+                                <select name="" id="khcbms" name="khcbms">
+                                    <option value="">--无--</option>
+                                    <option index="0" value="供应PC构件">供应PC构件</option>
+                                    <option index="1" value="施工总承包">施工总承包</option>
+                                    <option index="2" value="EPC总承包">EPC总承包</option>
+                                    <option index="3" value="其它">其它</option>
+                                </select>
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b>甲方进度 : </b>
+                                <select name="" id="jfjd" name="jfjd">
+                                    <option value="">--无--</option>
+                                    <option index="0" value="方案设计">方案设计</option>
+                                    <option index="1" value="扩初设计">扩初设计</option>
+                                    <option index="2" value="施工图设计">施工图设计</option>
+                                    <option index="3" value="施工招投标">施工招投标</option>
+                                    <option index="4" value="规划设计">规划设计</option>
+                                    <option index="5" value="总平面图审批">总平面图审批</option>
+                                    <option index="6" value="申报报建图">申报报建图</option>
+                                    <option index="7" value="申报建设工程规划许可证">申报建设工程规划许可证</option>
+                                    <option index="8" value="招投标">招投标</option>
+                                    <option index="9" value="申报施工许可">申报施工许可</option>
+                                    <option index="10" value="其它">其它</option>
+                                </select>
+                            </li>
+                            <li>
+                                <em>&nbsp;</em>
+                                <b>生产工厂 : </b>
+                                <select name="" id="scgc" name="scgc">
+                                    <option value="">--无--</option>
+                                    <option index="0" value="麓谷二期工厂-03010403">麓谷二期工厂-03010403</option>
+                                    <option index="1" value="宁乡工厂-04010403">宁乡工厂-04010403</option>
+                                    <option index="2" value="岳阳工厂-07010403">岳阳工厂-07010403</option>
+                                    <option index="3" value="张家界工厂-21010206">张家界工厂-21010206</option>
+                                    <option index="4" value="湘潭工厂-06010403">湘潭工厂-06010403</option>
+                                    <option index="5" value="郴州工厂-49010403">郴州工厂-49010403</option>
+                                    <option index="6" value="合肥工厂-12010403">合肥工厂-12010403</option>
+                                    <option index="7" value="杭州工厂-34010403">杭州工厂-34010403</option>
+                                    <option index="8" value="天津工厂-36020403">天津工厂-36020403</option>
+                                    <option index="9" value="溧阳工厂-13010403">溧阳工厂-13010403</option>
+                                    <option index="10" value="上海工厂-29020403">上海工厂-29020403</option>
+                                    <option index="11" value="阜阳工厂-15010303">阜阳工厂-15010303</option>
+                                    <option index="12" value="广州工厂-14010602">广州工厂-14010602</option>
+                                    <option index="13" value="六安工厂-19010403">六安工厂-19010403</option>
+                                    <option index="14" value="中盈远大-59220403">中盈远大-59220403</option>
+                                    <option index="15" value="国丰远大-59190403">国丰远大-59190403</option>
+                                    <option index="16" value="益阳远大-59210403">益阳远大-59210403</option>
+                                    <option index="17" value="青岛上流工厂-59110503">青岛上流工厂-59110503</option>
+                                    <option index="18" value="常德远大-59070502">常德远大-59070502</option>
+                                    <option index="19" value="河南远大天成-59150301">河南远大天成-59150301</option>
+                                </select>
+                            </li>
+                            <li style="height:6rem">
+                                <em>*</em>
+                                <b>业主简要情况说明 : </b>
+                                <textarea type="text" name="yzjyqksm" id="yzjyqksm" placeholder="请输入" style="line-height:2rem;height:auto;"></textarea>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#/step5" data-step="4" class="next_step" style="cursor: pointer;display: block;text-align: center">下一步</a>
+                </div>
+                <div id="step5" class="add_step5 step">
+                    <div class="new_edit">
+                        <ul>
+                            <li class="li_cplx">
+                                <em>*</em>
+                                <b>产品类型 : </b>
+                                <select id="cplx" name="cplx">
+                                    <option value="">--无--</option>
+                                    <option index="0" value="一星级产品">一星级产品</option>
+                                    <option index="1" value="二星级产品">二星级产品</option>
+                                    <option index="2" value="三星级产品">三星级产品</option>
+                                    <option index="3" value="四星级产品">四星级产品</option>
+                                    <option index="4" value="五星级产品">五星级产品</option>
+                                    <option index="6" value="其他">其他</option>
+                                </select>
+                            </li>
+                            <li class="li_zghjzmj">
+                                <em>*</em>
+                                <b> 总规划建筑面积
+                                    <span class="redMark">(万㎡)</span> : </b>
+                                <input type="text" name="zghjzmj" id="zghjzmj" placeholder="请输入">
+                            </li>
+                            <li class="li_zpjzmj">
+                                <em>*</em>
+                                <b> 装配建筑面积
+                                    <span class="redMark">(万㎡)</span>: </b>
+                                <input type="text" name="zpjzmj" id="zpjzmj" placeholder="请输入">
+                            </li>
+                            <li class="li_yjhte">
+                                <em>*</em>
+                                <b> 预计PC合同额
+                                    <span class="redMark">(万元)</span> : </b>
+                                <input type="text" name="yjhte" id="yjhte" placeholder="请输入">
+                            </li>
+                            <li class="li_pcl">
+                                <em>&nbsp;&nbsp;&nbsp;</em>
+                                <b>PC量
+                                    <span class="redMark">(万m³)</span> : </b>
+                                <input type="text" name="pcl" id="pcl" placeholder="请输入">
+                            </li>
+                            <li class="li_ds">
+                                <em>*</em>
+                                <b>栋数 : </b>
+                                <input type="text" name="ds" id="ds" placeholder="请输入">
+                            </li>
+                            <li class="li_cs">
+                                <em>*</em>
+                                <b>层数 :</b>
+                                <input type="text" name="cs" id="cs" placeholder="请输入">
+                            </li>
+                            <li class="li_cd">
+                                <em>*</em>
+                                <b>长度
+                                    <span class="redMark">(M)</span> : </b>
+                                <input type="text" name="cd" id="cd" placeholder="请输入">
+                            </li>
+                            <li class="li_cas">
+                                <em>*</em>
+                                <b>仓数 : </b>
+                                <input type="text" name="cas" id="cas" placeholder="请输入">
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#/step6" data-step="5" class="next_step" style="cursor: pointer;display: block;text-align: center">下一步</a>
+                </div>
+                <div id="step6" class="add_step6 step">
+                    <div class="new_edit">
+                        <ul>
+                            <li>
+                                <em>&nbsp;&nbsp;&nbsp;</em>
+                                <b>备注 : </b>
+                                <input type="text" name="beizhu" id="beizhu" placeholder="请输入">
+                            </li>
+                            <!-- <li>
+                                <em>&nbsp;&nbsp;&nbsp;</em>
+                                <b> 提醒次数 : </b>
+                                <input type="number" name="txcs" id="txcs" placeholder="请输入">
+                            </li> -->
+                        </ul>
+                    </div>
+                    <a href="#/step7" data-step="6" class="next_step" style="cursor: pointer;display: block;text-align: center">下一步</a>
+                </div>
+                <div id="step7" class="add_step7 step">
+                    <div class="new_edit">
+                        <ul>
+                            <li>
+                                <em>*</em>
+                                <b> 联系人姓名 : </b>
+                                <input type="text" data-id="lxrxm" class="selectContacts" readonly="readonly" name="lxrxm" id="lxrxm" placeholder="请选择">
+                                <input type="hidden" name="lxrxmId" id="lxrxmId">
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b> 角色 : </b>
+                                <select id="jaose" name="jaose">
+                                    <option value="">--无--</option>
+                                    <option index="0" value="Coach:内线">Coach:内线</option>
+                                    <option index="1" value="EB:拍板人">EB:拍板人</option>
+                                    <option index="2" value="TB:技术专家">TB:技术专家</option>
+                                    <option index="3" value="UB:使用者">UB:使用者</option>
+                                </select>
+                            </li>
+                            <li>
+                                <em>&nbsp;&nbsp;&nbsp;</em>
+                                <b> 是否主要联系人 : </b>
+                                <select id="zylxr" name="zylxr">
+                                    <option index="0" value="是">是</option>
+                                    <option index="1" value="否">否</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                    <a data-step="7" class="next_step" style="cursor: pointer;display: block;text-align: center">保存</a>
+                    <!--选择联系人弹窗-->
+                    <div id="selectContactsDialogs" class="selectCustomerDialogs none">
+                        <div id="searchContacts" class="flexLayout searchCustomer">
+                            <input type="text" id="keyWordContacts" class="addNewContacts-input flexItem" placeholder="请输入联系人名称">
+                            <a class="btn_search_contacts">搜索</a>
+                        </div>
+                        <div class="ContactsList col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <ul id="contacts">
+
+                            </ul>
+                        </div>
+                        <div class="bottom_ContactsList">
+                            <a id="ContactsGoToTop" onclick="AddProject.prototype.ScrollToTop('ContactsList')">回到顶部</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        if (typeof $ === 'undefined' || !typeof jQuery === 'undefined') {
+            var srcipt = document.createElement('script');
+            srcipt.type = 'text/javascript';
+            srcipt.src = '/jquery-3.3.1/jquery-3.3.1.min.js';
+            var head = document.head || document.getElementsByTagName('head')[0];
+            head.appendChild(srcipt);
+        }
+    </script>
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="/crm/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="/crm/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/crm/js/global.js"></script>
+    <script src="/crm/js/router.js"></script>
+    <script src="/crm/js/project/addProject.js"></script>
+
+    <script src="/crm/layer-v3.1.1/layer/layer.js"></script>
+</body>
+
+</html>

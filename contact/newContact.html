@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>远大住工-新建联系人</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 cdn源 
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
+
+
+  <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+
+
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  -->
+
+    <!-- Bootstrap -->
+    <link href="/crm/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/crm/css/global.css" rel="stylesheet">
+    <link href="/crm/css/project/addProject.css" rel="stylesheet">
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="backgroud container-fluid">
+        <div id="header" class="row">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 title">
+                <a class="back show" href="javascript:void(0)"></a>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 title title_center">新建联系人</div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 title_btn dropdown">
+            </div>
+        </div>
+        <!--遮罩层-->
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 masked"></div>
+        <div id="body" class="row">
+            <div class="creatMessage-step">
+                <a href="javascript:void(0)" class="current a_step1">
+                    <span class="step1"></span> 基本信息
+                </a>
+                <div class="message-step_arrow arrow1"></div>
+                <a href="javascript:void(0)" class="a_step2">
+                    <span class="step2 iosClick"></span> 画像
+                </a>
+                <div class="message-step_arrow arrow2"></div>
+                <a href="javascript:void(0)" class="a_step3">
+                    <span class="step3 iosClick"></span> 其他信息
+                </a>
+                <div class="message-step_arrow arrow3"></div>
+                <a href="javascript:void(0)" class="a_step4">
+                    <span class="step4 iosClick"></span> 系统信息
+                </a>
+            </div>
+            <form id="newProject">
+                <div id="step1" class="add_step1 step current">
+                    <div class="new_edit">
+                        <ul>
+                            <li>
+                                <em>*</em>
+                                <b>单位名称 : </b>
+                                <div class="hySelectbox selectCustomer" data-id="khmc">
+                                    <input type="text" name="" value="" id="khmc" placeholder="请选择" class="entry_name">
+                                    <input type="hidden" value="" id="khmcId" name="khmcId">
+                                    <div class="new_arrow"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b> 性别 : </b>
+                                <div class="hySelectbox">
+                                    <select type="text" placeholder="请选择" id="xb" class="customer_name">
+                                        <option value="">--无--</option>
+                                        <option index="0" value="男">男</option>
+                                        <option index="1" value="女">女</option>
+                                    </select>
+                                </div>
+                                <!-- <div class="addCustomerBtn"></div> -->
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b>联系人姓名 : </b>
+                                <div class="hySelectbox">
+                                    <input type="text" placeholder="请输入" class="owned_name" id="lxrxm">
+                                </div>
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b>年龄 : </b>
+                                <div class="hySelectbox">
+                                    <input type="number" placeholder="请输入" class="owned_name" id="age">
+                                </div>
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b>职务 : </b>
+                                <div class="hySelectbox">
+                                    <input type="text" placeholder="请输入" class="owned_name" id="zhiwu">
+                                </div>
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b>联系方式 : </b>
+                                <div class="hySelectbox">
+                                    <input type="text" placeholder="请输入" class="owned_name" id="lxfs">
+                                </div>
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b>获取微信 : </b>
+                                <div class="hySelectbox">
+                                    <select type="text" placeholder="请输入" class="owned_name" id="getWx">
+                                        <option value="">--无--</option>
+                                        <option index="0" value="是">是</option>
+                                        <option index="1" value="否">否</option>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#/step2" class="next_step" data-step="1" style="cursor: pointer;display: block;text-align: center">下一步</a>
+                    <!--选择客户弹窗-->
+                    <div id="selectCustomerDialogs" class="selectCustomerDialogs none">
+                        <!-- <div id="newCustomer" class="newCustomer">
+                            <input type="text" class="addNewCustomer-input" placeholder="请输入客户名称">
+                            <div>搜索</div>
+                        </div> -->
+                        <div id="searchCustomer" class="flexLayout searchCustomer">
+                            <input type="text" id="keyWord" class="addNewCustomer-input flexItem" placeholder="请输入客户名称">
+                            <a class="btn_search">搜索</a>
+                        </div>
+                        <div class="CustomerList close-with-masklayer col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <ul id="customers">
+
+                            </ul>
+                        </div>
+                        <div class="bottom_CustomerList">
+                            <a id="goToTop" onclick="AddProject.prototype.ScrollToTop('CustomerList')">回到顶部</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="step2" class="add_step2 step">
+                    <div class="new_edit">
+                        <ul>
+                            <li>
+                                <em>*</em>
+                                <b>部门 : </b>
+                                <div class="hySelectbox">
+                                    <select type="text" placeholder="请输入" class="owned_name" id="bm">
+                                        <option value="">--无--</option>
+                                        <option index="1" value="工程部">工程部</option>
+                                        <option index="2" value="成本部">成本部</option>
+                                        <option index="3" value="设计部">设计部</option>
+                                        <option index="4" value="采购部">采购部</option>
+                                        <option index="5" value="财务部">财务部</option>
+                                        <option index="6" value="董办">董办</option>
+                                        <option index="7" value="合约部">合约部</option>
+                                        <option index="8" value="技术部">技术部</option>
+                                        <option index="9" value="市场部">市场部</option>
+                                        <option index="10" value="项目部">项目部</option>
+                                        <option index="11" value="总经办">总经办</option>
+                                        <option index="12" value="其他">其他</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                                <em>&nbsp;</em>
+                                <b>其他部门 : </b>
+                                <div class="hySelectbox">
+                                    <input type="text" placeholder="请输入" class="owned_name" id="bumen">
+                                </div>
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b>对我司态度 : </b>
+                                <div class="hySelectbox">
+                                    <select type="text" placeholder="请选择" class="owned_name" id="dwstd">
+                                        <option value="">--无--</option>
+                                        <option index="6" value="+3大力支持">+3大力支持</option>
+                                        <option index="7" value="+2支持">+2支持</option>
+                                        <option index="8" value="+1有兴趣">+1有兴趣</option>
+                                        <option index="9" value="0不会反对">0不会反对</option>
+                                        <option index="10" value="-1不感兴趣">-1不感兴趣</option>
+                                        <option index="11" value="-2反对">-2反对</option>
+                                        <option index="12" value="-3负面评价">-3负面评价</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b>层级 : </b>
+                                <div class="hySelectbox">
+                                    <select type="text" placeholder="请选择" class="owned_name" id="cj">
+                                        <option value="">--无--</option>
+                                        <option index="4" value="1-董事长/CEO级">1-董事长/CEO级</option>
+                                        <option index="5" value="2-副总裁/VP级">2-副总裁/VP级</option>
+                                        <option index="6" value="3-中层经理级">3-中层经理级</option>
+                                        <option index="7" value="4-主管级">4-主管级</option>
+                                        <option index="8" value="5-员工级">5-员工级</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b>成熟度 : </b>
+                                <div class="hySelectbox">
+                                    <select type="text" placeholder="请选择" class="owned_name" id="csd">
+                                        <option value="">--无--</option>
+                                        <option index="0" value="拜访">拜访</option>
+                                        <option index="1" value="握手">握手</option>
+                                        <option index="2" value="交流">交流</option>
+                                        <option index="3" value="来访">来访</option>
+                                        <option index="4" value="认可">认可</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b>影响力 : </b>
+                                <div class="hySelectbox">
+                                    <select type="text" placeholder="请选择" class="owned_name" id="yxl">
+                                        <option value="">--无--</option>
+                                        <option index="0" value="高">高</option>
+                                        <option index="1" value="中">中</option>
+                                        <option index="2" value="低">低</option>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#/step3" data-step="2" class="next_step" style="cursor: pointer;display: block;text-align: center">下一步</a>
+                </div>
+                <div id="step3" class="add_step3 step">
+                    <div class="new_edit">
+                        <ul>
+                            <li class="li_xmjs">
+                                <em>*</em>
+                                <b> 项目角色 : </b>
+                                <select type="text" name="xmjs" id="xmjs" value="" placeholder="请选择" class="department">
+                                    <option value="">--无--</option>
+                                    <option index="0" value="Coach:内部参谋">Coach:内部参谋</option>
+                                    <option index="2" value="EB:最终决策">EB:最终决策</option>
+                                    <option index="3" value="TB:技术选型">TB:技术选型</option>
+                                    <option index="4" value="UB:应用选型">UB:应用选型</option>
+                                </select>
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b> 是否来公司参观 : </b>
+                                <select type="text" name="sflgscg" id="sflgscg" value="" placeholder="请选择" class="department">
+                                    <option value="">--无--</option>
+                                    <option index="0" value="是">是</option>
+                                    <option index="1" value="否">否</option>
+                                </select>
+                            </li>
+                            <li>
+                                <em>&nbsp;</em>
+                                <b>喜好忌讳 : </b>
+                                <input type="text" name="xhjh" id="xhjh" value="" placeholder="请输入">
+                            </li>
+                            <li>
+                                <em>*</em>
+                                <b>评价 : </b>
+                                <input type="text" name="pj" id="pj" value="" placeholder="请输入">
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#/step4" data-step="3" class="next_step" style="cursor: pointer;display: block;text-align: center">下一步</a>
+                </div>
+                <div id="step4" class="add_step4 step">
+                    <div class="new_edit">
+                        <ul>
+                            <li>
+                                <em>&nbsp;</em>
+                                <b>联系次数 : </b>
+                                <input type="number" name="lxcs" id="lxcs" placeholder="请选择">
+                            </li>
+                            <li>
+                                <em>&nbsp;</em>
+                                <b> 最近联系 : </b>
+                                <input type="date" name="zjlx" id="zjlx" placeholder="请选择">
+                            </li>
+                        </ul>
+                    </div>
+                    <a data-step="4" class="next_step" style="cursor: pointer;display: block;text-align: center">保存</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        if (typeof $ === 'undefined' || !typeof jQuery === 'undefined') {
+            var srcipt = document.createElement('script');
+            srcipt.type = 'text/javascript';
+            srcipt.src = '/jquery-3.3.1/jquery-3.3.1.min.js';
+            var head = document.head || document.getElementsByTagName('head')[0];
+            head.appendChild(srcipt);
+        }
+    </script>
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="/crm/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="/crm/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/crm/js/global.js"></script>
+    <script src="/crm/js/router.js"></script>
+    <script src="/crm/js/contacts/newContact.js"></script>
+
+    <script src="/crm/layer-v3.1.1/layer/layer.js"></script>
+</body>
+
+</html>

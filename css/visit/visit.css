@@ -1,0 +1,193 @@
+#calendar ul{
+    display: block;
+}
+
+.layui-laydate{
+    width: 100%;
+}
+
+.layui-laydate-main {
+    width: 100%!important;
+}
+
+.layui-laydate-content table {
+    width: 100%;
+}
+
+.laydate-footer-btns {
+    position: relative!important;
+    right: auto!important;
+    top: auto!important;
+    text-align: right;
+}
+
+.layui-laydate-footer {
+    height: auto!important;
+    padding: 5px 20px!important;
+}
+
+.laydate-day-mark-red {
+    background-color: red;
+    position: absolute;
+    content: '';
+    right: 2px;
+    top: 2px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    z-index: 1000;
+}
+
+.layui-laydate-header i {
+    top: 0px!important;
+}
+
+.layui-laydate-header {
+    position: relative;
+    line-height: 30px;
+    padding: 0px 70px 0px!important;
+}
+
+.layui-laydate-content th {
+    width:auto!important;
+    border-top: none 0 !important;
+    height: 25px!important;
+    padding: 0px!important;
+}
+
+.layui-laydate-content {
+    padding: 0px 10px!important;
+}
+
+.layui-laydate-content td {    
+    border-bottom: none;
+    height: 31px!important;
+    padding: 0px!important;
+}
+
+.middleTitle{
+    background: white;
+    margin-top: 5px;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.visitList{
+    overflow: scroll;
+    height: 15rem;
+    background: white;
+}
+
+.bf_img{
+    width: 4rem;
+    height: 3rem;
+    background: url(/crm/image/icon/listNum-1.png) no-repeat center center;
+    background-size: 80%;
+    display:inline-block;
+}
+
+.hy_img{
+    width: 4rem;
+    height: 3rem;
+    background: url(/crm/image/icon/message-step3Cur.png) no-repeat center center;
+    background-size: 80%;
+    display:inline-block;
+}
+
+.pro {
+    height: 5rem;
+    border-bottom: 1px solid #ddd;
+    background: white;
+    font-size: 1.5rem;
+}
+
+.icon_p {
+    height: 100%;
+    padding: 0rem;
+}
+
+.icon_project {
+    display: inline-block;
+    width: 5rem;
+    height: 6rem;
+    background: url(/crm/image/icon/unrecorded.png) no-repeat center center;
+    background-size: 80%;
+    cursor: pointer;
+    display: block;
+    overflow: hidden;
+    /* padding: 0rem; */
+    /* margin-left: 1rem; */
+    /*margin-right: 0.5rem; */
+}
+
+.visit {
+    background: url(/crm/image/icon/listNum-1.png) no-repeat center center;
+    background-size: 80%;
+}
+
+.project_info {
+    height: 100%;
+    padding: 0rem 0rem 0rem 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 4.5rem;
+}
+
+.projectName {
+    padding: 0rem;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 1.5rem;
+    /* font-size: 1.5rem; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color:black;
+}
+
+.industry {
+    padding: 0rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1.5rem;
+    /* font-size: 1.5rem; */
+    overflow: hidden;
+    color:#989393;
+}
+
+.icon_slid {
+    padding: 0rem;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 100%;
+    line-height: 6rem;
+    text-align: right;
+}
+
+.slid_up {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1rem;
+    background: url(/crm/image/icon/slid_up.png) no-repeat center center;
+    background-size: 90%;
+    cursor: pointer;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.addvisit {
+    display: block;
+    width: 2.5rem;
+    height: 3rem;
+    background: url(/crm/image/icon/addmanufacure_btn.png) no-repeat center center;
+    background-size: 70%;
+    cursor: pointer;
+    float: right;
+    margin-left: 1rem;
+}
+
+.middleContent{
+    margin-bottom: 4.5rem;
+}

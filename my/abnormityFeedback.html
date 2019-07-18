@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="main">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>远大住工-我的审批</title>
+
+		<!-- 引入YDUI样式 -->
+		<link rel="stylesheet" href="../css/ydui.css" />
+		<link rel="stylesheet" href="../css/global.css" />
+		<!-- 引入YDUI自适应解决方案类库 -->
+		<script src="../js/ydui.flexible.js"></script>
+		<style>
+			.cell-left{
+				width: 1.5rem;
+			}
+			.cell-right{
+				justify-content: flex-start;
+			}
+		</style>
+	</head>
+
+	<body>
+		<section class="g-flexview">
+			<header class="m-navbar" style="background: #433C4E;">
+				<a href="javascript:void(0)" class="navbar-item" id="back-btn"><i class="back-ico"></i></a>
+				<div class="navbar-center">
+					<span class="navbar-title">反馈异常</span>
+				</div>
+			</header>
+			<div class="g-scrollview">
+				<div class="m-cell">
+					<div class="cell-item">
+						<div class="cell-left"><em>*</em>所属项目：</div>
+							<div class="cell-right">
+								<input type="text" id="project"  value="" class="cell-input" placeholder="项目搜索" autocomplete="off" />
+							</div>
+
+					</div>
+					<div class="cell-item">
+						<div class="cell-left"><em>*</em>反馈类型：</div>
+						<div class="cell-right">
+							<select id="type" onchange="changeDep()" style="width: 98%;height:0.5rem;">
+								<option value=""> - 请选择反馈类型 - </option>
+							</select>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left"><em>*</em>异常级别：</div>
+						<div class="cell-right" style="text-align: left !important;">
+							<select id="level" style="width: 98%;height:0.5rem;">
+								<option value=""> - 请选择异常级别 - </option>
+							</select>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left"><em>*</em>工厂名称：</div>
+						<div class="cell-right" style="text-align: left !important;">
+							<select id="factory" style="width: 98%;height:0.5rem;">
+								<option value=""> - 请选择工厂 - </option>
+							</select>
+						</div>
+					</div>
+					<div class="cell-item" id="duijiebumen">
+						<div class="cell-left"><em>*</em>对接部门：</div>
+						<div class="cell-right" style="text-align: left !important;">
+							<select id="factoryDep" style="width: 98%;height:0.5rem;">
+								<option value="IED">IED</option>
+								<option value="BPL">BPL</option>
+							</select>
+						</div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left"><em>*</em>反馈内容：</div>
+						<div class="cell-right" style="text-align: left !important;"><div class="cell-right">
+						<input  id="content" class="cell-input">
+						</div></div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left"><em>*</em>客户需求描述：</div>
+						<div class="cell-right" style="text-align: left !important;"><Input id="customDemand" class="cell-input"></Input></div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left"><em>*</em>客户反馈人：</div>
+						<div class="cell-right" style="text-align: left !important;"><Input id="customer" class="cell-input"></Input></div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left"><em>*</em>要求解决日期：</div>
+						<div class="cell-right" style="text-align: left !important;" ><Input type="date" class="cell-input"  id="dateNeed"></Input></div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left"><em>*</em>现场处理对策：</div>
+						<div class="cell-right" style="text-align: left !important;"><Input id="disposeWayNow" class="cell-input"></Input></div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left"><em>*</em>最终解决日期：</div>
+						<div class="cell-right" style="text-align: left !important;" ><Input type="date" class="cell-input"  id="dateLast"></Input></div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">备注：</div>
+						<div class="cell-right" style="text-align: left !important;" ><Input id="remark" class="cell-input"></Input></div>
+					</div>
+				</div>
+				<div class="m-button">
+					<button type="button" id="commit" class="btn-block btn-primary" >提交</button>
+				</div>
+			</div>
+
+		</div>
+
+		</section>
+		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+		<script src="../jquery-3.3.1/jquery-3.3.1.min.js"></script>
+		<script src="../js/ydui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../echart/axios.min.js"></script>
+		<script src="../js/global.js"></script>
+		<script src="../laydate/laydate.js"></script> <!-- 改成你的路径 -->
+		<!--<script src="../js/my/myApproval.js"></script>-->
+	</body>
+
+	<script>
+
+        laydate.render({
+            elem: '#dateNeed' //指定元素
+        });
+        laydate.render({
+            elem: '#dateLast' //指定元素
+        });
+
+	$("#commit").click(function () {
+		commit()
+    });
+        function commit(){
+            let project =  $("#project").attr("name");//项目id
+            let type = $("#type").val();
+            let level = $("#level").val();
+            let factory = $("#factory").val();
+            let factoryDep = $("#factoryDep").val();
+            let content = $("#content").val();
+            let customDemand = $("#customDemand").val();
+            let customer = $("#customer").val();
+            let dateNeed = $("#dateNeed").val();
+            let disposeWayNow = $("#disposeWayNow").val();
+            let dateLast = $("#dateLast").val();
+            let remark = $("#remark").val();
+            //表单验证
+            if("" == project || null == project){
+                YDUI.dialog.notify('请选择项目', 1000);
+                return;
+            }
+            if("" == type || null == type){
+                YDUI.dialog.notify('请选择反馈类型', 1000);
+                return;
+            }
+            if("" == factory || null == factory){
+                YDUI.dialog.notify('请选择工厂', 1000);
+                return;
+            }
+            if("" == content || null == content){
+                YDUI.dialog.notify('请填写反馈内容', 1000);
+                return;
+            }
+            if("" == customDemand || null == customDemand){
+                YDUI.dialog.notify('请填写客户需求描述', 1000);
+                return;
+            }
+            if("" == customer || null == customer){
+                YDUI.dialog.notify('请填写客户反馈人', 1000);
+                return;
+            }
+            if("" == dateNeed || null == dateNeed){
+                YDUI.dialog.notify('请填写要求解决日期', 1000);
+                return;
+            }
+            if("" == disposeWayNow || null == disposeWayNow){
+                YDUI.dialog.notify('请填写现场处理对策', 1000);
+                return;
+            }
+            if("" == dateLast || null == dateLast){
+                YDUI.dialog.notify('请填写最终解决日期', 1000);
+                return;
+            }
+			let abnormity = new FormData();
+            abnormity.append("projectId",project);
+            abnormity.append("type",type);
+            abnormity.append("level",level);
+            abnormity.append("factoryDep",factoryDep);
+            abnormity.append("factoryCode",factory);
+            abnormity.append("content",content);
+            abnormity.append("customDemand",customDemand);
+            abnormity.append("customer",customer);
+            abnormity.append("dateNeed",dateNeed);
+            abnormity.append("disposeWayNow",disposeWayNow);
+            abnormity.append("dateLast",dateLast);
+            abnormity.append("remark",remark);
+			YDUI.dialog.loading.open('正在保存，请稍后...');
+            axios.post('/api/project/saveAnbormalFeedback',abnormity).then(res=>{
+					if(res.code == 200){
+                        YDUI.dialog.toast("操作成功", 'success')
+                        setTimeout(function(){window.location.href = '../index.html';},1000);
+					}
+                })
+		}
+
+        $(document).ready(function() {
+            Common.prototype.checkLoginStatu();
+            //点击跳转选择客户页面
+            $("#project").on("click",function(){
+                location.href='/mobile/searchProject.html?rtUrl=/mobile/my/abnormityFeedback.html'
+            })
+			//获取项目
+			initProject();
+            getAllUser();
+            getAllFactory();
+           // getAllFactoryDeps();
+			setTypeLevel();
+        });
+
+
+		function getAllUser(){
+            axios.post("/api/user/queryList").then(res => {
+				let userList = res.data;
+                $("#owner").append('<option value=""> - 请选择人员 - </option>')
+				for(let i=0;i<userList.length;i++){
+				    let val = userList[i].id;
+				    let name = userList[i].name;
+					let option = '<option value="' + val +'">' + name+'</option>'
+                    $("#owner").append(option);
+				}
+
+            });
+		};
+		function getAllFactory(){
+            axios.post("/api/project/findFactoryByUserId").then(res => {
+                let factorys = res.data;
+                for(let i=0;i<factorys.length;i++){
+                    let val = factorys[i].code;
+                    let name = factorys[i].name;
+                    let option = '<option value="' + val +'">' + name+'</option>'
+                    $("#factory").append(option);
+                }
+            });
+		};
+        // function getAllFactoryDeps(){
+        //     let option = '<option value=""> - 选择部门 - </option>'
+        //     $("#factoryDep").append(option);
+        // }
+
+		function setTypeLevel(){
+			axios.post("/api/dictionary/findDictionaryByDictValue","dictValue=feedbackType").then(res => {
+				let types = res.data;
+				for(let i=0;i<types.length;i++){
+				    let name = types[i].dataName;
+				    let option = '<option value="' + name +'">' + name+'</option>'
+				    $("#type").append(option);
+				}
+				axios.post("/api/dictionary/findDictionaryByDictValue","dictValue=abnormalLevel").then(res => {
+					let levels = res.data;
+					for(let i=0;i<levels.length;i++){
+					    let name = levels[i].dataName;
+					    let option = '<option value="' + name +'">' + name+'</option>'
+					    $("#level").append(option);
+					}
+				})
+			})
+		}
+
+		function changeDep(){
+			var value=$("#type").val();
+            if("变更反馈"==value||"质量反馈"==value){
+                $("#factoryDep").val("IED");
+            }else if("物流反馈"==value||"生产反馈"==value){
+                $("#factoryDep").val("BPL");
+            }else{
+                $("#factoryDep").val("");
+            }
+		}
+
+		//搜索后获取项目信息
+		function initProject(){
+            var id = Common.prototype.GetQueryString("id");
+            var name = decodeURIComponent(Common.prototype.GetQueryString("name"));
+            if(name != "null"){
+                $("#project").val(name);
+            }else {
+                $("#project").val("");
+            }
+            $("#project").attr("name",id);
+		}
+
+        $(function () {
+            $("#back-btn").on("click", Common.prototype.Back);
+        });
+
+	</script>
+
+	<style>
+		.cell-right input{margin-left: 1rem}
+		.cell-right select{margin-left: 1rem}
+		select {width: 4rem}
+		input{width: 4rem;border: 1px solid #bbbbbb}
+		textarea{width: 4rem;height: 1.2rem; border: 1px solid #bbbbbb;margin-bottom: 0.2rem;margin-top: 0.2rem}
+		.cell-right textarea{margin-left: 1rem}
+		em{color: red}
+	</style>
+
+</html>

@@ -1,0 +1,132 @@
+html, body, .backgroud{
+	height: 100%;
+}
+
+a{
+	color: #00A9E1;
+}
+
+.list-mes .list-title {
+	color: #337ab7 !important;
+}
+
+.m-grids-2 .grids-item:not(:nth-child(3n)):before {
+	border-right: none;
+}
+
+.m-grids-3 .grids-item:not(:nth-child(3n)):before {
+	border-right: none;
+}
+
+.m-grids-4 .grids-item:not(:nth-child(3n)):before {
+	border-right: none;
+}
+
+.grids-item:after {
+	border-bottom: none;
+}
+
+.list-img {
+	height: auto !important;
+	width: 1rem !important;
+	padding: 0 0 !important;
+}
+
+.list-img img {
+	margin-top: 0 !important;
+}
+
+.txt_lj {
+	color: #337ab7;
+}
+
+.grids-txt {
+	padding-top: 0.1rem;
+}
+
+.grids-item h3 {
+	text-align: center;
+}
+
+.search_content {
+    position: fixed;
+    width: 100%;
+    z-index: 2000;
+    background: white;
+    display: none;
+    padding: 0rem;
+    top: 0.9rem;
+}
+
+.editRow {
+    padding: 0.2rem;
+    text-align: left;
+    white-space: nowrap;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.editRow>input {
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flexbox: 1;
+    flex: 1;
+    border: none;
+    padding-right: 0.5rem;
+    padding-left: 1rem;
+    outline: none;
+    background: transparent;
+}
+.buttonRow {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.btnCancel {
+    display: block;
+    margin: 0.2rem;
+    text-align: center;
+    background: #dbdbdb;
+    color: #7e7e7e;
+	height: 0.5rem;
+	line-height: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    border-radius: 0.5rem;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flexbox: 1;
+    flex: 1;
+}
+.btnSure {
+    display: block;
+    width: 80%;
+    margin: 0.2rem;
+    text-align: center;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    background: #02aaff;
+    color: #fff;
+    -moz-border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    border-radius: 0.5rem;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flexbox: 1;
+    flex: 1;
+}
+.back-ico:before{
+	color: white !important;
+}
+
+.navbar-title{
+	color: white !important;
+}
+
+.btn-primary{
+	background-color: #00437c;
+}

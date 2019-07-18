@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>远大住工-日志</title>
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="../css/ydui.css" />
+		<link rel="stylesheet" href="../css/global.css" />
+		<!-- 引入YDUI自适应解决方案类库 -->
+		<script src="../js/ydui.flexible.js"></script>
+		<link rel="stylesheet" href="../css/journal/switch.css">
+
+		<style>
+			.cell-left em{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<section class="g-flexview">
+			<header class="m-navbar" style="background: #00437c;">
+				<a href="javascript:void(0)" class="navbar-item" id="back-btn"><i class="back-ico"></i></a>
+				<div class="navbar-center">
+					<span class="navbar-title" style="color: white;">新增日志</span>
+				</div>
+			</header>
+			<form about="" method="post" id="tableForm">
+				<div class="g-scrollview">
+					<div class="m-cell">
+
+						<div class="cell-item">
+							<div class="cell-left">副总观看：</div>
+							<div class="cell-right">
+								<input type="checkbox" id="managerFlag" class="checkbox-swtich" value="0" style="width: 98%;height:0.5rem;" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left">需要协同：</div>
+							<div class="cell-right">
+								<input type="checkbox" id="synergyFlag" value="0" class="checkbox-swtichs" style="width: 98%;height:0.5rem;" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left"><em>*</em>日期：</div>
+							<div class="cell-right"><input type="date" id="date"  value="" class="cell-input" placeholder="请输入拜访日期" autocomplete="off" /></div>
+						</div>
+
+						<div class="cell-item">
+							<div class="cell-left">关联项目：</div>
+							<div class="cell-right">
+								<input type="text" id="project"  value="" class="cell-input" placeholder="项目搜索" autocomplete="off" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left">岗位标准工作：</div>
+							<div class="cell-right">
+								<input type="text" id="dailyWork" name="record" value="" class="cell-input" placeholder=""
+									 autocomplete="off" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left">其他工作：</div>
+							<div class="cell-right"><input type="text" id="temporaryWork" name="record" value="" class="cell-input" placeholder=""
+								 autocomplete="off" /></div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left">需要协调工作：</div>
+							<div class="cell-right"><input type="text" id="importantWork" name="record" value="" class="cell-input" placeholder=""
+								 autocomplete="off" /></div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left">未完成工作：</div>
+							<div class="cell-right">
+								<input type="text" id="unfinishedWork" name="record" value="" class="cell-input" placeholder=""
+								 autocomplete="off" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left">问题描述：</div>
+							<div class="cell-right">
+								<input type="text" id="question" name="record" value="" class="cell-input" placeholder=""
+									 autocomplete="off" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left">备注：</div>
+							<div class="cell-right">
+								<input type="text" id="remark" name="record" value="" class="cell-input" placeholder=""
+									 autocomplete="off" />
+							</div>
+						</div>
+						<button type="button" class="btn-block btn-primary" id="savebf">保存</button>
+					</div>
+				</div>
+			</form>
+		</section>
+		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+		<script src="../jquery-3.3.1/jquery-3.3.1.min.js"></script>
+		<script src="../js/ydui.js"></script>
+		<script src="../echart/axios.min.js"></script>
+		<script src="../js/global.js"></script>
+		<script src="../js/journal/addJournal.js"></script>
+		<script src="../js/journal/switch.js"></script>
+		<script type="text/javascript">
+			//回退
+			$("#back-btn").on("click", Common.prototype.Back);
+			var el = document.querySelector('.checkbox-swtich');
+			var mySwitch1 = new Switch(el, {
+				checked: false
+			});
+			var el = document.querySelector('.checkbox-swtichs');
+			var mySwitch1 = new Switch(el, {
+				checked: false
+			});
+		</script>
+
+		<script type="text/javascript">
+			$(function () {
+                //点击跳转项目搜索页面
+				$('#project').on('click',function(){
+                    location.href='/mobile/searchProject.html?rtUrl=/mobile/customer/addJournal.html'
+				})
+                //获取搜索后的项目信息
+				initProject();
+			})
+			//获取搜索后的项目信息
+            function initProject(){
+                var id = Common.prototype.GetQueryString("id");
+                var name = decodeURIComponent(Common.prototype.GetQueryString("name"));
+                if(name != "null"){
+                    $("#project").val(name);
+                }else {
+                    $("#projec").val("");
+                }
+                $("#project").attr("name",id);
+            }
+
+			//保存日志
+			$("#savebf").click(function() {
+				var managerFlag = '1';
+				 $.each($("#managerFlag"),function(){
+                if(this.checked){
+                        managerFlag = $(this).val();
+                }
+            });
+				var synergyFlag = '1';
+				 $.each($("#synergyFlag"),function(){
+			    if(this.checked){
+			            synergyFlag = $(this).val();
+			    }
+			});
+				let visit = {
+					'managerFlag': managerFlag, //是否需要给副总看 0.是 1.否
+					'synergyFlag': synergyFlag, //是否需要协同 0.是 1.否
+					'Date': $("#date").val(), //日志日期
+					'projectId': $("#project").attr("name"), //关联项目id
+					'dailyWork': $('#dailyWork').val(), //日常工作
+					'temporaryWork': $("#temporaryWork").val(), //临时工作
+					'importantWork': $("#importantWork").val(), //重要工作
+					'question': $("#question").val(), //问题描述
+					'remark': $("#remark").val(), //备注
+				};
+				//表单验证
+                if($("#date").val()==''){
+                    YDUI.dialog.notify('请填写日志日期。', 1000);
+                    return;
+                };
+				let form = new FormData();
+				for (var item in visit) {
+					console.log(item);
+					console.log(visit[item]);
+					form.append(item, visit[item] || "");
+				}
+				YDUI.dialog.loading.open('正在保存，请稍后...');
+				axios({
+					url: '/api/dailyRecord/save',
+					method: 'post',
+					data: form
+				}).then(res =>{
+					location.href='Journal.html';
+				})
+			});
+		</script>
+
+	</body>
+
+</html>

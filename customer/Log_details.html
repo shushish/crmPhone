@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>远大住工-日志</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../css/ydui.css"/>
+    <link rel="stylesheet" href="../css/global.css"/>
+    <!-- 引入YDUI自适应解决方案类库 -->
+    <script src="../js/ydui.flexible.js"></script>
+	<link rel="stylesheet" href="../css/journal/switch.css">
+</head>
+<body>
+<section class="g-flexview">
+    <header class="m-navbar" style="background: #433C4E;">
+        <a href="javascript:void(0)" class="navbar-item" id="back-btn"><i class="back-ico"></i></a>
+        <div class="navbar-center">
+            <span class="navbar-title" style="color: white;">详情页</span>
+        </div>
+    </header>
+    <div class="g-scrollview">
+        <div class="m-cell">
+           <div class="cell-item">
+           	<div class="cell-left">副总观看：</div>
+           	<div class="cell-right">
+           		<input type="checkbox" id="managerFlag" class="checkbox-swtich" value="0" style="width: 98%;height:0.5rem;" />
+           	</div>
+           </div>
+           <div class="cell-item">
+           	<div class="cell-left">需要协同：</div>
+           	<div class="cell-right">
+           		<input type="checkbox" id="synergyFlag" value="0" class="checkbox-swtichs" style="width: 98%;height:0.5rem;" />
+           	</div>
+           </div>
+           <div class="cell-item">
+           	<div class="cell-left">日期：</div>
+           	<div class="cell-right"><span id="date"></span></div>
+           </div>
+           
+           <div class="cell-item">
+           	<div class="cell-left">关联项目：</div>
+           	<div class="cell-right">
+				<span id="ProjectList"></span>
+           	</div>
+           </div>
+           
+           
+           <div class="cell-item">
+           	<div class="cell-left">岗位标准工作：</div>
+           	<div class="cell-right">
+           		
+					 <span id="dailyWork"></span>
+           	</div>
+           </div>
+           <div class="cell-item">
+           	<div class="cell-left">其他工作：</div>
+           	<div class="cell-right">
+				 <span id="temporaryWork"></span>
+				 </div>
+           </div>
+           <div class="cell-item">
+           	<div class="cell-left">需要协调工作：</div>
+           	<div class="cell-right">
+				 <span id="importantWork"></span>
+				 </div>
+           </div>
+           <div class="cell-item">
+           	<div class="cell-left">未完成工作：</div>
+           	<div class="cell-right">
+           		
+				 <span id="unfinishedWork"></span>
+           	</div>
+           </div>
+           <div class="cell-item">
+           	<div class="cell-left">问题描述：</div>
+           	<div class="cell-right">
+					 <span id="question"></span>
+           	</div>
+           </div>
+           <div class="cell-item">
+           	<div class="cell-left">备注：</div>
+           	<div class="cell-right">
+					 <span id="remark"></span>
+           	</div>
+           </div>
+
+        </div>
+    </div>
+</section>
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="../jquery-3.3.1/jquery-3.3.1.min.js"></script>
+<script src="../js/ydui.js"></script>
+<script src="../echart/axios.min.js"></script>
+<script src="../js/global.js"></script>
+<script src="../js/journal/switch.js"></script>
+<script>
+	$(function () {
+		$("#back-btn").on("click", Common.prototype.Back);
+		initDictionary();
+		// var el = document.querySelector('.checkbox-swtich');
+		// var mySwitch1 = new Switch(el, {
+		// 	checked: false
+		// });
+		// var el = document.querySelector('.checkbox-swtichs');
+		// var mySwitch1 = new Switch(el, {
+		// 	checked: false
+		// });
+		
+	});
+	
+    function initDictionary() {
+        let id = Common.prototype.GetQueryString("id");
+        axios.post("/api/dailyRecord/getDailyRecord", "id="+id)
+            .then(res => {
+                let content = res.data;
+				console.log(content);
+					var el = document.querySelector('.checkbox-swtich');
+					var mySwitch = new Switch(el);
+						var es = document.querySelector('.checkbox-swtichs');
+						var mySwitchs = new Switch(es);
+                let managerFlag = content.managerFlag;
+					if(managerFlag == 0){
+					mySwitch.on();
+					mySwitch.disable();
+				}else{
+					mySwitch.off();
+					mySwitch.disable();
+				}
+                let synergyFlag = content.synergyFlag;
+				if(synergyFlag == 0){
+					mySwitchs.on();
+					mySwitchs.disable();
+				}else{
+					mySwitchs.off();
+					mySwitchs.disable();
+				}
+                let date = content.createTime;
+                let name = content.name;
+				var el = document.querySelector('.checkbox-swtich');
+				var mySwitch1 = new Switch(el, {
+					checked: false
+				});
+		 
+                let dailyWork = content.dailyWork;
+			
+                let temporaryWork = content.temporaryWork;
+                let importantWork = content.importantWork;
+				let question = content.question;
+				let remark = content.remark;
+                document.getElementById("date").innerHTML = common.dateFtt("yyyy-MM-dd",new Date(date)); ;//客户名
+                document.getElementById("ProjectList").innerHTML = name;//联系人
+                document.getElementById("dailyWork").innerHTML = dailyWork;//对应项目
+                document.getElementById("temporaryWork").innerHTML =temporaryWork //拜访时间
+                document.getElementById("importantWork").innerHTML = importantWork;//拜访地址
+                document.getElementById("question").innerHTML = question;//内容
+                document.getElementById("remark").innerHTML = remark;//拜访目的
+            });
+		 
+    }
+</script>
+</body>
+
+</html>

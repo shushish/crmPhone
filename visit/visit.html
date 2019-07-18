@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>远大住工-登录</title>
+
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="../css/ydui.css" />
+		<link rel="stylesheet" href="../css/global.css" />
+		<link rel="stylesheet" type="text/css" href="../css/iconfont/iconfont.css"/>
+		<!-- 引入YDUI自适应解决方案类库 -->
+		<script src="../js/ydui.flexible.js"></script>
+		<style>
+			.list-item{
+				padding-bottom: 0 !important;
+			}
+		</style>
+	</head>
+	<body>
+		<section class="g-flexview">
+			<header class="m-navbar" style="background: #00437c;">
+				<a href="javascript:void(0)" class="navbar-item" id="back-btn"><i class="back-ico"></i></a>
+				<div class="navbar-center">
+					<span class="navbar-title" style="color: white;">客户拜访</span>
+				</div>
+				<a href="addVisit.html" class="navbar-item" id="addVisit">
+					<i>
+						<img src="../image/icon/addproject.png" style="width: 0.3rem;height: 0.3rem;">
+					</i>
+				</a>
+			</header>
+			<div class="g-scrollview">
+				<article class="m-list list-theme4">
+					<div id="root" class="g-scrollview"></div>
+				</article>
+			</div>
+		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+		</section>
+		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+		<script src="../jquery-3.3.1/jquery-3.3.1.min.js"></script>
+		<script src="../js/ydui.js"></script>
+		<script src="../echart/axios.min.js"></script>
+		<script src="../js/global.js"></script>
+		<script src="../js/my/addvisit.js"></script>
+		<script>
+			$("#back-btn").on("click", Common.prototype.Back);
+            axios.post("/api/visit/listPage", "pageNum=1&pageSize=10").then(res => {
+                console.log(res);
+                let visitId = "";
+                let content = res.records;
+                $("#root").html("");
+                if (content.length >= 0) {
+					var divRoot = document.createElement("div");
+					divRoot.setAttribute("class", "g-scrollview");
+                    for (var i = 0; i < content.length; i++) {
+                        visitId=content[i].id;
+
+                        var article = document.createElement("article");
+                        article.setAttribute("class", "m-list list-theme4");
+                        var a = document.createElement("a");
+                        a.setAttribute("href", "particulars.html?visitId="+visitId);
+                        a.setAttribute("class", "list-item");
+                        var divImg = document.createElement("div");
+                        divImg.setAttribute("class", "list-img");
+                        // var img = document.createElement("img");
+                        // img.setAttribute("src", "../image/icon/1557485813(1).png");
+						var img = document.createElement("i");
+						img.setAttribute("class", "iconfont iconhezuowoshou");
+						img.setAttribute("style", "font-size:1rem;");
+                        var divlMes = document.createElement("div");
+                        divlMes.setAttribute("class", "list-mes");
+                        var h3 = document.createElement("h3");
+                        h3.setAttribute("class", "list-title");
+                        h3.innerHTML = content[i].accountName;
+                        var mesItem = document.createElement("div");
+                        mesItem.setAttribute("class", "list-mes-item");
+                        var span = document.createElement("span");
+                        // span.setAttribute("class", "list-price");
+                        span.innerHTML = content[i].companys;
+                        var divTime = document.createElement("div");
+                        divTime.innerHTML = common.dateFtt("yyyy/MM/dd",new Date(content[i].visitDate));
+                        mesItem.appendChild(span);
+                        mesItem.appendChild(divTime);
+                        divlMes.appendChild(h3);
+                        divlMes.appendChild(mesItem);
+                        divImg.appendChild(img);
+                        a.appendChild(divImg);
+                        a.appendChild(divlMes);
+                        divRoot.appendChild(article);
+                        divRoot.appendChild(a);
+                        var root = document.getElementById("root");
+                        root.appendChild(divRoot)
+                    }
+                } else {
+                    layer.msg("没有更多数据了！");
+                }
+
+            })
+		</script>
+
+<!-- 
+		<section id="J_List">
+			<div id="J_ListContent"></div>
+		</section> -->
+	<!--	<script>
+	//下拉刷新
+            $('#J_List').pullRefresh({
+                initLoad: true,
+                loadFunction: function () {
+                    var def = $.Deferred();
+
+                    $.ajax({
+                        url: '/获取数据方法',
+                        dataType: 'json',
+                        success: function (ret) {
+                            /* 假设ret.list为后端返回的列表数组 */
+
+                            $('#J_ListContent').prepend(ret.list + '将数据拼接成html');
+
+                            var tipStr = ret.length > 0 ? '为您更新了' + ret.length + '条内容' : '已是最新内容';
+
+                            YDUI.dialog.toast(tipStr, 'none', 1500);
+
+                            /* 处理完后调用resolve()方法 */
+                            def.resolve();
+                        }
+                    });
+
+                    return def.promise();
+                }
+            });
+		</script>-->
+	</body>
+
+</html>

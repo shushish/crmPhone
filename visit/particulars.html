@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>远大住工-登录</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../css/ydui.css"/>
+    <link rel="stylesheet" href="../css/global.css"/>
+    <!-- 引入YDUI自适应解决方案类库 -->
+    <script src="../js/ydui.flexible.js"></script>
+</head>
+<body>
+<section class="g-flexview">
+    <header class="m-navbar" style="background: #00437c;">
+        <a href="javascript:void(0)" class="navbar-item" id="back-btn"><i class="back-ico"></i></a>
+        <div class="navbar-center">
+            <span class="navbar-title" style="color: white;">详情页</span>
+        </div>
+    </header>
+    <div class="g-scrollview">
+        <div class="m-cell">
+            <div class="cell-item">
+                <div class="cell-left">拜访客户：</div>
+                <div class="cell-right">
+                    <h1><span id="clientName"></span></h1>
+                </div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left">联 系 人：</div>
+                <div class="cell-right">
+                    <h1><span id="contacts"></span></h1>
+                </div>
+            </div>
+			<div class="cell-item">
+			    <div class="cell-left">拜访目的：</div>
+			    <div class="cell-right">
+			        <h1><span id="purpose"></span></h1>
+			    </div>
+			</div>
+			<div class="cell-item">
+			    <div class="cell-left">拜访日期：</div>
+			    <div class="cell-right">
+			        <h1><span id="date"></span></h1>
+			    </div>
+			</div>
+            <div class="cell-item">
+                <div class="cell-left">对应项目：</div>
+                <div class="cell-right">
+                    <h1><span id="project"></span></h1>
+                </div>
+            </div>
+			<div class="cell-item">
+			    <div class="cell-left">拜访方式：</div>
+			    <div class="cell-right">
+			        <h1><span id="method"></span></h1>
+			    </div>
+			</div>
+            
+            <div class="cell-item">
+                <div class="cell-left">拜访地址：</div>
+                <div class="cell-right">
+                    <h1><span id="site"></span></h1>
+                </div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left">拜访纪要</div>
+                <div class="cell-right">
+                    <h1><span id="remind"></span></h1>
+                </div>
+            </div>
+
+
+            <div class="cell-item">
+                <div class="cell-left">下一步计划：</div>
+                <div class="cell-right">
+                    <h1><span id="nextPlan"></span></h1>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="../jquery-3.3.1/jquery-3.3.1.min.js"></script>
+<script src="../js/ydui.js"></script>
+<script src="../echart/axios.min.js"></script>
+<script src="../js/global.js"></script>
+<script>
+	$(function () {
+		$("#back-btn").on("click", Common.prototype.Back);
+		initDictionary();
+	});
+	
+    function initDictionary() {
+        let visitId = Common.prototype.GetQueryString("visitId");
+        axios.post("/api/visit/getVisitDetailById", "id="+visitId)
+            .then(res => {
+                let content = res.data;
+				console.log(content);
+                let contactName = content.contactNames;
+                let projectname = content.projectName;
+                if(projectname ==null ){
+                    projectname = "";
+                }
+                let visitDate = content.visitDate;
+                let address = content.address;
+                let contentName = content.content;
+                let visitGoal = content.visitGoal;
+                let visitWay = content.visitWay;
+                document.getElementById("clientName").innerHTML = content.accountName;//客户名
+                document.getElementById("contacts").innerHTML = contactName;//联系人
+                document.getElementById("project").innerHTML = projectname;//对应项目
+                document.getElementById("date").innerHTML = common.dateFtt("yyyy-MM-dd",new Date(visitDate));//拜访时间
+                document.getElementById("site").innerHTML = address;//拜访地址
+                document.getElementById("remind").innerHTML = contentName;//内容
+                document.getElementById("purpose").innerHTML = visitGoal;//拜访目的
+                document.getElementById("method").innerHTML = visitWay;//拜访方式
+				$("#nextPlan").html(content.nextPlan);
+            });
+    }
+</script>
+</body>
+
+</html>

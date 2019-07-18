@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>远大住工-客户档案</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 cdn源 
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
+
+
+  <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+
+
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  -->
+
+    <!-- Bootstrap -->
+    <link href="/crm/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/crm/css/global.css" rel="stylesheet">
+    <link href="/crm/css/project/projectDetail.css" rel="stylesheet">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="backgroud container-fluid">
+        <div id="header" class="row">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 title">
+                <a class="back show" href="javascript:void(0)"></a>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 title">客户档案</div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 title_btn dropdown">
+                <a class="right_menu" href="#" data-toggle="dropdown"></a>
+
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <li>
+                        <a href="/crm/index_new.html">
+                            <span class="index img-span active"></span>
+                            <div>首页</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/crm/project/project.html">
+                            <span class="project img-span active"></span>
+                            <div>项目</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/crm/data/dataBoard_new.html">
+                            <span class="data img-span active"></span>
+                            <div>看板</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/crm/visit/visit.html#/date">
+                            <span class="plan img-span active"></span>
+                            <div>日常</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/crm/my/my.html">
+                            <span class="my img-span active"></span>
+                            <div>我的</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--遮罩层-->
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 masked"></div>
+        <div id="body" class="row">
+            <div class="projectSurvey-mod col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="projectSurvey-tit flexLayout flexCenter">
+                    <span></span>
+                    <em class="flexItem">项目小组</em>
+                    <a href="/crm/customer/newCustomer.html?id=[id]#/step1" class="projectSurvey-edit"></a>
+                </div>
+                <ul class="projectSurvey-con">
+                    <li>
+                        <em>组长 :</em>
+                        <span id="groupLeader"></span>
+                    </li>
+                    <li>
+                        <em>商务 :</em>
+                        <span id="business"></span>
+                    </li>
+                    <li>
+                        <em>设计 :</em>
+                        <span id="design"></span>
+                    </li>
+                    <li>
+                        <em>客服 :</em>
+                        <span id="customerService"></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="projectSurvey-mod col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="projectSurvey-tit flexLayout flexCenter">
+                    <span></span>
+                    <em class="flexItem">基本信息</em>
+                    <a href="/crm/customer/newCustomer.html?id=[id]#/step2" class="projectSurvey-edit"></a>
+                </div>
+                <ul class="projectSurvey-con withContact">
+                    <li>
+                        <em>单位名称 :</em>
+                        <span id="customerName"></span>
+                    </li>
+                    <li>
+                        <em>所属集团 :</em>
+                        <span id="membershipGroup"></span>
+                    </li>
+                    <li>
+                        <em>客户类型 :</em>
+                        <span id="customerType"></span>
+                    </li>
+                    <li>
+                        <em>客户地点 :</em>
+                        <span id="customerLocation"></span>
+                    </li>
+                    <li>
+                        <em>记录类型 :</em>
+                        <span id="recordType"></span>
+                    </li>
+                    <li>
+                        <em>母公司 :</em>
+                        <span id="parentCompany"></span>
+                    </li>
+                    <li>
+                        <em>所有人 :</em>
+                        <span id="owner"></span>
+                    </li>
+                    <li>
+                        <em>所属公司 :</em>
+                        <span id="subordinateCompanies"></span>
+                    </li>                    
+                </ul>               
+            </div>
+            <div class="projectSurvey-mod col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="projectSurvey-tit flexLayout flexCenter">
+                    <span></span>
+                    <em class="flexItem">合作历史</em>
+                    <a href="/crm/customer/newCustomer.html?id=[id]#/step3" class="projectSurvey-edit"></a>
+                </div>
+                <ul class="projectSurvey-con">
+                    <li>
+                        <em>客户合同总金额 :</em>
+                        <span id="totalAmount"></span>
+                    </li>
+                    <li>
+                        <em>成交项目数 :</em>
+                        <span id="projectTotalCount"></span>
+                    </li>
+                    <li>
+                        <em>首次合作日期 :</em>
+                        <span id="fistCollaborateTime"></span>
+                    </li>
+                    <li>
+                        <em>最近购买日期 :</em>
+                        <span id="latestBuyTime"></span>
+                    </li>
+                    <li>
+                        <em>最近联系 :</em>
+                        <span id="latestContact"></span>
+                    </li>
+                    <li>
+                        <em>未联系天数 :</em>
+                        <span id="unContactDays"></span>
+                    </li>
+                    <li>
+                        <em>拜访次数 :</em>
+                        <span id="VisitTimes"></span>
+                    </li>
+                    <li>
+                        <em>提醒次数 :</em>
+                        <span id="remindTimes"></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="projectSurvey-mod col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="projectSurvey-tit flexLayout flexCenter">
+                    <span></span>
+                    <em class="flexItem">关联信息</em>
+                    <a href="/crm/customer/newCustomer.html?id=[id]#/step4" class="projectSurvey-edit"></a>
+                </div>
+                <ul class="projectSurvey-con">
+                    <li>
+                        <em>客户地址 :</em>
+                        <span id="customerAddress"></span>
+                    </li>
+                    <li>
+                        <em>公司固话 :</em>
+                        <span id="companyLandline"></span>
+                    </li>
+                    <li>
+                        <em>法人 :</em>
+                        <span id="legalPerson"></span>
+                    </li>
+                    <li>
+                        <em>网址 :</em>
+                        <span id="siteURL"></span>
+                    </li>
+                    <li>
+                        <em>公司类型 :</em>
+                        <span id="companyType"></span>
+                    </li>
+                    <li>
+                        <em>注册资本 :</em>
+                        <span id="registeredCapital"></span>
+                    </li>
+                    <li>
+                        <em>行业 :</em>
+                        <span id="trade"></span>
+                    </li>
+                    <li>
+                        <em>经营状态 :</em>
+                        <span id="managementForms"></span>
+                    </li>
+                </ul>
+            </div>                        
+        </div>
+    </div>
+    <script>
+        if (typeof $ === 'undefined' || !typeof jQuery === 'undefined') {
+            var srcipt = document.createElement('script');
+            srcipt.type = 'text/javascript';
+            srcipt.src = '/jquery-3.3.1/jquery-3.3.1.min.js';
+            var head = document.head || document.getElementsByTagName('head')[0];
+            head.appendChild(srcipt);
+        }
+    </script>
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="/crm/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="/crm/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/crm/js/global.js"></script>
+    <script src="/crm/js/customer/customerrecord.js"></script>
+    <script src="/crm/layer-v3.1.1/layer/layer.js"></script>
+</body>
+
+</html>

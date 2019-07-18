@@ -1,0 +1,81 @@
+.projectSurvey-mod{
+    padding: 0rem;
+}
+
+.projectSurvey-tit {
+    height: 3.5rem;
+    line-height: 3.5rem;
+    background: #fff;
+    border-bottom: 1px solid #cfcfcf;
+    padding: 0 1rem;
+    font-size: 1.4rem;    
+}
+
+.projectSurvey-tit span {
+    display: block;
+    width: 0.35rem;
+    height: 1.2rem;
+    background: #02aaff;
+    margin-right: 0.5rem;
+}
+
+.projectSurvey-tit em {
+    display: block;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.projectSurvey-edit, .projectSurvey-add {
+    display: block;
+    width: 1.4rem;
+    height: 1.4rem;
+    background: url(/crm/image/icon/addmanufacure_edit.png) no-repeat left center;
+    background-size: contain;
+}
+
+.projectSurvey-con, .projectSurvey-con.red {
+    padding: 1rem;
+    list-style: none outside;
+    display: block;
+}
+
+.projectSurvey-con li {
+    font-size: 1.5rem;
+    padding: 0.5rem 0;
+    list-style: none outside;
+    text-align: left;
+}
+
+.projectSurvey-con li em {
+    color: #555555;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.projectSurvey-con li span {
+    color: #999999;
+    white-space: normal;
+    word-break: break-all;
+    /* display: block; */
+}
+
+
+.approval{
+    float: right;
+    padding: 0.5rem;
+    display: block;
+    background: #02aaff;
+    border-radius: 5px;
+    margin-right: 1rem;
+    color: white;
+}
+
+.approval:visited,.approval:focus,.approval:hover{
+    color: white;
+}
+
+.enable{
+    background: #555555;
+}
