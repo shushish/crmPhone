@@ -429,19 +429,16 @@ axios.interceptors.request.use(config => {
 axios.interceptors.response.use(
   response => {
     const res = response.data
-      debugger;
     if(Object.prototype.toString.call(res) == '[object Blob]'){
       return response;
     }else if(res.code === 200){
       return res;
     }else if(res.code === 700){
-//       store.dispatch("cleanToken");
-
 		window.location.href='/crm/login.html'
 		return Promise.reject(res.message)
     }else{
         alert(res.message)
-      return Promise.reject(res.message)
+		return Promise.reject(res.message)
     }
   },
   error => {

@@ -73,7 +73,7 @@
 					<a href="javascript:;" class="actionsheet-action" id="cancel">取消</a>
 				</div>
 				<div class="m-actionsheet" id="Stage">
-					<a href="#" class="actionsheet-item" onclick="CustomerLevel('项目线索')">全部</a>
+					<a href="#" class="actionsheet-item" onclick="CustomerLevel('全部')">全部</a>
 					<a href="#" class="actionsheet-item" onclick="CustomerLevel('项目线索')">项目线索</a>
 					<a href="#" class="actionsheet-item" onclick="CustomerLevel('项目立项')">项目立项</a>
 					<a href="#" class="actionsheet-item" onclick="CustomerLevel('项目推进')">项目推进</a>
@@ -143,10 +143,12 @@
 				loadListFn: function() {
 					var def = $.Deferred();
 					/* 通过自定义的方法获取数据 */
+					const params = {pageNum:page,pageSize:pageSize,selectCompany:[],projectStage:[],projectType:[],projectLevel:[]};
 					axios({
 							url: "/api/project/listPage",
 							method: "post",
-							data: "pageNum="+page+"&pageSize="+pageSize,
+							headers:{'Content-Type': 'application/json'},
+							data:params
 						})
 						.then(res => {
 							let data = res.records;
@@ -166,22 +168,24 @@
 
 			function CustomerLevel(data) {
 				if (data == '全部') {
-					getData('pageNum=1&pageSize=10');
+					getData(null);
 				}
 				var $as = $('#Stage');
-				var date = 'pageNum=1&pageSize=10&projectStage=' + data;
-				getData(date);
+				var params = {pageNum:1,pageSize:10,selectCompany:[],projectStage:[],projectType:[],projectLevel:[]};
+				params.projectStage.push(data);
+				getData(params);
 				$('#titles').text(data);
 				$as.actionSheet('close');
 			}
 
 			function changeCompany(data) {
 				if (data == '全部') {
-					getData('pageNum=1&pageSize=10');
+					getData(null);
 				}
 				var $as = $('#actionSheet');
-				var date = 'pageNum=1&pageSize=10&selectCompany=' + data;
-				getData(date);
+				var params = {pageNum:1,pageSize:10,selectCompany:[],projectStage:[],projectType:[],projectLevel:[]};
+				params.selectCompany.push(data);
+				getData(params);
 				$('#titles').text(data);
 				$as.actionSheet('close');
 			}
@@ -215,23 +219,24 @@
 			function searchs() {
 				var customerName = $("#customerName").val();
 				if (typeof(customerName) != 'undefined' && customerName != 0) {
-					var date = 'pageNum=1&pageSize=10&searchValue=' + customerName;
+					var params = {pageNum:1,pageSize:10,searchValue:customerName,selectCompany:[],projectStage:[],projectType:[],projectLevel:[]};
 					$('#titles').text(customerName);
-					getData(date);
+					getData(params);
 				} else {
-					getData('pageNum=1&pageSize=10');
+					getData(null);
 				}
 				closeSearch()
 			}
 
-			function getData(data) {
-				if (typeof(data) == 'undefined' && data == 0 || data == null) {
-					data = 'pageNum=1&pageSize=10'
+			function getData(params) {
+				if (typeof(params) == 'undefined' && params == 0 || params == null) {
+					params = {pageNum:page,pageSize:pageSize,selectCompany:[],projectStage:[],projectType:[],projectLevel:[]};
 				}
 				axios({
 						url: "/api/project/listPage",
 						method: "post",
-						data: data,
+						headers:{'Content-Type': 'application/json'},
+						data: params,
 					})
 					.then(res => {
 
