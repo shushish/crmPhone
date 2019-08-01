@@ -118,7 +118,7 @@
 						<h3 class="list-title" onclick=go('<%= list[i].id %>')><%= list[i].companyNames %></h3>
 						<div class="list-mes-item">
 							<div><%= list[i].userName %></div>
-							<div><%=list[i].createTime%></div>
+							<div><%=list[i].createTime.substr(0,10)%></div>
 						</div>
 					</div>
 				</a>
@@ -222,11 +222,10 @@
 						let data = res.records;
 						//设置总数
 						$('#num').text(res.total);
-						console.log(data);
 						if (data && data.length > 0) {
-							for (var i = 0; i < data.length; i++) {
-								 data[i].createTime = crtTimeFtt(data[i].createTime);
-							}
+							// for (var i = 0; i < data.length; i++) {
+							// 	 data[i].createTime = crtTimeFtt(data[i].createTime);
+							// }
 							let html = '';
 							//模板装载html
 							html = template('projectListTem', {
@@ -263,9 +262,9 @@
 						.then(res => {
 							let data = res.records;
 							//设置总数
-							for (var i = 0; i < data.length; i++) {
-								 data[i].createTime = crtTimeFtt(data[i].createTime);
-							}
+							// for (var i = 0; i < data.length; i++) {
+							// 	 data[i].createTime = crtTimeFtt(data[i].createTime);
+							// }
 							$('#num').text(res.total)
 							if (data && data.length > 0) {
 								let html = '';
