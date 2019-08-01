@@ -33,11 +33,17 @@
 					</i>
 				</a>
 			</header>
-			<div class="g-scrollview">
-				<article class="m-list list-theme4">
-					<div id="root" class="g-scrollview"></div>
-				</article>
-			</div>
+			<!--<div class="g-scrollview">-->
+				<!--<article class="m-list list-theme4">-->
+					<!--<div id="root" class="g-scrollview"></div>-->
+				<!--</article>-->
+			<!--</div>-->
+			<section class="g-scrollview" id="J_List">
+				<div class="m-list list-theme4" id="visitList">
+				</div>
+			</section>
+
+
 		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
 		</section>
 		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
@@ -46,63 +52,102 @@
 		<script src="../echart/axios.min.js"></script>
 		<script src="../js/global.js"></script>
 		<script src="../js/my/addvisit.js"></script>
-		<script>
-			$("#back-btn").on("click", Common.prototype.Back);
-            axios.post("/api/visit/listPage", "pageNum=1&pageSize=10").then(res => {
-                console.log(res);
-                let visitId = "";
-                let content = res.records;
-                $("#root").html("");
-                if (content.length >= 0) {
-					var divRoot = document.createElement("div");
-					divRoot.setAttribute("class", "g-scrollview");
-                    for (var i = 0; i < content.length; i++) {
-                        visitId=content[i].id;
+		<script src="../js/template-native.js" type="text/javascript" charset="utf-8"></script>
 
-                        var article = document.createElement("article");
-                        article.setAttribute("class", "m-list list-theme4");
-                        var a = document.createElement("a");
-                        a.setAttribute("href", "particulars.html?visitId="+visitId);
-                        a.setAttribute("class", "list-item");
-                        var divImg = document.createElement("div");
-                        divImg.setAttribute("class", "list-img");
-                        // var img = document.createElement("img");
-                        // img.setAttribute("src", "../image/icon/1557485813(1).png");
-						var img = document.createElement("i");
-						img.setAttribute("class", "iconfont iconhezuowoshou");
-						img.setAttribute("style", "font-size:1rem;");
-                        var divlMes = document.createElement("div");
-                        divlMes.setAttribute("class", "list-mes");
-                        var h3 = document.createElement("h3");
-                        h3.setAttribute("class", "list-title");
-                        h3.innerHTML = content[i].accountName;
-                        var mesItem = document.createElement("div");
-                        mesItem.setAttribute("class", "list-mes-item");
-                        var span = document.createElement("span");
-                        // span.setAttribute("class", "list-price");
-                        span.innerHTML = content[i].companys;
-                        var divTime = document.createElement("div");
-                        divTime.innerHTML = common.dateFtt("yyyy/MM/dd",new Date(content[i].visitDate));
-                        mesItem.appendChild(span);
-                        mesItem.appendChild(divTime);
-                        divlMes.appendChild(h3);
-                        divlMes.appendChild(mesItem);
-                        divImg.appendChild(img);
-                        a.appendChild(divImg);
-                        a.appendChild(divlMes);
-                        divRoot.appendChild(article);
-                        divRoot.appendChild(a);
-                        var root = document.getElementById("root");
-                        root.appendChild(divRoot)
-                    }
-                } else {
-                    layer.msg("没有更多数据了！");
-                }
-
-            })
+		<script type="text/html" id="visitListTem">
+			<% for(var i = 0; i < list.length; i++){ %>
+			<a href="#" class="list-item">
+				<div class="list-img"><img src="../image/icon/listNum-1.png"></div>
+				<div class="list-mes">
+					<h3 class="list-title" onclick=go('<%= list[i].id %>')><%= list[i].accountName %></h3>
+					<div class="list-mes-item">
+						<div>日期：<%= list[i].visitDate %></div>
+						<div>所有人：<%= list[i].userName%></div>
+					</div>
+				</div>
+			</a>
+			<% } %>
 		</script>
 
-<!-- 
+
+		<script>
+            $(function() {
+                $("#back-btn").on("click", Common.prototype.Back);
+			}
+			)
+			//时间处理函数
+            function dateFtt(fmt, date) { //author: meizz
+                var o = {
+                    "M+": date.getMonth() + 1, //月份
+                    "d+": date.getDate(), //日
+                    "h+": date.getHours(), //小时
+                    "m+": date.getMinutes(), //分
+                    "s+": date.getSeconds(), //秒
+                    "q+": Math.floor((date.getMonth() + 3) / 3), //季度
+                    "S": date.getMilliseconds() //毫秒
+                };
+                if (/(y+)/.test(fmt))
+                    fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+                for (var k in o)
+                    if (new RegExp("(" + k + ")").test(fmt))
+                        fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+                return fmt;
+            }
+            //创建时间格式化显示
+            function crtTimeFtt(value, row, index) {
+                var crtTime = new Date(value);
+                return top.dateFtt("yyyy-MM-dd", crtTime);
+            }
+
+			//分页查询
+            var page = 1,
+                pageSize = 10;
+            $('#J_List').infiniteScroll({
+                binder: '#J_List',
+                pageSize: pageSize,
+                initLoad: true,
+                loadingHtml: '<strong>加载中...</strong>',
+                /* 当然也可以<img src="../img/loading.gif" /> */
+                loadListFn: function() {
+                    var def = $.Deferred();
+                    /* 通过自定义的方法获取数据 */
+                    axios({
+                        url: "/api/visit/listPage",
+                        method: "post",
+                        data: "pageNum=" + page + "&pageSize=" + pageSize,
+                    })
+                        .then(res => {
+                            let data = res.records;
+                            //设置总数
+                            $('#num').text(res.total);
+                            if (data && data.length > 0) {
+                                for (var i = 0; i < data.length; i++) {
+                                    data[i].visitDate = crtTimeFtt(data[i].visitDate)
+                                }
+                                let html = '';
+                                //模板装载html
+                                html = template('visitListTem', {
+                                    list: data
+                                });
+                                $("#visitList").append(html);
+                                def.resolve(html);
+                                ++page;
+                                YDUI.dialog.loading.close();
+                            }
+                        })
+                    return def.promise();
+                }
+            });
+
+			//点击跳转详情
+                function go(id){
+                    var twoUrl = encodeURI("particulars.html?visitId="+id); //使用encodeURI编码
+                    location.href = twoUrl;
+                }
+
+		</script>
+
+<!--
 		<section id="J_List">
 			<div id="J_ListContent"></div>
 		</section> -->
