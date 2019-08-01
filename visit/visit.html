@@ -82,7 +82,9 @@
                         // span.setAttribute("class", "list-price");
                         span.innerHTML = content[i].companys;
                         var divTime = document.createElement("div");
-                        divTime.innerHTML = common.dateFtt("yyyy/MM/dd",new Date(content[i].visitDate));
+						if(content[i].visitDate && content[i].visitDate.length>=10){
+							divTime.innerHTML = content[i].visitDate.substr(0,10);
+						}
                         mesItem.appendChild(span);
                         mesItem.appendChild(divTime);
                         divlMes.appendChild(h3);

@@ -77,7 +77,6 @@
 					let data = res.records;
 					data.forEach((value)=>{
 						value.expectMonth = common.dateFtt("yyyy年MM月",new Date(value.expectMonth));
-						// console.log(value);
 					});
 					let html = '';
 					//模板装载html

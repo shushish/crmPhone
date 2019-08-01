@@ -40,7 +40,7 @@ abnormity.prototype = {
                         html += '<div class="list-mes-item">';
                         html += '<div>'+value.content.substring(0,18)+"..."+'</div>';
                         // html += '<div>'+new Date(value.joinTime)+'</div>';
-                        html += '<div>'+common.dateFtt("yyyy-MM-dd",new Date(value.createTime))+'</div>';
+                        html += '<div>'+value.createTime.substr(0,10)+'</div>';
                         html += '</div>';
                         html += '</div></a>';
                     });
