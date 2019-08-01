@@ -34,7 +34,6 @@ abnormity.prototype = {
                 data= res.data;
                 if(data&&data.length>0){
                     let html = '';
-                    console.log(data);
                     data.forEach((value, index)=>{
                         html += '<a href="abnormityDetail.html?id='+value.id+'"  class="list-item"><div class="list-img"><img src="../image/icon/listNum-1.png"></div><div class="list-mes">';
                         html += '<h3 class="list-title">'+value.projectName+'</h3>';
