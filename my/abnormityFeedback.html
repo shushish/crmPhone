@@ -196,8 +196,9 @@
             abnormity.append("disposeWayNow",disposeWayNow);
             abnormity.append("dateLast",dateLast);
             abnormity.append("remark",remark);
+			// abnormity.append("file", null);//空传一个文件
 			YDUI.dialog.loading.open('正在保存，请稍后...');
-            axios.post('/api/project/saveAnbormalFeedback',abnormity).then(res=>{
+            axios.post('/api/abnormity/save',abnormity).then(res=>{
 					if(res.code == 200){
                         YDUI.dialog.toast("操作成功", 'success')
                         setTimeout(function(){window.location.href = '../index.html';},1000);
