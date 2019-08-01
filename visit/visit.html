@@ -71,7 +71,7 @@
 
 
 		<script>
-<<<<<<< HEAD
+
             $(function() {
                 $("#back-btn").on("click", Common.prototype.Back);
 			}
@@ -141,64 +141,11 @@
             });
 
 			//点击跳转详情
-                function go(id){
-                    var twoUrl = encodeURI("particulars.html?visitId="+id); //使用encodeURI编码
+                function go(id) {
+                    var twoUrl = encodeURI("particulars.html?visitId=" + id); //使用encodeURI编码
                     location.href = twoUrl;
-=======
-			$("#back-btn").on("click", Common.prototype.Back);
-            axios.post("/api/visit/listPage", "pageNum=1&pageSize=10").then(res => {
-                console.log(res);
-                let visitId = "";
-                let content = res.records;
-                $("#root").html("");
-                if (content.length >= 0) {
-					var divRoot = document.createElement("div");
-					divRoot.setAttribute("class", "g-scrollview");
-                    for (var i = 0; i < content.length; i++) {
-                        visitId=content[i].id;
-
-                        var article = document.createElement("article");
-                        article.setAttribute("class", "m-list list-theme4");
-                        var a = document.createElement("a");
-                        a.setAttribute("href", "particulars.html?visitId="+visitId);
-                        a.setAttribute("class", "list-item");
-                        var divImg = document.createElement("div");
-                        divImg.setAttribute("class", "list-img");
-                        // var img = document.createElement("img");
-                        // img.setAttribute("src", "../image/icon/1557485813(1).png");
-						var img = document.createElement("i");
-						img.setAttribute("class", "iconfont iconhezuowoshou");
-						img.setAttribute("style", "font-size:1rem;");
-                        var divlMes = document.createElement("div");
-                        divlMes.setAttribute("class", "list-mes");
-                        var h3 = document.createElement("h3");
-                        h3.setAttribute("class", "list-title");
-                        h3.innerHTML = content[i].accountName;
-                        var mesItem = document.createElement("div");
-                        mesItem.setAttribute("class", "list-mes-item");
-                        var span = document.createElement("span");
-                        // span.setAttribute("class", "list-price");
-                        span.innerHTML = content[i].companys;
-                        var divTime = document.createElement("div");
-						if(content[i].visitDate && content[i].visitDate.length>=10){
-							divTime.innerHTML = content[i].visitDate.substr(0,10);
-						}
-                        mesItem.appendChild(span);
-                        mesItem.appendChild(divTime);
-                        divlMes.appendChild(h3);
-                        divlMes.appendChild(mesItem);
-                        divImg.appendChild(img);
-                        a.appendChild(divImg);
-                        a.appendChild(divlMes);
-                        divRoot.appendChild(article);
-                        divRoot.appendChild(a);
-                        var root = document.getElementById("root");
-                        root.appendChild(divRoot)
-                    }
-                } else {
-                    layer.msg("没有更多数据了！");
->>>>>>> 7b589539f2bdfc76d4d33303c46f506dc4b0e8f9
                 }
+
 
 		</script>
 
