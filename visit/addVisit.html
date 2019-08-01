@@ -139,7 +139,6 @@
                     console.log(visit[item]);
                     form.append(item, visit[item] || "");
                 }
-                
                 return axios({
                     url: '/api/visit/save',
                     method: 'post',
