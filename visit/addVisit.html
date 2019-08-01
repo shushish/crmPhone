@@ -65,7 +65,7 @@
 						 <div class="cell-left"><em>*</em>拜访目的：</div>
 						 <div class="cell-right">
 							 <select name="visitGoal" id="DictionaryByDictValue"  style="width: 98%;height:0.5rem;">
-								
+
 							 </select>
 						 </div>
 					 </div>
@@ -143,6 +143,7 @@
                     url: '/api/visit/save',
                     method: 'post',
                     data:form
+					
                 }).then(res => {
 					YDUI.dialog.toast("保存成功！", "success", 1000);
 					setTimeout(function(){location.href='visit.html'},300);
