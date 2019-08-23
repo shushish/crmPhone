@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	<title>远大住工-合同详情</title>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="../css/ydui.css"/>
+	<link rel="stylesheet" href="../css/global.css"/>
+	<!-- 引入YDUI自适应解决方案类库 -->
+	<script src="../js/ydui.flexible.js"></script>
+</head>
+<body>
+<section class="g-flexview">
+	<header class="m-navbar" style="background: #00437c;">
+		<!--<a href="javascript:void(0)" class="navbar-item" id="back-btn"><i class="back-ico"></i></a>-->
+		<div class="navbar-center">
+			<span class="navbar-title" style="color: white;">合同详情</span>
+		</div>
+	</header>
+	<div class="g-scrollview">
+		<div class="m-cell">
+			<div class="cell-item">
+				<div class="cell-left">项目名称：</div>
+				<div class="cell-right">
+					<h1><span id="projectName"></span></h1>
+				</div>
+			</div>
+			<div class="cell-item">
+				<div class="cell-left">项目编号：</div>
+				<div class="cell-right">
+					<h1><span id="projectNumber"></span></h1>
+				</div>
+			</div>
+			<div class="cell-item">
+				<div class="cell-left">首付款比例：</div>
+				<div class="cell-right">
+					<h1><span id="prepaymentRatio"></span></h1>
+				</div>
+			</div>
+			<div class="cell-item">
+				<div class="cell-left">进度款比例：</div>
+				<div class="cell-right">
+					<h1><span id="proportionProgressPayment"></span></h1>
+				</div>
+			</div>
+			<div class="cell-item">
+				<div class="cell-left">封顶付款：</div>
+				<div class="cell-right">
+					<h1><span id="acceptancePayment"></span></h1>
+				</div>
+			</div>
+			<div class="cell-item">
+				<div class="cell-left">结算款比例：</div>
+				<div class="cell-right">
+					<h1><span id="settlementRatio"></span></h1>
+				</div>
+			</div>
+			<div class="cell-item">
+				<div class="cell-left">质保金年限：</div>
+				<div class="cell-right">
+					<h1><span id="lengthWarranty"></span></h1>
+				</div>
+			</div>
+
+			<div class="cell-item">
+				<div class="cell-left">质保金比例：</div>
+				<div class="cell-right">
+					<h1><span id="premiumRatio"></span></h1>
+				</div>
+			</div>
+			<div class="cell-item">
+				<div class="cell-left">钢含量调整</div>
+				<div class="cell-right">
+					<h1><span id="steelContentAdjustment"></span></h1>
+				</div>
+			</div>
+
+
+			<div class="cell-item">
+				<div class="cell-left">砼等级调差：</div>
+				<div class="cell-right">
+					<h1><span id="gradeAdjustmentConcrete"></span></h1>
+				</div>
+			</div>
+
+			<div class="cell-item">
+				<div class="cell-left">信息价调差：</div>
+				<div class="cell-right">
+					<h1><span id="informationPriceAdjustment"></span></h1>
+				</div>
+			</div>
+
+			<div class="cell-item">
+				<div class="cell-left">甲指材调差：</div>
+				<div class="cell-right">
+					<h1><span id="adjustmentNailFinger"></span></h1>
+				</div>
+			</div>
+
+			<div class="cell-item">
+				<div class="cell-left">扫码及卸货区：</div>
+				<div class="cell-right">
+					<h1><span id="sweepAndUnloading"></span></h1>
+				</div>
+			</div>
+			<div class="cell-item">
+				<div class="cell-left">逾期付款：</div>
+				<div class="cell-right">
+					<h1><span id="arrearPayment"></span></h1>
+				</div>
+			</div>
+			<div class="cell-item">
+				<div class="cell-left">甲方罚款乙方：</div>
+				<div class="cell-right">
+					<h1><span id="fines"></span></h1>
+				</div>
+			</div>
+
+			</div>
+		</div>
+		</div>
+	</div>
+</section>
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="../jquery-3.3.1/jquery-3.3.1.min.js"></script>
+<script src="../js/ydui.js"></script>
+<script src="../echart/axios.min.js"></script>
+<script src="../js/global.js"></script>
+<script>
+    $(function () {
+      //  $("#back-btn").on("click", Common.prototype.Back);
+        initDictionary();
+    });
+
+    function initDictionary() {
+        let projectId = Common.prototype.GetQueryString("id");
+        axios.post("/api/contractApi/findContractByProjectId", "projectId="+projectId)
+            .then(res => {
+                let content = res.data;
+                console.log(content);
+                let prepaymentRatio = content.prepaymentRatio;
+                if(prepaymentRatio != null)prepaymentRatio = prepaymentRatio+"%"
+                let proportionProgressPayment = content.proportionProgressPayment;
+                if(proportionProgressPayment != null)proportionProgressPayment = proportionProgressPayment+"%"
+                let acceptancePayment = content.acceptancePayment;
+                if(acceptancePayment != null)acceptancePayment = acceptancePayment+"%"
+                let settlementRatio = content.settlementRatio;
+                if(settlementRatio != null)settlementRatio = settlementRatio+"%"
+                let lengthWarranty = content.lengthWarranty;
+                let premiumRatio = content.premiumRatio;
+                if(premiumRatio != null)premiumRatio = premiumRatio+"%"
+                let steelContentAdjustment = content.steelContentAdjustment;
+                let gradeAdjustmentConcrete = content.gradeAdjustmentConcrete;
+                let informationPriceAdjustment = content.informationPriceAdjustment;
+                let adjustmentNailFinger = content.adjustmentNailFinger;
+                let sweepAndUnloading = content.sweepAndUnloading;
+                let arrearPayment = content.arrearPayment;
+				if(content.overduePrice!= null){
+                    arrearPayment = "详见《PC构件销售标准合同2019版》或罚款量化，逾期付款一天罚款"+content.overduePrice+"元。"
+				}
+                let fines = content.fines;
+                let projectName = content.projectName;
+                let projectNumber = content.projectNumber;
+
+
+
+
+
+                document.getElementById("prepaymentRatio").innerHTML = prepaymentRatio;//
+                document.getElementById("proportionProgressPayment").innerHTML = proportionProgressPayment;//
+                document.getElementById("acceptancePayment").innerHTML = acceptancePayment;//
+                document.getElementById("settlementRatio").innerHTML = settlementRatio;//
+                document.getElementById("lengthWarranty").innerHTML = lengthWarranty;//
+                document.getElementById("premiumRatio").innerHTML = premiumRatio;//
+                document.getElementById("steelContentAdjustment").innerHTML = steelContentAdjustment;//
+                document.getElementById("gradeAdjustmentConcrete").innerHTML = gradeAdjustmentConcrete;//
+                document.getElementById("informationPriceAdjustment").innerHTML = informationPriceAdjustment;//
+                document.getElementById("adjustmentNailFinger").innerHTML = adjustmentNailFinger;//
+                document.getElementById("sweepAndUnloading").innerHTML = sweepAndUnloading;//
+                document.getElementById("arrearPayment").innerHTML = arrearPayment;//
+                document.getElementById("fines").innerHTML = fines;//
+                document.getElementById("projectName").innerHTML = projectName;//
+                document.getElementById("projectNumber").innerHTML = projectNumber;//
+                $("#nextPlan").html(content.nextPlan);
+            });
+    }
+</script>
+</body>
+
+</html>
