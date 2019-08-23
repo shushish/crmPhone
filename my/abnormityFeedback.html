@@ -70,6 +70,8 @@
 							<select id="factoryDep" style="width: 98%;height:0.5rem;">
 								<option value="IED">IED</option>
 								<option value="BPL">BPL</option>
+								<option value="客户部">客户部</option>
+								<option value="技术中心">技术中心</option>
 							</select>
 						</div>
 					</div>
@@ -81,27 +83,32 @@
 					</div>
 					<div class="cell-item">
 						<div class="cell-left"><em>*</em>客户需求描述：</div>
-						<div class="cell-right" style="text-align: left !important;"><Input id="customDemand" class="cell-input"></Input></div>
+						<div class="cell-right" style="text-align: left !important;"><Input id="customDemand" class="cell-input"></div>
 					</div>
 					<div class="cell-item">
 						<div class="cell-left"><em>*</em>客户反馈人：</div>
-						<div class="cell-right" style="text-align: left !important;"><Input id="customer" class="cell-input"></Input></div>
+						<div class="cell-right" style="text-align: left !important;"><Input id="customer" class="cell-input"></div>
 					</div>
 					<div class="cell-item">
 						<div class="cell-left"><em>*</em>现场处理对策：</div>
-						<div class="cell-right" style="text-align: left !important;"><Input id="disposeWayNow" class="cell-input"></Input></div>
+						<div class="cell-right" style="text-align: left !important;"><Input id="disposeWayNow" class="cell-input"></div>
 					</div>
 					<div class="cell-item">
 						<div class="cell-left"><em></em>要求解决日期：</div>
-						<div class="cell-right" style="text-align: left !important;" ><Input type="date" class="cell-input"  id="dateNeed"></Input></div>
+						<div class="cell-right" style="text-align: left !important;" ><Input type="date" class="cell-input"  id="dateNeed"></div>
 					</div>
 					<div class="cell-item">
 						<div class="cell-left"><em></em>最终解决日期：</div>
-						<div class="cell-right" style="text-align: left !important;" ><Input type="date" class="cell-input"  id="dateLast"></Input></div>
+						<div class="cell-right" style="text-align: left !important;" ><Input type="date" class="cell-input"  id="dateLast"></div>
 					</div>
 					<div class="cell-item">
 						<div class="cell-left">备注：</div>
-						<div class="cell-right" style="text-align: left !important;" ><Input id="remark" class="cell-input"></Input></div>
+						<div class="cell-right" style="text-align: left !important;" ><Input id="remark" class="cell-input"></div>
+					</div>
+					<div class="cell-item">
+						<div class="cell-left">附件上传：</div>
+						<div class="cell-right" style="text-align: left !important;" ><input id="file" type="file" multiple /></div>
+
 					</div>
 				</div>
 				<div class="m-button">
@@ -118,7 +125,6 @@
 		<script src="../echart/axios.min.js"></script>
 		<script src="../js/global.js"></script>
 		<script src="../laydate/laydate.js"></script> <!-- 改成你的路径 -->
-		<!--<script src="../js/my/myApproval.js"></script>-->
 	</body>
 
 	<script>
@@ -171,18 +177,14 @@
                 YDUI.dialog.notify('请填写客户反馈人', 1000);
                 return;
             }
-            // if("" == dateNeed || null == dateNeed){
-            //     YDUI.dialog.notify('请填写要求解决日期', 1000);
-            //     return;
-            // }
             if("" == disposeWayNow || null == disposeWayNow){
                 YDUI.dialog.notify('请填写现场处理对策', 1000);
                 return;
             }
-            // if("" == dateLast || null == dateLast){
-            //     YDUI.dialog.notify('请填写最终解决日期', 1000);
-            //     return;
-            // }
+            var file = document.getElementById("file");
+
+
+
 			let abnormity = new FormData();
             abnormity.append("projectId",project);
             abnormity.append("type",type);
@@ -196,11 +198,19 @@
             abnormity.append("disposeWayNow",disposeWayNow);
             abnormity.append("dateLast",dateLast);
             abnormity.append("remark",remark);
-			// abnormity.append("file", null);//空传一个文件
+            let files = file.files;
+			for(var i=0;i<files.length;i++){
+			    abnormity.append("file",files[i]);
+			}
 			YDUI.dialog.loading.open('正在保存，请稍后...');
-            axios.post('/api/abnormity/save',abnormity).then(res=>{
+            axios({
+                method: 'post',
+                url:'/api/abnormity/save',
+                data:abnormity,
+                headers: {type: Object, default () { return {}}
+            }}).then(res=>{
 					if(res.code == 200){
-                        YDUI.dialog.toast("操作成功", 'success')
+                        YDUI.dialog.toast("操作成功", 'success');
                         setTimeout(function(){window.location.href = '../index.html';},1000);
 					}
                 })
