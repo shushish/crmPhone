@@ -76,6 +76,10 @@
 						</div>
 					</div>
 					<div class="cell-item">
+						<div class="cell-left">罚款金额：</div>
+						<div class="cell-right" style="text-align: left !important;"><Input type="number" placeholder="请输入数字" id="fineAmount" class="cell-input"></div>
+					</div>
+					<div class="cell-item">
 						<div class="cell-left"><em>*</em>反馈内容：</div>
 						<div class="cell-right" style="text-align: left !important;"><div class="cell-right">
 						<input  id="content" class="cell-input">
@@ -152,6 +156,7 @@
             let disposeWayNow = $("#disposeWayNow").val();
             let dateLast = $("#dateLast").val();
             let remark = $("#remark").val();
+            let fineAmount = $("#fineAmount").val();
             //表单验证
             if("" == project || null == project){
                 YDUI.dialog.notify('请选择项目', 1000);
@@ -198,6 +203,7 @@
             abnormity.append("disposeWayNow",disposeWayNow);
             abnormity.append("dateLast",dateLast);
             abnormity.append("remark",remark);
+            abnormity.append("fineAmount",fineAmount);
             let files = file.files;
 			for(var i=0;i<files.length;i++){
 			    abnormity.append("file",files[i]);
