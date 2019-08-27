@@ -25,7 +25,6 @@ Approval.prototype = {
 			params
 		})
 		.then(res => {
-
 			let data = res.data;
             let html1 = '<div class="cell-item"><div class="cell-left">审批说明：</div><div class="cell-right">' + data.typeDescription + '</div></div>' +
                 '<div class="cell-item"><div class="cell-left">提交人：</div><div class="cell-right" style="text-align: left !important;">' + data.originatorName + '</div></div>' +
@@ -215,7 +214,15 @@ Approval.prototype = {
                     '<div class="cell-item"><div class="cell-left">销项原因：</div><div class="cell-right">' + data.salesReason + '</div> </div>' +
                     '<div class="cell-item"><div class="cell-left">审批类型：</div><div class="cell-right">销项审批</div></div>';
                 $("#showPro").html(html2 + html1);
-            }else{
+            }else if(data.flowType == '10'){
+                let html2 =
+                    '<div class="cell-item"><div class="cell-left">项目名称：</div><div class="cell-right">'+ data.name +'</div></div>' +
+                    '<div class="cell-item"><div class="cell-left">所有人：</div><div class="cell-right">' + data.projectPeople + '</div> </div>' +
+                    '<div class="cell-item"><div class="cell-left">合同量：</div><div class="cell-right">' + data.quantity + '</div> </div>' +
+                    '<div class="cell-item"><div class="cell-left">签约金额：</div><div class="cell-right">' + data.money + '</div> </div>' +
+                    '<div class="cell-item"><div class="cell-left">审批类型：</div><div class="cell-right">项目方案审批</div></div>';
+                $("#showPro").html(html2 + html1);
+            } else{
                 let html2 =
                     '<div class="cell-item"><div class="cell-left">审批类型：</div><div class="cell-right">其他审批</div></div>';
                 $("#showPro").html(html2 + html1);
