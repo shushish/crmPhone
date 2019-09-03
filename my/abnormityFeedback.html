@@ -157,6 +157,9 @@
             let dateLast = $("#dateLast").val();
             let remark = $("#remark").val();
             let fineAmount = $("#fineAmount").val();
+            if(null == fineAmount || "" == fineAmount){
+				fineAmount = 0;
+			}
             //表单验证
             if("" == project || null == project){
                 YDUI.dialog.notify('请选择项目', 1000);
