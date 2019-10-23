@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>远大住工-日志</title>
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="../css/ydui.css" />
+		<link rel="stylesheet" href="../css/global.css" />
+		<!-- 引入YDUI自适应解决方案类库 -->
+		<script src="../js/ydui.flexible.js"></script>
+		<link rel="stylesheet" href="../css/journal/switch.css">
+
+		<style>
+			.cell-left em{
+				color: red;
+			}
+			.cell-left{
+				width:110px;
+				text-align: justify;
+				text-align-last:justify;
+			}
+		</style>
+	</head>
+	<body>
+		<section class="g-flexview">
+			<header class="m-navbar" style="background: #00437c;">
+				<!-- <a href="javascript:void(0)" class="navbar-item" id="back-btn"><i class="back-ico"></i></a> -->
+				<div class="navbar-center">
+					<span class="navbar-title" style="color: white;">客户投诉</span>
+				</div>
+			</header>
+			<form about="" method="post" id="tableForm">
+				<div class="g-scrollview">
+					<div class="m-cell">
+						<div class="cell-item">
+							<div class="cell-left"><em>*</em>所属公司：</div>
+							<div class="cell-right">
+								<select name="companyName" id="companyName" class="cell-input">
+									<option value="">请选择公司</option>
+									<option value="杭州公司">杭州公司</option>
+									<option value="天津公司">天津公司</option>
+									<option value="上海公司">上海公司</option>
+									<option value="长沙公司">长沙公司</option>
+									<option value="南京公司">南京公司</option>
+									<option value="岳阳公司">岳阳公司</option>
+									<option value="郴州公司">郴州公司</option>
+									<option value="广州公司">广州公司</option>
+									<option value="深圳公司">深圳公司</option>
+									<option value="合肥公司">合肥公司</option>
+									<option value="阜阳公司">阜阳公司</option>
+									<option value="六安公司">六安公司</option>
+									<option value="武汉公司">武汉公司</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="cell-item">
+							<div class="cell-left"><em>*</em>服务工程师：</div>
+							<div class="cell-right"><input type="text" id="servicer" name="servicer" value="" class="cell-input"
+								 placeholder="" autocomplete="off" /></div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left"><em>*</em>项目名称：</div>
+							<div class="cell-right"><input type="text" id="projectName" name="projectName" value="" class="cell-input"
+								 placeholder="" autocomplete="off" /></div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left"><em>*</em>投诉人姓名：</div>
+							<div class="cell-right">
+								<input type="text" id="reportName" name="reportName" value="" class="cell-input" placeholder="" autocomplete="off" />
+							</div>
+						</div>
+						<div class="cell-item">
+							<div class="cell-left"><em>*</em>联系电话：</div>
+							<div class="cell-right">
+								<input type="text" id="reportPhone" name="reportPhone" value="" class="cell-input" placeholder="" autocomplete="off" />
+							</div>
+						</div>
+						<div class="m-celltitle cell-left" style="margin-top:10px;"><em>*</em>投诉内容：</div>
+						<div class="m-cell">
+							<div class="cell-item">
+								<div class="cell-right">
+									<textarea class="cell-textarea" id="content"></textarea>
+								</div>
+							</div>
+						</div>
+						<button type="button" class="btn-block btn-primary" id="savebf">提交</button>
+					</div>
+				</div>
+			</form>
+		</section>
+		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+		<script src="../jquery-3.3.1/jquery-3.3.1.min.js"></script>
+		<script src="../js/ydui.js"></script>
+		<script src="../echart/axios.min.js"></script>
+		<script src="../js/global.js"></script>
+		<script type="text/javascript">
+			//保存
+			$("#savebf").click(function() {
+				let complaints = {
+					'companyName': $("#companyName").val(), //投诉公司名称
+					'servicer': $("#servicer").val(), //投诉服务工程师名称
+					'projectName': $('#projectName').val(), //项目名称
+					'reportName': $("#reportName").val(), //投诉人名称
+					'reportPhone': $("#reportPhone").val(), //投诉人电话
+					'content': $("#content").val() //投诉内容
+				};
+				//表单验证
+				if(!complaints.companyName){
+					YDUI.dialog.toast('请确认所属公司', 'none', 1000);
+					return;
+				}
+				if(!complaints.servicer){
+					YDUI.dialog.toast('请确认服务工程师名称', 'none', 1000);
+					return;
+				}
+				if(!complaints.projectName){
+					YDUI.dialog.toast('请确认项目名称', 'none', 1000);
+					return;
+				}
+				if(!complaints.reportName){
+					YDUI.dialog.toast('请确认投诉人名称', 'none', 1000);
+					return;
+				}
+				if(!complaints.reportPhone){
+					YDUI.dialog.toast('请确认投诉人电话', 'none', 1000);
+					return;
+				}
+				if(!complaints.content){
+					YDUI.dialog.toast('请确认投诉内容', 'none', 1000);
+					return;
+				}
+				let form = new FormData();
+				for (var item in complaints) {
+					// console.log(item);
+					console.log(complaints[item]);
+					form.append(item, complaints[item] || "");
+				}
+				YDUI.dialog.loading.open('正在保存，请稍后...');
+				axios({
+					url: '/api/abnormity/saveComplaints',
+					method: 'post',
+					data: form
+				}).then(res => {
+					console.log(res);
+					YDUI.dialog.loading.close();
+					if('操作成功'==res.data){
+						YDUI.dialog.toast('投诉成功，请保持电话畅通，远大集团会及时联系您。', 'success', 3000, function () {
+						    /* 关闭后调用 */
+							window.close();
+						});
+					}
+					YDUI.dialog.toast('投诉失败，请拨打投诉电话：0731-89775702。', 'error', function () {
+					    /* 关闭后调用 */
+						window.close();
+					});
+				})
+				.catch(e => {
+					YDUI.dialog.loading.close();
+					YDUI.dialog.toast('投诉失败，请拨打投诉电话：0731-89775702。', 'error', function () {
+					    /* 关闭后调用 */
+						window.close();
+					});
+				})
+			});
+		</script>
+
+	</body>
+
+</html>
