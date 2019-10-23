@@ -152,11 +152,12 @@
 						    /* 关闭后调用 */
 							window.close();
 						});
+					}else{
+						YDUI.dialog.toast('投诉失败，请拨打投诉电话：0731-89775702。', 'error', function () {
+						    /* 关闭后调用 */
+							window.close();
+						});
 					}
-					YDUI.dialog.toast('投诉失败，请拨打投诉电话：0731-89775702。', 'error', function () {
-					    /* 关闭后调用 */
-						window.close();
-					});
 				})
 				.catch(e => {
 					YDUI.dialog.loading.close();
