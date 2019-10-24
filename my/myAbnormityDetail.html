@@ -96,6 +96,10 @@
 					<span id="remark"></span>
 				</div>
 			</div>
+			<div class="m-button">
+				<div id="but1"><button id="complete" type="button" class="btn-block btn-primary">完成异常</button></div>
+				<div id="but2"><button type="button" class="btn-block btn-primary">已完成</button></div>
+			</div>
 		</div>
 	</div>
 </section>
@@ -110,13 +114,27 @@
         initAbnormityDetail();
     });
 
+    $(function () {
+        var dialog = YDUI.dialog;
+        $('#complete').on('click', function () {
+            dialog.confirm('确认完成异常吗？', function () {
+                let abnormityId = Common.prototype.GetQueryString("id");
+                axios.post("/api/projectNext/finishAbnormity?abnormityId=" + abnormityId).then(res =>{
+                	if(null != res){
+                           initAbnormityDetail();
+                           dialog.toast(res.data, 'success', 1000);
+                	}
+                })
+            });
+        });
+    })
+
+
     function initAbnormityDetail() {
         let id = Common.prototype.GetQueryString("id");
         axios.post("/api/project/selectAbnormityDetail", "id=" + id)
             .then(res => {
                 let abnormity = res.data;
-                console.log(abnormity);
-
                 let projectName = abnormity.projectName; //项目名称
                 let type = abnormity.type; //反馈类型
                 let level = abnormity.level; //异常级别
@@ -137,18 +155,26 @@
                 document.getElementById("content").innerHTML = content;
                 document.getElementById("customDemand").innerHTML = customDemand;
                 document.getElementById("customer").innerHTML = customer;
-                document.getElementById("disposeWayNow").innerHTML = disposeWayNow;
-                document.getElementById("remark").innerHTML =  remark;
                 if(null != dateNeed){
                     document.getElementById("dateNeed").innerHTML =common.dateFtt("yyyy-MM-dd", new Date(dateNeed));
-                }else{
+				}else{
                     document.getElementById("dateNeed").innerHTML =null;
-                }
+				}
                 if(null != dateLast){
                     document.getElementById("dateLast").innerHTML =common.dateFtt("yyyy-MM-dd", new Date(dateLast));
                 }else{
                     document.getElementById("dateLast").innerHTML =null;
                 }
+                document.getElementById("disposeWayNow").innerHTML = disposeWayNow;
+                document.getElementById("remark").innerHTML =  remark;
+
+                if(null == dateLast){
+                    document.getElementById("but2").style.display = "none";
+                    document.getElementById("but1").style.display = "block";
+				}else{
+                    document.getElementById("but2").style.display = "block";
+                    document.getElementById("but1").style.display = "none";
+				}
             });
     }
 </script>

@@ -12,6 +12,9 @@ $(function () {
     $('#notice').on('click', function () {
         window.location.href = "/mobile/my/notice.html";
     });
+    $('#myAbnormity').on('click', function () {
+        window.location.href = "/mobile/my/myAbnormity.html";
+    });
     getUserInfo();
 });
 
