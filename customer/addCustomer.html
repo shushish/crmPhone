@@ -308,12 +308,24 @@
                 });
             };
 
+			function getAllFeatureLabel(){
+                axios.post("/api/dictionary/findDictionaryByDictValue","dictValue=accountFeature").then(res => {
+                    let typeList = res.data;
+                    for(let i=0;i<typeList.length;i++){
+                        let name = typeList[i].dataName;
+                        let option = '<option value="' + name +'">' + name+'</option>'
+                        $("#featureList").append(option);
+                    }
+                });
+			};
+
 
 			//页面初始化
             $(document).ready(function() {
                 Common.prototype.checkLoginStatu();
                 //获取所有客户类型
                 getAllCustomerTypes();
+                getAllFeatureLabel();
             });
 
 
