@@ -40,7 +40,7 @@
 						<div class="cell-item">
 							<div class="cell-left"><em>*</em>客户类型：</div>
 							<div class="cell-right">
-								<select name="typeList" id="typeList" onchange="findFeatureList()" style="width: 90%;height:0.5rem;">
+								<select name="typeList" id="typeList" style="width: 90%;height:0.5rem;">
 								</select>
 							</div>
 						</div>
@@ -206,7 +206,6 @@
 		<script type="text/javascript">
 			$("#back-btn").on("click", Common.prototype.Back);
 		</script>
-		<script src="../js/customer/addCustomer.js"></script>
 		<script src="../js/docs/distpicker.js"></script>
 		<script src="../js/template-native.js" type="text/javascript" charset="utf-8"></script>
 
@@ -297,6 +296,27 @@
 
                 })
 			});
+
+			function getAllCustomerTypes(){
+                axios.post("/api/dictionary/findDictionaryByDictValue","dictValue=type").then(res => {
+                    let typeList = res.data;
+                    for(let i=0;i<typeList.length;i++){
+                        let name = typeList[i].dataName;
+                        let option = '<option value="' + name +'">' + name+'</option>'
+                        $("#typeList").append(option);
+                    }
+                });
+            };
+
+
+			//页面初始化
+            $(document).ready(function() {
+                Common.prototype.checkLoginStatu();
+                //获取所有客户类型
+                getAllCustomerTypes();
+            });
+
+
 		</script>
 
 	</body>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	<title>远大住工-异常详情</title>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="../css/ydui.css" />
+	<link rel="stylesheet" href="../css/global.css" />
+	<!-- 引入YDUI自适应解决方案类库 -->
+	<script src="../js/ydui.flexible.js"></script>
+
+</head>
+<body>
+<section class="g-flexview">
+	<header class="m-navbar" style="background: #00437c;">
+		<a href="javascript:void(0)" class="navbar-item" id="back-btn"><i class="back-ico"></i></a>
+		<div class="navbar-center">
+			<span class="navbar-title" style="color: white;">详情页</span>
+		</div>
+	</header>
+	<div class="g-scrollview">
+		<div class="m-cell">
+			<div class="cell-item">
+				<div class="cell-left">项目编号：</div>
+				<div class="cell-right">
+					<span id="number"></span>
+				</div>
+			</div>
+			<div class="cell-item">
+				<div class="cell-left">项目名称：</div>
+				<div class="cell-right">
+					<span id="name"></span>
+				</div>
+			</div>
+			<div class="cell-item">
+				<div class="cell-left">项目阶段：</div>
+				<div class="cell-right"><span id="stage"></span></div>
+			</div>
+
+			<div class="cell-item">
+				<div class="cell-left">签约主体：</div>
+				<div class="cell-right">
+					<span id="contractBody"></span>
+				</div>
+			</div>
+			<div class="cell-item">
+				<div class="cell-left">金额(万元)：</div>
+				<div class="cell-right">
+					<span id="money"></span>
+				</div>
+			</div>
+			<div class="cell-item">
+				<div class="cell-left">所有人：</div>
+				<div class="cell-right">
+					<span id="owner"></span>
+				</div>
+			</div>
+			<div class="cell-item">
+				<div class="cell-left">所属公司：</div>
+				<div class="cell-right">
+					<span id="company"></span>
+				</div>
+			</div>
+			<div class="cell-item">
+				<div class="cell-left">项目类型：</div>
+				<div class="cell-right">
+					<span id="type"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="../jquery-3.3.1/jquery-3.3.1.min.js"></script>
+<script src="../js/ydui.js"></script>
+<script src="../echart/axios.min.js"></script>
+<script src="../js/global.js"></script>
+<script>
+    $(function() {
+        $("#back-btn").on("click", Common.prototype.Back);
+        initAbnormityDetail();
+    });
+
+    function initAbnormityDetail() {
+        let id = Common.prototype.GetQueryString("id");
+        axios.post("/api/project/findProjectInfoByProjectId", "id=" + id)
+            .then(res => {
+            	let pro = res.data;
+                console.log(pro);
+                document.getElementById("number").innerHTML = pro.number;
+                document.getElementById("name").innerHTML = pro.name;
+                document.getElementById("stage").innerHTML = pro.stage;
+                document.getElementById("contractBody").innerHTML = pro.contractBodyName;
+                document.getElementById("money").innerHTML = pro.money;
+                document.getElementById("owner").innerHTML = pro.businessPerson;
+                document.getElementById("company").innerHTML = pro.companyName;
+                document.getElementById("type").innerHTML = pro.type;
+
+                //document.getElementById("address").innerHTML = pro.address;
+                //document.getElementById("").innerHTML = pro.address;
+
+            });
+    }
+</script>
+</body>
+
+</html>

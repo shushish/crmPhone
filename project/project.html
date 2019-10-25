@@ -102,7 +102,7 @@
 		<!-- 定义模板，用来生产html -->
 		<script type="text/html" id="projectListTem">
 			<% for(var i = 0; i < list.length; i++){ %>
-				<a href="#" class="list-item">
+				<a href="projectInfo.html?id=<%= list[i].id %>" class="list-item">
 					<div class="list-img"><img src="../image/icon/listNum-1.png"></div>
 					<div class="list-mes">
 						<h3 class="list-title"><%= list[i].name %></h3>
