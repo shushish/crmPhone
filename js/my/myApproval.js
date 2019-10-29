@@ -37,6 +37,7 @@ Approval.prototype = {
                     '<div class="cell-item"><div class="cell-left">所有人：</div><div class="cell-right">' + data.projectPeople + '</div> </div>' +
                     '<div class="cell-item"><div class="cell-left">预制率：</div><div class="cell-right">' + data.prefabricateRate + '</div> </div>' +
                     '<div class="cell-item"><div class="cell-left">异形量：</div><div class="cell-right">' + data.abnormityNum + '</div> </div>' +
+                    '<div class="cell-item"><div class="cell-left">异形率：</div><div class="cell-right">' + (data.abnormityNum*100/data.quantity).toFixed(1) + '%</div> </div>' +
                     '<div class="cell-item"><div class="cell-left">设计归属：</div><div class="cell-right">' + data.designOwnership + '</div> </div>' +
                     '<div class="cell-item"><div class="cell-left">地方意见：</div><div class="cell-right">' + data.opinionDesignOut + '</div> </div>' +
                     '<div class="cell-item"><div class="cell-left">总部意见：</div><div class="cell-right">' + data.opinionDesignHeadquarters + '</div> </div>' +
