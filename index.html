@@ -75,8 +75,8 @@
                                 <font id="target">0</font>
                                 <div class="wcl">
                                     <p class="flt">完成率</p>
-                                    <p class="frt">75%</p>
-                                    <div class="wcl_bg"><label></label></div>
+                                    <p class="frt" id="completeRate"></p>
+                                    <div class="wcl_bg"><label id="completeRateStep"></label></div>
                                     <div class="clear"></div>
                                 </div>
                             </div>
@@ -263,6 +263,10 @@
 			$("#quality").html(quality);
 			let amount = content.amount;
 			$("#amount").html(amount);
+            let completeRate = (amount*100/targetAmount).toFixed(1) + '%';
+            $("#completeRate").html(completeRate);
+            $("#completeRateStep").css("width",completeRate);
+
 			let abnormalCount = content.abnormalCount;
 			$("#abnormity").html(abnormalCount);
 			let biddingAmount = content.biddingAmount;

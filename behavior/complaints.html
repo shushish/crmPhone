@@ -87,6 +87,10 @@
 								</div>
 							</div>
 						</div>
+						<div class="cell-item">
+							<div class="cell-left">附件上传：</div>
+							<div class="cell-right" style="text-align: left !important;" ><input id="file" type="file" multiple /></div>
+						</div>
 						<button type="button" class="btn-block btn-primary" id="savebf">提交</button>
 					</div>
 				</div>
@@ -139,6 +143,12 @@
 					console.log(complaints[item]);
 					form.append(item, complaints[item] || "");
 				}
+
+				let file = document.getElementById("file");
+                let files = file.files;
+                for(var i=0;i<files.length;i++){
+                    form.append("file",files[i]);
+                }
 				YDUI.dialog.loading.open('正在保存，请稍后...');
 				axios({
 					url: '/api/abnormity/saveComplaints',

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="main">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>远大住工-我的审批</title>
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+		<!-- 引入YDUI样式 -->
+		<link rel="stylesheet" href="../css/ydui.css" />
+		<link rel="stylesheet" href="../css/global.css" />
+		<!-- 引入YDUI自适应解决方案类库 -->
+		<script src="../js/ydui.flexible.js"></script>
+		<style>
+			.cell-left{
+				width: 1.5rem;
+			}
+			.cell-right{
+				justify-content: flex-start;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="header">
+			<a href="javascript:void(0)" class="navbar-item" id="back-btn"><i class="back-ico"></i></a>
+			<div class="navbar-center">
+				<span class="navbar-title">我的审批</span>
+			</div>
+		</header>
+
+		<div class="mainer">
+			<div class="wrap">
+				<div class="index_nav">
+					<div class="box" style="padding-top: 0.2rem;">
+						<div class="m-cell" id="showPro">
+						</div>
+						<div class="m-button">
+							<button type="button" class="btn-block btn-primary">意见提交</button>
+						</div>
+
+					</div>
+				</div>
+				<div class="index_box">
+				</div>
+			</div>
+		</div>
+
+
+		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+		<script src="../jquery-3.3.1/jquery-3.3.1.min.js"></script>
+		<script src="../js/ydui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../echart/axios.min.js"></script>
+		<script src="../js/global.js"></script>
+		<script src="../js/template-native.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+	<script type="text/html" id="attachmentsTem">
+		<div class="cell-left">附件列表：</div>
+		<% for(var i = 0; i < list.length; i++){ %>
+			<div class="cell-right">
+				<a href="<%= list[i].url %>" download="<%= list[i].name %>"><%= list[i].name %></a>
+			</div>
+		<% } %>
+	</script>
+
+<script>
+    $(document).ready(function () {
+        Common.prototype.checkLoginStatu();
+    });
+
+    let approvalCode = Common.prototype.GetQueryString("approvalCode");
+
+    $(function () {
+        $("#back-btn").on("click", Common.prototype.Back);
+        approval.ShowDetail();
+        $(".btn-primary").on("click", approval.Approve);
+        $(".btn-danger").on("click", approval.Refused);
+    });
+
+    var Approval = function () {};
+    var projectId = "";
+
+    Approval.prototype = {
+        ShowDetail: function () {
+            YDUI.dialog.loading.open('加载中。。。');
+            let params = {'code':approvalCode};
+            return axios({
+                url: '/api/approval/getApprovalByCode2',
+                method: 'post',
+                params
+            })
+                .then(res => {
+                    let data = res.data;
+                    projectId = data.projectId;
+                    let html1 = '<div class="cell-item"><div class="cell-left">审批说明：</div><div class="cell-right">' + data.typeDescription + '</div></div>' +
+                        '<div class="cell-item"><div class="cell-left">提交人：</div><div class="cell-right" style="text-align: left !important;">' + data.originatorName + '</div></div>' +
+                        '<div class="cell-item"><div class="cell-right"><textarea id="approvalOpinion" class="cell-textarea" style="height: 4rem;" placeholder="请给出您的意见"></textarea></div></div>'
+
+                    if(data.flowType == '5'){
+                        let prepaymentRatio = '0';
+                        let proportionProgressPayment = '0';
+                        let acceptancePayment = '0';
+                        let settlementRatio = '0';
+                        let lengthWarranty = '0';
+                        let premiumRatio = '0';
+                        let sweepAndUnloading = '0';
+                        let attachments = data.attachments;
+                        if(null != data.contract){
+                            prepaymentRatio = data.contract.prepaymentRatio;
+                            proportionProgressPayment = data.contract.proportionProgressPayment;
+                            acceptancePayment = data.contract.acceptancePayment;
+                            settlementRatio = data.contract.settlementRatio;
+                            lengthWarranty = data.contract.lengthWarranty;
+                            premiumRatio = data.contract.premiumRatio;
+                            sweepAndUnloading = data.contract.sweepAndUnloading;
+                        }
+
+                        let html2 =
+                            '<div class="cell-item"><div class="cell-left">项目名称：</div><div class="cell-right">'+ data.name +'</div></div>' +
+                            '<div class="cell-item"><div class="cell-left">所有人：</div><div class="cell-right">' + data.projectPeople + '</div></div>' +
+                            '<div class="cell-item"><div class="cell-left">首付款：</div><div class="cell-right">' + prepaymentRatio + '%</div></div>' +
+                            '<div class="cell-item"><div class="cell-left">进度款：</div><div class="cell-right">' + proportionProgressPayment + '%</div></div>' +
+                            '<div class="cell-item"><div class="cell-left">封顶付款：</div><div class="cell-right">' + acceptancePayment + '%</div></div>' +
+                            '<div class="cell-item"><div class="cell-left">结算款：</div><div class="cell-right">' + settlementRatio + '%</div></div>' +
+                            '<div class="cell-item"><div class="cell-left">质保年限：</div><div class="cell-right">' + lengthWarranty + '</div></div>' +
+                            '<div class="cell-item"><div class="cell-left">质保金：</div><div class="cell-right">' + premiumRatio + '%</div></div>' +
+                            '<div class="cell-item"><div class="cell-left">卸货区：</div><div class="cell-right">' + sweepAndUnloading + '</div></div>' +
+                            '<div class="cell-item"><div class="cell-left">审批类型：</div><div class="cell-right">合同评审流程</div></div>';
+
+                        if (attachments && attachments.length > 0) {
+                            let htmlAttachments = '';
+                            //模板装载html
+                            htmlAttachments = template('attachmentsTem', {list:attachments});
+							html1 = html1 + htmlAttachments;
+                        }
+                        $("#showPro").html(html2  + html1);
+                    }
+                    YDUI.dialog.loading.close();
+                });
+        },
+        Approve: function () {
+            let comments = $("#approvalOpinion").val();
+            if(comments == null || comments == undefined || comments == ""){
+                YDUI.dialog.alert("请输入意见");
+                return;
+            }
+            axios.post("/api/approval/saveFawuOpinion", "projectId="+ projectId +"&opinion="+comments).then(res => {
+                YDUI.dialog.toast(res.data, 'success')
+            });
+            setTimeout(function(){window.location.href = 'approval.html';},2000);
+        },
+
+        //下载附件
+        // downloadAttachment: function(data){
+        //     if (!data) {
+        //         return
+        //     }
+        //     this.$Spin.show({
+        //         render: (h) => {
+        //             return h('div', [
+        //                 h('Icon', {
+        //                     'class': 'demo-spin-icon-load',
+        //                     props: {
+        //                         type: 'ios-loading',
+        //                         size: 18
+        //                     }
+        //                 }),
+        //                 h('div', '文件下载中...')
+        //             ])
+        //         }
+        //     });
+        //     axios.get(data.url, {responseType: 'blob',}).then(response => {
+        //         const url = window.URL.createObjectURL(new Blob([response.data]));
+        //         const link = document.createElement('a');
+        //         //let fname = data.name+'.'+data.suffix;
+        //         let fname = data.name;
+        //         link.href = url;
+        //         link.setAttribute('download', fname);
+        //         document.body.appendChild(link);
+        //         link.click();
+        //         this.$Spin.hide();
+        //     }).catch(res =>{
+        //         this.$Spin.hide();
+        //     })
+        // },
+
+
+    }
+
+    window.approval = new Approval();
+
+
+</script>
+
+</html>

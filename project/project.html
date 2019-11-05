@@ -84,7 +84,7 @@
 			</div>
 			<div class="m-grids-2" style="height:0.6rem;">
 				<div class="grids-txt" style="float: left;">&nbsp;&nbsp;<span id="titles">全部</span></div>
-				<div class="grids-txt" style="float: right;"><span style="color: #00A9E1;">数量：</span><span id="num" style="color: #00A9E1;">7766</span>
+				<div class="grids-txt" style="float: right;"><span style="color: #00A9E1;">数量：</span><span id="num" style="color: #00A9E1;"></span>
 				</div>
 			</div>
 			<section class="g-scrollview" id="J_List">
@@ -152,6 +152,7 @@
 						})
 						.then(res => {
 							let data = res.records;
+                            $('#num').text(res.total)
 							if (data && data.length > 0) {
 								let html = '';
 								//模板装载html

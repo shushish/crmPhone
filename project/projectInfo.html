@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
 	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-	<title>远大住工-异常详情</title>
+	<title>远大住工-项目详情</title>
 
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="../css/ydui.css" />
@@ -55,6 +55,12 @@
 				</div>
 			</div>
 			<div class="cell-item">
+				<div class="cell-left">PC量：</div>
+				<div class="cell-right">
+					<span id="quantity"></span>
+				</div>
+			</div>
+			<div class="cell-item">
 				<div class="cell-left">所有人：</div>
 				<div class="cell-right">
 					<span id="owner"></span>
@@ -97,12 +103,13 @@
                 document.getElementById("stage").innerHTML = pro.stage;
                 document.getElementById("contractBody").innerHTML = pro.contractBodyName;
                 document.getElementById("money").innerHTML = pro.money;
+                document.getElementById("quantity").innerHTML = pro.quantity;
                 document.getElementById("owner").innerHTML = pro.businessPerson;
                 document.getElementById("company").innerHTML = pro.companyName;
                 document.getElementById("type").innerHTML = pro.type;
 
                 //document.getElementById("address").innerHTML = pro.address;
-                //document.getElementById("").innerHTML = pro.address;
+
 
             });
     }

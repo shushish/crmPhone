@@ -12,6 +12,7 @@ $(function () {
 	//console.log(wxcode)
 });
 
+
 var Approval = function () {};
 
 Approval.prototype = {

@@ -30,7 +30,7 @@
 				<div class="g-scrollview">
 					<div class="m-cell">
 						<div class="cell-item" style="overflow: inherit;">
-							<div class="cell-left"><em>*</em>客户名称：</div>
+							<div class="cell-left"><em style="color: red">*</em>客户名称：</div>
 							<div class="cell-right" style="position: relative;">
 								<input type="text" id="nameList" name="nameList" value="" class="cell-input" placeholder="请输入客户名称" onchange="queryAccountSelectListByEyes()"  />
 							</div>
@@ -38,14 +38,14 @@
 							background: #fff;z-index: 1000;font-size: 10px;width: 95%;font-size: 200%"   ></div>
 						</div>
 						<div class="cell-item">
-							<div class="cell-left"><em>*</em>客户类型：</div>
+							<div class="cell-left"><em style="color: red">*</em>客户类型：</div>
 							<div class="cell-right">
 								<select name="typeList" id="typeList" style="width: 90%;height:0.5rem;">
 								</select>
 							</div>
 						</div>
 						<div class="cell-item">
-							<div class="cell-left"><em>*</em>客户地点：</div>
+							<div class="cell-left"><em style="color: red">*</em>客户地点：</div>
 							<div class="cell-right">
 								<div data-toggle="distpicker" id="docs">
 									<select id="province" style="width: 32%;"></select>
@@ -138,7 +138,7 @@
 							</div>
 						</div>
 						<div class="cell-item">
-							<div class="cell-left"><em>*</em>特征标签：</div>
+							<div class="cell-left"><em style="color: red">*</em>特征标签：</div>
 							<div class="cell-right">
 								<select name="featureList" id="featureList" style="width: 90%;height:0.5rem;">
 								</select>
@@ -174,16 +174,18 @@
 							</div>
 						</div>
 						<div class="cell-item">
-							<div class="cell-left"><em>*</em>所属集团：</div>
+							<div class="cell-left"><em style="color: red">*</em>所属集团：</div>
 							<div class="cell-right">
-								<select name="clique" id="clique" style="width: 90%;height:0.5rem;">
-									<option value="">请选择</option>
-									<option value="碧桂园集团">碧桂园集团</option>
-									<option value="万科集团">万科集团</option>
-									<option value="润和集团">润和集团</option>
-									<option value="万达集团">万达集团</option>
-									<option value="其他">其他</option>
-								</select>
+								<!--<select name="clique" id="clique" style="width: 90%;height:0.5rem;">-->
+									<!--<option value="">请选择</option>-->
+									<!--<option value="碧桂园集团">碧桂园集团</option>-->
+									<!--<option value="万科集团">万科集团</option>-->
+									<!--<option value="润和集团">润和集团</option>-->
+									<!--<option value="万达集团">万达集团</option>-->
+									<!--<option value="其他">其他</option>-->
+								<!--</select>-->
+                                <select id="groups" style="width: 90%;height:0.5rem;">
+                                </select>
 							</div>
 						</div>
 						<div class="cell-item">
@@ -297,6 +299,7 @@
                 })
 			});
 
+			//获取所有客户类型
 			function getAllCustomerTypes(){
                 axios.post("/api/dictionary/findDictionaryByDictValue","dictValue=type").then(res => {
                     let typeList = res.data;
@@ -307,7 +310,19 @@
                     }
                 });
             };
+            //获取所有集团
+            function getAllGroups(){
+                axios.post("/api/dictionary/findDictionaryByDictValue","dictValue=clique").then(res => {
+                    let typeList = res.data;
+                    for(let i=0;i<typeList.length;i++){
+                        let name = typeList[i].dataName;
+                        let option = '<option value="' + name +'">' + name+'</option>'
+                        $("#groups").append(option);
+                    }
+                });
+            };
 
+            //获取所有特征标签
 			function getAllFeatureLabel(){
                 axios.post("/api/dictionary/findDictionaryByDictValue","dictValue=accountFeature").then(res => {
                     let typeList = res.data;
@@ -326,6 +341,7 @@
                 //获取所有客户类型
                 getAllCustomerTypes();
                 getAllFeatureLabel();
+                getAllGroups();
             });
 
 
