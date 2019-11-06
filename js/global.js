@@ -434,7 +434,7 @@ axios.interceptors.response.use(
     }else if(res.code === 200){
       return res;
     }else if(res.code === 700){
-		window.location.href='/crm/login.html'
+		window.location.href='/mobile/login.html'
 		return Promise.reject(res.message)
     }else{
         alert(res.message)
@@ -443,6 +443,10 @@ axios.interceptors.response.use(
   },
   error => {
     console.error('err' + error)// for debug
+	if(700 === error.response.data.code){
+		window.location.href='/mobile/login.html'
+		return Promise.reject(res.message)
+	}
     return Promise.reject(error)
   }
 );

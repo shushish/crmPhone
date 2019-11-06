@@ -60,7 +60,7 @@ function checkandsubmit(auto) {
 		url = '/api/auth/login';
         var expdate = new Date();
         expdate.setTime(expdate.getTime() + (24 * 60 * 60 * 1000));
-		params = $("#tableForm").serialize()+'&openid='+openid;
+		params = $("#tableForm").serialize()+'&openid='+openid+'&type=mobile';
 	}
 		// debugger
 	//登录状态
