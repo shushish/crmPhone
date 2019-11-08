@@ -147,7 +147,11 @@
                 YDUI.dialog.alert("请输入意见");
                 return;
             }
-            axios.post("/api/approval/saveFawuOpinion", "projectId="+ projectId +"&opinion="+comments).then(res => {
+
+            let param = new URLSearchParams();
+            param.append('projectId', projectId);
+            param.append('opinion', comments);
+            axios.post("/api/approval/saveFawuOpinion",param).then(res => {
                 YDUI.dialog.toast(res.data, 'success')
             });
             setTimeout(function(){window.location.href = 'approval.html';},2000);
