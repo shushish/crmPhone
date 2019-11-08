@@ -224,7 +224,29 @@ Approval.prototype = {
                     '<div class="cell-item"><div class="cell-left">签约金额：</div><div class="cell-right">' + data.money + '</div> </div>' +
                     '<div class="cell-item"><div class="cell-left">审批类型：</div><div class="cell-right">项目方案审批</div></div>';
                 $("#showPro").html(html2 + html1);
-            } else{
+            }else if(data.flowType == '21' || data.flowType == '22' || data.flowType == '7'){
+                console.log(data.designContract);
+                let html2 =
+                    '<div class="cell-item"><div class="cell-left">设计合同名：</div><div class="cell-right">'+ data.designContract.name +'</div></div>' +
+                    '<div class="cell-item"><div class="cell-left">编号：</div><div class="cell-right">' + data.designContract.number + '</div> </div>' +
+                    '<div class="cell-item"><div class="cell-left">总金额：</div><div class="cell-right">' + data.designContract.totalContractAmount + '</div> </div>' +
+                    '<div class="cell-item"><div class="cell-left">合同类型：</div><div class="cell-right">' + data.designContract.typeContract + '</div> </div>' +
+                    '<div class="cell-item"><div class="cell-left">设计归属：</div><div class="cell-right">'+ data.designContract.designAscription +'</div></div>' +
+                    '<div class="cell-item"><div class="cell-left">设计类型：</div><div class="cell-right">'+ data.designContract.typeDesign +'</div></div>' +
+                    '<div class="cell-item"><div class="cell-left">预制率：</div><div class="cell-right">'+ data.designContract.prefabricatePercent +'%</div></div>' +
+                    '<div class="cell-item"><div class="cell-left">预制构件类型：</div><div class="cell-right">'+ data.designContract.prefabricateMode +'</div></div>' +
+                    '<div class="cell-item"><div class="cell-left">签约主体：</div><div class="cell-right">'+ data.designContract.subjectContract +'</div></div>' +
+                    '<div class="cell-item"><div class="cell-left">单价：</div><div class="cell-right">'+ data.designContract.priceUnit +'</div></div>' +
+                    '<div class="cell-item"><div class="cell-left">面积：</div><div class="cell-right">'+ data.designContract.area +'</div></div>' +
+                    '<div class="cell-item"><div class="cell-left">所属人：</div><div class="cell-right">'+ data.designContract.userName +'</div></div>' +
+                    '<div class="cell-item"><div class="cell-left">签约时间：</div><div class="cell-right">'+ data.designContract.contractTime +'</div></div>' +
+                    '<div class="cell-item"><div class="cell-left">所属公司：</div><div class="cell-right">'+ data.designContract.companyName +'</div></div>' +
+                    '<div class="cell-item"><div class="cell-left">客户名称：</div><div class="cell-right">'+ data.designContract.accountName +'</div></div>' +
+                    '<div class="cell-item"><div class="cell-left">是否关联项目：</div><div class="cell-right">'+ data.designContract.havePc +'</div></div>' +
+                    '<div class="cell-item"><div class="cell-left">项目名称：</div><div class="cell-right">'+ data.designContract.projectName +'</div></div>' +
+                    '<div class="cell-item"><div class="cell-left">审批类型：</div><div class="cell-right">设计合同审批</div></div>';
+                $("#showPro").html(html2 + html1);
+            }else{
                 let html2 =
                     '<div class="cell-item"><div class="cell-left">审批类型：</div><div class="cell-right">其他审批</div></div>';
                 $("#showPro").html(html2 + html1);

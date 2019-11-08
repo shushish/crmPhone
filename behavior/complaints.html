@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=3.0,user-scalable=yes">
 		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-		<title>远大住工-日志</title>
+		<title>远大住工-客户投诉</title>
 		<!-- Bootstrap -->
 		<link rel="stylesheet" href="../css/ydui.css" />
 		<link rel="stylesheet" href="../css/global.css" />
@@ -57,11 +57,15 @@
 							</div>
 						</div>
 
-						<div class="cell-item">
-							<div class="cell-left"><em>*</em>服务工程师：</div>
-							<div class="cell-right"><input type="text" id="servicer" name="servicer" value="" class="cell-input"
-								 placeholder="" autocomplete="off" /></div>
-						</div>
+						<!--<div class="cell-item">-->
+							<!--<div class="cell-left"><em>*</em>服务工程师：</div>-->
+							<!--<div class="cell-right"><input type="text" id="servicer" name="servicer" value="" class="cell-input"-->
+								 <!--placeholder="" autocomplete="off" /></div>-->
+						<!--</div>-->
+
+
+
+
 						<div class="cell-item">
 							<div class="cell-left"><em>*</em>项目名称：</div>
 							<div class="cell-right"><input type="text" id="projectName" name="projectName" value="" class="cell-input"
@@ -73,6 +77,12 @@
 								<input type="text" id="reportName" name="reportName" value="" class="cell-input" placeholder="" autocomplete="off" />
 							</div>
 						</div>
+                        <div class="cell-item">
+                            <div class="cell-left"><em>*</em>职位：</div>
+                            <div class="cell-right">
+                                <input type="text" id="title" name="reportName" value="" class="cell-input" placeholder="" autocomplete="off" />
+                            </div>
+                        </div>
 						<div class="cell-item">
 							<div class="cell-left"><em>*</em>联系电话：</div>
 							<div class="cell-right">
@@ -102,13 +112,39 @@
 		<script src="../echart/axios.min.js"></script>
 		<script src="../js/global.js"></script>
 		<script type="text/javascript">
+            $(document).ready(function() {
+                Common.prototype.checkLoginStatu();
+                //点击跳转选择项目页面
+                $("#projectName").on("click",function(){
+                    location.href='/mobile/searchProject.html?rtUrl=/mobile/behavior/complaints.html'
+                });
+                //获取项目
+                initProject();
+            });
+
+
+
+            //搜索后获取项目信息
+            function initProject(){
+                var id = Common.prototype.GetQueryString("id");
+                var name = decodeURIComponent(Common.prototype.GetQueryString("name"));
+                if(name != "null"){
+                    $("#projectName").val(name);
+                }else {
+                    $("#projectName").val("");
+                }
+                $("#projectName").attr("name",id);
+            }
+
+
 			//保存
 			$("#savebf").click(function() {
 				let complaints = {
 					'companyName': $("#companyName").val(), //投诉公司名称
-					'servicer': $("#servicer").val(), //投诉服务工程师名称
+					//'servicer': $("#servicer").val(), //投诉服务工程师名称
 					'projectName': $('#projectName').val(), //项目名称
 					'reportName': $("#reportName").val(), //投诉人名称
+                    'title': $("#title").val(), //投诉服务工程师名称
 					'reportPhone': $("#reportPhone").val(), //投诉人电话
 					'content': $("#content").val() //投诉内容
 				};
@@ -117,8 +153,8 @@
 					YDUI.dialog.toast('请确认所属公司', 'none', 1000);
 					return;
 				}
-				if(!complaints.servicer){
-					YDUI.dialog.toast('请确认服务工程师名称', 'none', 1000);
+				if(!complaints.title){
+					YDUI.dialog.toast('请确认职位信息', 'none', 1000);
 					return;
 				}
 				if(!complaints.projectName){

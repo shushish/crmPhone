@@ -43,7 +43,10 @@ Approval.prototype = {
                         flowType = '项目预成交审批';
                     }else if ('9' == value.flowType){
                         flowType = '项目销项审批';
-                    }else{
+                    }else if ('21' == value.flowType || '22' == value.flowType || '7' == value.flowType){
+                        flowType = '设计合同审批';
+                    }
+                    else{
                         flowType = '其他';
                     }
 
