@@ -97,7 +97,8 @@
                     projectId = data.projectId;
                     let html1 = '<div class="cell-item"><div class="cell-left">审批说明：</div><div class="cell-right">' + data.typeDescription + '</div></div>' +
                         '<div class="cell-item"><div class="cell-left">提交人：</div><div class="cell-right" style="text-align: left !important;">' + data.originatorName + '</div></div>' +
-                        '<div class="cell-item"><div class="cell-right"><textarea id="approvalOpinion" class="cell-textarea" style="height: 4rem;" placeholder="请给出您的意见"></textarea></div></div>'
+                        '<div class="cell-item"><div class="cell-right"><textarea id="approvalOpinion" class="cell-textarea" style="height: 4rem;" placeholder="请给出您的意见"></textarea></div></div>' +
+                        '<div class="cell-item"><div class="cell-left">附件上传：</div><div class="cell-right" style="text-align: left !important;" ><input id="file" type="file" multiple /></div></div>'
 
                     if(data.flowType == '5'){
                         let prepaymentRatio = '0';
@@ -148,10 +149,16 @@
                 return;
             }
 
-            let param = new URLSearchParams();
-            param.append('projectId', projectId);
-            param.append('opinion', comments);
-            axios.post("/api/approval/saveFawuOpinion",param).then(res => {
+            let opinionData = new FormData();
+            var file = document.getElementById("file");
+            let files = file.files;
+            for(var i=0;i<files.length;i++){
+                opinionData.append("file",files[i]);
+            }
+            opinionData.append('projectId', projectId);
+            opinionData.append('opinion', comments);
+
+            axios.post("/api/approval/saveFawuOpinion",opinionData).then(res => {
                 YDUI.dialog.toast(res.data, 'success')
             });
             setTimeout(function(){window.location.href = 'approval.html';},2000);
