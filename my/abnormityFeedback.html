@@ -211,6 +211,12 @@
 			for(var i=0;i<files.length;i++){
 			    abnormity.append("file",files[i]);
 			}
+            //新增逻辑限制，除开D级异常信息都需要上传附件
+            if(files.length < 1  && level.indexOf("D") < 0){
+                YDUI.dialog.notify('新增A、B、C级异常信息需要上传附件', 3000);
+                return;
+            }
+
 			YDUI.dialog.loading.open('正在保存，请稍后...');
             axios({
                 method: 'post',
