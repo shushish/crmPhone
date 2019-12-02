@@ -112,31 +112,6 @@
 		<script src="../echart/axios.min.js"></script>
 		<script src="../js/global.js"></script>
 		<script type="text/javascript">
-            $(document).ready(function() {
-                Common.prototype.checkLoginStatu();
-                //点击跳转选择项目页面
-                $("#projectName").on("click",function(){
-                    location.href='/mobile/searchProject.html?rtUrl=/mobile/behavior/complaints.html'
-                });
-                //获取项目
-                initProject();
-            });
-
-
-
-            //搜索后获取项目信息
-            function initProject(){
-                var id = Common.prototype.GetQueryString("id");
-                var name = decodeURIComponent(Common.prototype.GetQueryString("name"));
-                if(name != "null"){
-                    $("#projectName").val(name);
-                }else {
-                    $("#projectName").val("");
-                }
-                $("#projectName").attr("name",id);
-            }
-
-
 			//保存
 			$("#savebf").click(function() {
 				let complaints = {
@@ -187,7 +162,7 @@
                 }
 				YDUI.dialog.loading.open('正在保存，请稍后...');
 				axios({
-					url: '/api/abnormity/saveComplaints',
+					url: '/api/abnormity/saveComplaintsCtz',
 					method: 'post',
 					data: form
 				}).then(res => {
