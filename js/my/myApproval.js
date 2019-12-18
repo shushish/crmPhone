@@ -9,13 +9,18 @@ $(function () {
     approval.ShowDetail();
     $(".btn-primary").on("click", approval.Approve);
     $(".btn-danger").on("click", approval.Refused);
+    $("#changeUser").on("click", approval.ChangeUser);
+    $("#confirm").on("click", approval.ChangeUserConfirm);
 	//console.log(wxcode)
+
 });
 
 
 var Approval = function () {};
 
 Approval.prototype = {
+    projectId:'' ,
+    flowType:'' ,
     ShowDetail: function () {
 		/*console.log("approvalCode:"+approvalCode);*/
         YDUI.dialog.loading.open('加载中。。。');
@@ -31,7 +36,30 @@ Approval.prototype = {
                 '<div class="cell-item"><div class="cell-left">提交人：</div><div class="cell-right" style="text-align: left !important;">' + data.originatorName + '</div></div>' +
                 '<div class="cell-item"><div class="cell-right"><textarea id="approvalOpinion" class="cell-textarea" style="height: 4rem;" placeholder="请给出您的审批意见"></textarea></div></div>'
 
-                //立项审批
+            approval.projectId = data.projectId;
+            approval.flowType = data.flowType;
+            //初始化显示选择的转办人员
+            let userName = decodeURI(Common.prototype.GetQueryString("userName"));
+            if(null != userName && 'null' != userName){
+                let htmlUser = '<div class="cell-item"><div class="cell-left">转办人员：</div><div class="cell-right">' + userName + '</div></div>';
+                html1 = html1 + htmlUser;
+            }
+
+            //合同评审流程增加附件上传按钮
+            if(data.flowType == '5'){
+                html1 = html1 + '<div class="cell-item"><div class="cell-left">附件上传：</div><div class="cell-right" style="text-align: left !important;" ><input id="file" type="file" multiple /></div></div>';
+            }
+
+            let attachments = data.attachments;
+            //增加合同附件展示
+            if (attachments && attachments.length > 0) {
+                let htmlAttachments = '';
+                //模板装载html
+                htmlAttachments = template('attachmentsTem', {list:attachments});
+                html1 = html1 + htmlAttachments;
+            }
+
+            //立项审批
             if(data.flowType == '1'){
                 let html2 =
                     '<div class="cell-item"><div class="cell-left">项目名称：</div><div class="cell-right">'+ data.name +'</div></div>' +
@@ -263,13 +291,36 @@ Approval.prototype = {
             return;
         }
         let selectedCode = approvalCode+",";
-        axios.post("/api/approval/approval", "codes="+ selectedCode +"&comments="+comments).then(res => {
-            if (200 == res.code) {
-                YDUI.dialog.toast(res.data, 'success')
-            } else {
-                YDUI.dialog.toast(res.data, 'error')
+
+        debugger
+        var file = document.getElementById("file");
+
+        //若是有附件需上传，审批完成后上传附件(项目附件)
+        if(approval.flowType == '5' && null != file){
+            let files = file.files;
+            let opinionData = new FormData();
+            for(var i=0; i<files.length; i++){
+                opinionData.append("file",files[i]);
             }
-        });
+            opinionData.append("approvalCode",selectedCode);
+            opinionData.append("comments",comments);
+            opinionData.append("projectId",approval.projectId);
+            axios.post("/api/approval/approveContractReview", opinionData).then(res => {
+                if (200 == res.code) {
+                    YDUI.dialog.toast(res.data, 'success')
+                } else {
+                    YDUI.dialog.toast(res.data, 'error')
+                }
+            });
+        }else{
+            axios.post("/api/approval/approval", "codes="+ selectedCode +"&comments="+comments).then(res => {
+                if (200 == res.code) {
+                    YDUI.dialog.toast(res.data, 'success')
+                } else {
+                    YDUI.dialog.toast(res.data, 'error')
+                }
+            });
+        }
 		setTimeout(function(){window.location.href = 'approval.html';},2000);
     },
     Refused: function () {
@@ -287,6 +338,36 @@ Approval.prototype = {
             }
         });
         setTimeout(function(){window.location.href = 'approval.html';},500);
+    },
+
+    ChangeUser: function(){
+        //点击跳转选择转办人员页面
+        $("#changeUser").on("click",function(){
+            location.href='/mobile/searchUser.html?rtUrl=' + window.location.href;
+        })
+    },
+
+    ChangeUserConfirm: function(){
+        let comments = $("#approvalOpinion").val();
+        let changeUserId = Common.prototype.GetQueryString("userId");
+        if(comments == null || comments == undefined || comments == ""){
+            comments = '转办';
+        }
+
+        if(null == changeUserId || '' == changeUserId){
+            YDUI.dialog.alert("请先选择转办人员");
+            return;
+        }
+
+        let Codes = approvalCode+",";
+        axios.post("/api/approval/batchChangeUser", "approvalCodes="+ Codes +"&comments="+comments +"&changeUserId="+changeUserId).then(res => {
+            if (200 == res.code) {
+                YDUI.dialog.toast(res.data, 'success')
+            } else {
+                YDUI.dialog.toast(res.data, 'error')
+            }
+        });
+        setTimeout(function(){window.location.href = 'approval.html';},2000);
     },
 
 

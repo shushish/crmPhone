@@ -20,6 +20,12 @@
 			.cell-right{
 				justify-content: flex-start;
 			}
+            .btn-block{
+                display: inline;
+            }
+            .m-button {
+                text-align: center;
+            }
 		</style>
 	</head>
 
@@ -40,8 +46,12 @@
 						<div class="m-button">
 							<button type="button" class="btn-block btn-primary">批准</button>
 							<button type="submit" class="btn-block btn-danger">拒绝</button>
+                            <div style="display: inline;text-align: center">
+                                <button style="width: 49%" type="button" id="changeUser" class="btn-block btn-warning">选择转办人员</button>
+                                <button style="width: 49%" type="button" id="confirm" class="btn-block btn-warning">确认转办</button>
+                            </div>
 						</div>
-
+                        <!--confirm-->
 					</div>
 				</div>
 				<div class="index_box">
@@ -55,7 +65,18 @@
 		<script src="../js/ydui.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../echart/axios.min.js"></script>
 		<script src="../js/global.js"></script>
+        <script src="../js/template-native.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/my/myApproval.js"></script>
 	</body>
 
+    <script type="text/html" id="attachmentsTem">
+		<div class="cell-item">
+			<div class="cell-left">附件列表：</div>
+		</div>
+		<% for(var i = 0; i < list.length; i++){ %>
+		<div class="cell-right">
+			<a href="<%= list[i].url %>" download="<%= list[i].name %>"><%= list[i].name %></a>
+		</div>
+		<% } %>
+    </script>
 </html>
