@@ -167,6 +167,8 @@ Approval.prototype = {
 
                 let html2 =
                     '<div class="cell-item"><div class="cell-left">项目名称：</div><div class="cell-right">'+ data.name +'</div></div>' +
+                    '<div class="cell-item"><div class="cell-left">所属公司：</div><div class="cell-right">'+ data.companyName +'</div></div>' +
+                    '<div class="cell-item"><div class="cell-left">合同模板：</div><div class="cell-right">'+ data.contract.templateType +'</div></div>' +
                     '<div class="cell-item"><div class="cell-left">所有人：</div><div class="cell-right">' + data.projectPeople + '</div></div>' +
                     '<div class="cell-item"><div class="cell-left">首付款：</div><div class="cell-right">' + prepaymentRatio + '%</div></div>' +
                     '<div class="cell-item"><div class="cell-left">进度款：</div><div class="cell-right">' + proportionProgressPayment + '%</div></div>' +
@@ -175,7 +177,8 @@ Approval.prototype = {
                     '<div class="cell-item"><div class="cell-left">质保年限：</div><div class="cell-right">' + lengthWarranty + '</div></div>' +
                     '<div class="cell-item"><div class="cell-left">质保金：</div><div class="cell-right">' + premiumRatio + '%</div></div>' +
                     '<div class="cell-item"><div class="cell-left">卸货区：</div><div class="cell-right">' + sweepAndUnloading + '</div></div>' +
-                    '<div class="cell-item"><div class="cell-left">审批类型：</div><div class="cell-right">合同评审流程</div></div>';
+                    '<div class="cell-item"><div class="cell-left">审批类型：</div><div class="cell-right">合同评审流程</div></div>' +
+                    '<div class="cell-item"><div class="cell-left">总监：</div><div class="cell-right">' + data.headman + '</div></div>';
                 $("#showPro").html(html2  + html1);
                 //合同复核
             } else if(data.flowType == '6'){
