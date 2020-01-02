@@ -101,10 +101,10 @@
 						<div class="cell-left"><em></em>要求解决日期：</div>
 						<div class="cell-right" style="text-align: left !important;" ><Input type="date" class="cell-input"  id="dateNeed"></div>
 					</div>
-					<div class="cell-item">
-						<div class="cell-left"><em></em>最终解决日期：</div>
-						<div class="cell-right" style="text-align: left !important;" ><Input type="date" class="cell-input"  id="dateLast"></div>
-					</div>
+					<!--<div class="cell-item">-->
+						<!--<div class="cell-left"><em></em>最终解决日期：</div>-->
+						<!--<div class="cell-right" style="text-align: left !important;" ><Input type="date" class="cell-input"  id="dateLast"></div>-->
+					<!--</div>-->
 					<div class="cell-item">
 						<div class="cell-left">备注：</div>
 						<div class="cell-right" style="text-align: left !important;" ><Input id="remark" class="cell-input"></div>
@@ -136,9 +136,9 @@
         laydate.render({
             elem: '#dateNeed' //指定元素
         });
-        laydate.render({
-            elem: '#dateLast' //指定元素
-        });
+        // laydate.render({
+        //     elem: '#dateLast' //指定元素
+        // });
 
 	$("#commit").click(function () {
 		commit()
@@ -154,7 +154,7 @@
             let customer = $("#customer").val();
             let dateNeed = $("#dateNeed").val();
             let disposeWayNow = $("#disposeWayNow").val();
-            let dateLast = $("#dateLast").val();
+            //let dateLast = $("#dateLast").val();
             let remark = $("#remark").val();
             let fineAmount = $("#fineAmount").val();
             if(null == fineAmount || "" == fineAmount){
@@ -204,7 +204,7 @@
             abnormity.append("customer",customer);
             abnormity.append("dateNeed",dateNeed);
             abnormity.append("disposeWayNow",disposeWayNow);
-            abnormity.append("dateLast",dateLast);
+            //abnormity.append("dateLast",dateLast);
             abnormity.append("remark",remark);
             abnormity.append("fineAmount",fineAmount);
             let files = file.files;
