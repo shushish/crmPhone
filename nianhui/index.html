@@ -1,0 +1,177 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>年会抽奖</title>
+
+
+
+	<link href="../nianhui/css.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../nianhui/jquery.min.js"></script>
+	<script src="../jquery-3.3.1/jquery-3.3.1.min.js"></script>
+	<script src="../echart/axios.min.js"></script>
+	<script src="../js/global.js"></script>
+</head>
+<body>
+
+<div class="box" >
+	<p class="Title">参与游戏名单</p>
+	<ul class="prizeList">
+
+	</ul>
+	<div class="submit" data-id="0">开 始</div>
+</div>
+
+<script type="text/javascript">
+	var dataList = [
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+            {"id":"1","name":" ","workNum":" "},
+
+
+        ]
+    var proples;
+    $(document).ready(function () {
+        axios.post("/api/account/randomOfEightPeople").then(res => {
+            proples = res.data;
+        })
+
+
+            var ints ;
+                $.get("data.json",{},function(data){
+                    if(data){
+                        if(data.code=="1"){
+                            function times(){
+                                //var ArrList=data.data;
+                                var ArrList = dataList;
+                                var res = getArrayItems(ArrList,32);
+                                str='';
+                                for(o in res){
+                                    num = parseInt(o)+1;
+                                    str+='<li data-id="'+res[o].id+'">'+num+'、<span>'+res[o].name+'</span><label>'+res[o].workNum+'</label></li>';
+
+                                }
+                                $(".prizeList").html(str);
+                            }
+                            interval = setInterval(times,100);
+                            $(".submit").data("id","1");
+                            $(".submit").text("开始");
+                        }
+                    }else{
+                        alert('Ajax error!');
+                    }
+                },'json');
+
+
+    });
+
+
+
+
+
+
+
+
+//从一个给定的数组arr中,随机返回num个不重复项
+		function getArrayItems(arr, num) {
+            // axios.post("/api/account/randomOfEightPeople").then(res => {
+            //     console.log(res);
+            // })
+		    //新建一个数组,将传入的数组复制过来,用于运算,而不要直接操作传入的数组;
+		    var temp_array = new Array();
+		    for (var index in arr) {
+		        temp_array.push(arr[index]);
+		    }
+		    //取出的数值项,保存在此数组
+		    var return_array = new Array();
+		    for (var i = 0; i<num; i++) {
+		        //判断如果数组还有可以取出的元素,以防下标越界
+		        if (temp_array.length>0) {
+		            //在数组中产生一个随机索引
+		            var arrIndex = Math.floor(Math.random()*temp_array.length);
+		            //将此随机索引的对应的数组元素值复制出来
+		            return_array[i] = temp_array[arrIndex];
+		            //然后删掉此索引的数组元素,这时候temp_array变为新的数组
+		            temp_array.splice(arrIndex, 1);
+		        } else {
+		            //数组中数据项取完后,退出循环,比如数组本来只有10项,但要求取出20项.
+		            break;
+		        }
+		    }
+		    return return_array;
+		}
+	var interval;
+	$(".submit").click(function(){
+		var status = $(this).data("id");
+		var ints ;
+		if(status == 0){
+			$.get("data.json",{},function(data){
+				if(data){
+	      			if(data.code=="1"){
+	        			function times(){
+							//var ArrList=data.data;
+							var ArrList = proples;
+							var res = getArrayItems(ArrList,32);
+							str='';
+							for(o in res){
+								num = parseInt(o)+1;
+								str+='<li data-id="'+res[o].id+'">'+num+'、<span>'+res[o].name+'</span><label>'+res[o].workNum+'</label></li>';
+							}
+							$(".prizeList").html(str);
+						}
+						interval = setInterval(times,100);
+						$(".submit").data("id","1");
+						$(".submit").text("停止");
+		            }
+		        }else{
+		            alert('Ajax error!');
+		        }
+		    },'json');
+		}else{
+			clearInterval(interval);
+			$(".submit").data("id","0");
+			$(".submit").text("开始");
+		}
+	})
+
+</script>
+</body>
+</html>
