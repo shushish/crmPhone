@@ -296,12 +296,15 @@
 
 		function changeDep(){
 			var value=$("#type").val();
-            if("变更反馈"==value||"质量反馈"==value){
+            if("质量反馈"==value){
                 $("#factoryDep").val("IED");
+                $("#factoryDep").attr("disabled","disabled");
             }else if("物流反馈"==value||"生产反馈"==value){
                 $("#factoryDep").val("BPL");
+                $("#factoryDep").attr("disabled","disabled");
             }else{
                 $("#factoryDep").val("");
+                $("#factoryDep").attr("disabled",false);
             }
 		}
 
